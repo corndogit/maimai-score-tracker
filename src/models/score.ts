@@ -26,3 +26,8 @@ export type AdvancedJudgements = BasicJudgements & {
   breakGood?: number
   breakMiss?: number
 }
+
+export type Class = {
+  name: String
+  display_name: String
+}

@@ -23,19 +23,17 @@ export const PageNav = () => {
             <Nav.Link href="/submit">Submit</Nav.Link>
             <Nav.Link href="/view">View</Nav.Link>
             <NavDropdown title="Scores" id="scores-dropdown">
-              <NavDropdown.Item href="#export">Export</NavDropdown.Item>
-              <NavDropdown.Item href="#export">Import</NavDropdown.Item>
+              <NavDropdown.Item href="export">Export</NavDropdown.Item>
+              <NavDropdown.Item href="import">Import</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
             <NavDropdown title="User" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#user/settings">
-                Settings
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#user/logout">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="user/settings">Settings</NavDropdown.Item>
+              <NavDropdown.Item href="user/logout">Logout</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#user/help">Help</NavDropdown.Item>
-              <NavDropdown.Item href="#user/about">About</NavDropdown.Item>
+              <NavDropdown.Item href="help">Help</NavDropdown.Item>
+              <NavDropdown.Item href="about">About</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

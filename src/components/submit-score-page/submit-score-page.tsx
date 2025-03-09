@@ -4,7 +4,7 @@ import { PageTitles } from "../shared/page-titles";
 import { SubmitScoreForm } from "./submit-score-form/submit-score-form";
 import { SubmitScorePreview } from "./submit-score-preview/submit-score-preview";
 
-const SubmitScorePage = () => {
+export const SubmitScorePage = () => {
   return (
     <BasePage>
       <PageTitles
@@ -22,5 +22,3 @@ const SubmitScorePage = () => {
     </BasePage>
   );
 };
-
-export default SubmitScorePage;
