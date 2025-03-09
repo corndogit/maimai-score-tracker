@@ -1,44 +1,32 @@
-import { Table } from "react-bootstrap";
+import { ScoreData } from "../../../models/score";
+import ScoresTable from "../../shared/scores-table/scores-table";
+
+const testScoreData: ScoreData[] = [
+  {
+    identifier: "751",
+    matchType: "inGameID",
+    lamp: "CLEAR",
+    difficulty: "Advanced",
+    percent: 99.59,
+    judgements: { perfect: 376, great: 11, good: 0, miss: 1 },
+    timeAchieved: 1736274480000,
+  },
+  {
+    identifier: "850",
+    matchType: "inGameID",
+    lamp: "FULL COMBO",
+    difficulty: "Advanced",
+    percent: 100.15,
+    judgements: { perfect: 351, great: 7, good: 0, miss: 0 },
+    timeAchieved: 1738606920000,
+  },
+];
 
 export const SubmitScorePreview = () => {
   return (
     <>
       <h4>Scores to be added</h4>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <td>Song</td>
-            <td>Difficulty</td>
-            <td>Percent</td>
-            <td>Judgements</td>
-            <td>Date</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>NATSUMATSURI</td>
-            <td>Expert 7</td>
-            <td>
-              SSS
-              <br />
-              100.11%
-            </td>
-            <td>423-8-2-0</td>
-            <td>08-03-2025 22:28:00</td>
-          </tr>
-          <tr>
-            <td>7 Girls War</td>
-            <td>Master 10</td>
-            <td>
-              SS
-              <br />
-              99.13%
-            </td>
-            <td>379-10-6-0</td>
-            <td>08-03-2025 22:28:00</td>
-          </tr>
-        </tbody>
-      </Table>
+      <ScoresTable scoreData={testScoreData} />
     </>
   );
 };
