@@ -1,0 +1,1635 @@
+{
+  "meta": { "game": "maimai", "service": "manual", "playtype": "Single" },
+  "scores": [
+    {
+      "identifier": "751",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 99.59,
+      "judgements": { "perfect": 376, "great": 11, "good": 0, "miss": 1 },
+      "timeAchieved": 1736274480000
+    },
+    {
+      "identifier": "850",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Advanced",
+      "percent": 100.15,
+      "judgements": { "perfect": 351, "great": 7, "good": 0, "miss": 0 },
+      "timeAchieved": 1738606920000
+    },
+    {
+      "identifier": "381",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 94.24,
+      "judgements": { "perfect": 441, "great": 39, "good": 6, "miss": 16 },
+      "timeAchieved": 1736272920000
+    },
+    {
+      "identifier": "797",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Advanced",
+      "percent": 100.1,
+      "judgements": { "perfect": 391, "great": 6, "good": 0, "miss": 0 },
+      "timeAchieved": 1737309060000
+    },
+    {
+      "identifier": "606",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 97.39,
+      "judgements": { "perfect": 524, "great": 26, "good": 5, "miss": 7 },
+      "timeAchieved": 1736274120000
+    },
+    {
+      "identifier": "496",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Advanced",
+      "percent": 98.23,
+      "judgements": { "perfect": 551, "great": 14, "good": 11, "miss": 0 },
+      "timeAchieved": 1738261800000
+    },
+    {
+      "identifier": "571",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 95.99,
+      "judgements": { "perfect": 444, "great": 31, "good": 6, "miss": 7 },
+      "timeAchieved": 1737220080000
+    },
+    {
+      "identifier": "852",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 98.89,
+      "judgements": { "perfect": 480, "great": 14, "good": 4, "miss": 5 },
+      "timeAchieved": 1737059040000
+    },
+    {
+      "identifier": "834",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 98.25,
+      "judgements": { "perfect": 530, "great": 33, "good": 2, "miss": 3 },
+      "timeAchieved": 1739638980000
+    },
+    {
+      "identifier": "796",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Advanced",
+      "percent": 100.14,
+      "judgements": { "perfect": 442, "great": 8, "good": 1, "miss": 0 },
+      "timeAchieved": 1737144060000
+    },
+    {
+      "identifier": "812",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 96.67,
+      "judgements": { "perfect": 416, "great": 36, "good": 14, "miss": 4 },
+      "timeAchieved": 1737052260000
+    },
+    {
+      "identifier": "779",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 98.59,
+      "judgements": { "perfect": 466, "great": 14, "good": 6, "miss": 1 },
+      "timeAchieved": 1737754440000
+    },
+    {
+      "identifier": "499",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 100.11,
+      "judgements": { "perfect": 423, "great": 8, "good": 2, "miss": 0 },
+      "timeAchieved": 1737150900000
+    },
+    {
+      "identifier": "56",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.8,
+      "judgements": { "perfect": 412, "great": 9, "good": 0, "miss": 5 },
+      "timeAchieved": 1737396000000
+    },
+    {
+      "identifier": "23",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 96.26,
+      "judgements": { "perfect": 190, "great": 27, "good": 6, "miss": 0 },
+      "timeAchieved": 1736277840000
+    },
+    {
+      "identifier": "278",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.68,
+      "judgements": { "perfect": 324, "great": 6, "good": 2, "miss": 0 },
+      "timeAchieved": 1739306100000
+    },
+    {
+      "identifier": "321",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.16,
+      "judgements": { "perfect": 336, "great": 19, "good": 4, "miss": 2 },
+      "timeAchieved": 1737308880000
+    },
+    {
+      "identifier": "181",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.24,
+      "judgements": { "perfect": 232, "great": 13, "good": 4, "miss": 2 },
+      "timeAchieved": 1737757080000
+    },
+    {
+      "identifier": "448",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.7,
+      "judgements": { "perfect": 412, "great": 15, "good": 6, "miss": 3 },
+      "timeAchieved": 1737902640000
+    },
+    {
+      "identifier": "604",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.45,
+      "judgements": { "perfect": 346, "great": 10, "good": 5, "miss": 2 },
+      "timeAchieved": 1739305920000
+    },
+    {
+      "identifier": "550",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.11,
+      "judgements": { "perfect": 312, "great": 19, "good": 0, "miss": 0 },
+      "timeAchieved": 1737148080000
+    },
+    {
+      "identifier": "607",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.25,
+      "judgements": { "perfect": 445, "great": 8, "good": 8, "miss": 4 },
+      "timeAchieved": 1737758340000
+    },
+    {
+      "identifier": "697",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.84,
+      "judgements": { "perfect": 290, "great": 13, "good": 7, "miss": 2 },
+      "timeAchieved": 1737220020000
+    },
+    {
+      "identifier": "824",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.88,
+      "judgements": { "perfect": 287, "great": 5, "good": 4, "miss": 0 },
+      "timeAchieved": 1740513900000
+    },
+    {
+      "identifier": "118",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.96,
+      "judgements": { "perfect": 303, "great": 30, "good": 3, "miss": 1 },
+      "timeAchieved": 1737304740000
+    },
+    {
+      "identifier": "341",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.98,
+      "judgements": { "perfect": 356, "great": 40, "good": 4, "miss": 0 },
+      "timeAchieved": 1737758520000
+    },
+    {
+      "identifier": "199",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 100.13,
+      "judgements": { "perfect": 515, "great": 6, "good": 9, "miss": 0 },
+      "timeAchieved": 1740085860000
+    },
+    {
+      "identifier": "747",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.15,
+      "judgements": { "perfect": 398, "great": 16, "good": 7, "miss": 3 },
+      "timeAchieved": 1736459640000
+    },
+    {
+      "identifier": "653",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.47,
+      "judgements": { "perfect": 336, "great": 12, "good": 1, "miss": 0 },
+      "timeAchieved": 1738258380000
+    },
+    {
+      "identifier": "728",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.43,
+      "judgements": { "perfect": 293, "great": 9, "good": 11, "miss": 1 },
+      "timeAchieved": 1737219600000
+    },
+    {
+      "identifier": "600",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.14,
+      "judgements": { "perfect": 439, "great": 14, "good": 8, "miss": 2 },
+      "timeAchieved": 1738258260000
+    },
+    {
+      "identifier": "332",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.89,
+      "judgements": { "perfect": 242, "great": 11, "good": 7, "miss": 0 },
+      "timeAchieved": 1737902760000
+    },
+    {
+      "identifier": "100",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.52,
+      "judgements": { "perfect": 295, "great": 29, "good": 8, "miss": 3 },
+      "timeAchieved": 1739913180000
+    },
+    {
+      "identifier": "77",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.44,
+      "judgements": { "perfect": 313, "great": 20, "good": 9, "miss": 2 },
+      "timeAchieved": 1738259880000
+    },
+    {
+      "identifier": "336",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.12,
+      "judgements": { "perfect": 391, "great": 25, "good": 7, "miss": 3 },
+      "timeAchieved": 1737494100000
+    },
+    {
+      "identifier": "301",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.94,
+      "judgements": { "perfect": 503, "great": 21, "good": 3, "miss": 2 },
+      "timeAchieved": 1737903120000
+    },
+    {
+      "identifier": "781",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.37,
+      "judgements": { "perfect": 381, "great": 41, "good": 14, "miss": 5 },
+      "timeAchieved": 1737493440000
+    },
+    {
+      "identifier": "288",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.23,
+      "judgements": { "perfect": 373, "great": 22, "good": 2, "miss": 2 },
+      "timeAchieved": 1738604700000
+    },
+    {
+      "identifier": "819",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.34,
+      "judgements": { "perfect": 526, "great": 20, "good": 11, "miss": 3 },
+      "timeAchieved": 1737304320000
+    },
+    {
+      "identifier": "816",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.02,
+      "judgements": { "perfect": 488, "great": 12, "good": 9, "miss": 1 },
+      "timeAchieved": 1739640360000
+    },
+    {
+      "identifier": "247",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.29,
+      "judgements": { "perfect": 386, "great": 17, "good": 2, "miss": 1 },
+      "timeAchieved": 1740511740000
+    },
+    {
+      "identifier": "712",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.08,
+      "judgements": { "perfect": 386, "great": 64, "good": 0, "miss": 0 },
+      "timeAchieved": 1737147060000
+    },
+    {
+      "identifier": "443",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.89,
+      "judgements": { "perfect": 449, "great": 36, "good": 9, "miss": 6 },
+      "timeAchieved": 1737755280000
+    },
+    {
+      "identifier": "702",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.93,
+      "judgements": { "perfect": 536, "great": 23, "good": 10, "miss": 0 },
+      "timeAchieved": 1740087420000
+    },
+    {
+      "identifier": "559",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.35,
+      "judgements": { "perfect": 513, "great": 37, "good": 15, "miss": 8 },
+      "timeAchieved": 1737304860000
+    },
+    {
+      "identifier": "490",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.94,
+      "judgements": { "perfect": 603, "great": 20, "good": 12, "miss": 0 },
+      "timeAchieved": 1737903420000
+    },
+    {
+      "identifier": "552",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.75,
+      "judgements": { "perfect": 508, "great": 15, "good": 6, "miss": 2 },
+      "timeAchieved": 1737493680000
+    },
+    {
+      "identifier": "650",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.24,
+      "judgements": { "perfect": 463, "great": 15, "good": 2, "miss": 0 },
+      "timeAchieved": 1738266000000
+    },
+    {
+      "identifier": "505",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.56,
+      "judgements": { "perfect": 385, "great": 26, "good": 5, "miss": 6 },
+      "timeAchieved": 1737147540000
+    },
+    {
+      "identifier": "809",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.43,
+      "judgements": { "perfect": 418, "great": 27, "good": 7, "miss": 3 },
+      "timeAchieved": 1737493320000
+    },
+    {
+      "identifier": "806",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.53,
+      "judgements": { "perfect": 517, "great": 30, "good": 10, "miss": 3 },
+      "timeAchieved": 1737492420000
+    },
+    {
+      "identifier": "537",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.04,
+      "judgements": { "perfect": 439, "great": 18, "good": 10, "miss": 1 },
+      "timeAchieved": 1740509880000
+    },
+    {
+      "identifier": "767",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.94,
+      "judgements": { "perfect": 534, "great": 4, "good": 6, "miss": 2 },
+      "timeAchieved": 1738258740000
+    },
+    {
+      "identifier": "254",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.12,
+      "judgements": { "perfect": 423, "great": 12, "good": 7, "miss": 1 },
+      "timeAchieved": 1740086040000
+    },
+    {
+      "identifier": "602",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.38,
+      "judgements": { "perfect": 503, "great": 16, "good": 14, "miss": 12 },
+      "timeAchieved": 1737304980000
+    },
+    {
+      "identifier": "584",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.32,
+      "judgements": { "perfect": 399, "great": 23, "good": 9, "miss": 4 },
+      "timeAchieved": 1739310480000
+    },
+    {
+      "identifier": "521",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.29,
+      "judgements": { "perfect": 447, "great": 49, "good": 7, "miss": 2 },
+      "timeAchieved": 1739307000000
+    },
+    {
+      "identifier": "792",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.18,
+      "judgements": { "perfect": 460, "great": 11, "good": 3, "miss": 0 },
+      "timeAchieved": 1739913360000
+    },
+    {
+      "identifier": "561",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.72,
+      "judgements": { "perfect": 582, "great": 47, "good": 10, "miss": 9 },
+      "timeAchieved": 1738605600000
+    },
+    {
+      "identifier": "624",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.03,
+      "judgements": { "perfect": 500, "great": 13, "good": 7, "miss": 1 },
+      "timeAchieved": 1739306280000
+    },
+    {
+      "identifier": "422",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.11,
+      "judgements": { "perfect": 493, "great": 68, "good": 21, "miss": 7 },
+      "timeAchieved": 1737305700000
+    },
+    {
+      "identifier": "112",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.09,
+      "judgements": { "perfect": 482, "great": 43, "good": 10, "miss": 4 },
+      "timeAchieved": 1740086220000
+    },
+    {
+      "identifier": "349",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.09,
+      "judgements": { "perfect": 446, "great": 31, "good": 24, "miss": 5 },
+      "timeAchieved": 1737755040000
+    },
+    {
+      "identifier": "506",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.5,
+      "judgements": { "perfect": 542, "great": 31, "good": 22, "miss": 12 },
+      "timeAchieved": 1737307020000
+    },
+    {
+      "identifier": "218",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.9,
+      "judgements": { "perfect": 327, "great": 45, "good": 11, "miss": 7 },
+      "timeAchieved": 1737496380000
+    },
+    {
+      "identifier": "726",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.04,
+      "judgements": { "perfect": 444, "great": 22, "good": 14, "miss": 3 },
+      "timeAchieved": 1737303960000
+    },
+    {
+      "identifier": "690",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.12,
+      "judgements": { "perfect": 643, "great": 10, "good": 5, "miss": 1 },
+      "timeAchieved": 1739634480000
+    },
+    {
+      "identifier": "733",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.59,
+      "judgements": { "perfect": 454, "great": 23, "good": 9, "miss": 1 },
+      "timeAchieved": 1739311320000
+    },
+    {
+      "identifier": "751",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.3,
+      "judgements": { "perfect": 503, "great": 11, "good": 4, "miss": 0 },
+      "timeAchieved": 1739915880000
+    },
+    {
+      "identifier": "555",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.21,
+      "judgements": { "perfect": 516, "great": 38, "good": 18, "miss": 0 },
+      "timeAchieved": 1740510060000
+    },
+    {
+      "identifier": "838",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.28,
+      "judgements": { "perfect": 539, "great": 15, "good": 6, "miss": 1 },
+      "timeAchieved": 1739583000000
+    },
+    {
+      "identifier": "679",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.33,
+      "judgements": { "perfect": 347, "great": 10, "good": 4, "miss": 0 },
+      "timeAchieved": 1737905100000
+    },
+    {
+      "identifier": "830",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.47,
+      "judgements": { "perfect": 527, "great": 23, "good": 6, "miss": 2 },
+      "timeAchieved": 1739634060000
+    },
+    {
+      "identifier": "558",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.37,
+      "judgements": { "perfect": 425, "great": 21, "good": 6, "miss": 5 },
+      "timeAchieved": 1737910020000
+    },
+    {
+      "identifier": "583",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.14,
+      "judgements": { "perfect": 445, "great": 6, "good": 4, "miss": 0 },
+      "timeAchieved": 1738265220000
+    },
+    {
+      "identifier": "695",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.01,
+      "judgements": { "perfect": 473, "great": 6, "good": 5, "miss": 1 },
+      "timeAchieved": 1737494340000
+    },
+    {
+      "identifier": "805",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.6,
+      "judgements": { "perfect": 506, "great": 15, "good": 12, "miss": 2 },
+      "timeAchieved": 1739634240000
+    },
+    {
+      "identifier": "568",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95,
+      "judgements": { "perfect": 440, "great": 56, "good": 15, "miss": 3 },
+      "timeAchieved": 1738605000000
+    },
+    {
+      "identifier": "817",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 100.01,
+      "judgements": { "perfect": 546, "great": 20, "good": 2, "miss": 1 },
+      "timeAchieved": 1739635740000
+    },
+    {
+      "identifier": "756",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.85,
+      "judgements": { "perfect": 540, "great": 16, "good": 5, "miss": 0 },
+      "timeAchieved": 1739916720000
+    },
+    {
+      "identifier": "713",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.72,
+      "judgements": { "perfect": 444, "great": 11, "good": 9, "miss": 2 },
+      "timeAchieved": 1739308320000
+    },
+    {
+      "identifier": "839",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 99.84,
+      "judgements": { "perfect": 573, "great": 9, "good": 7, "miss": 0 },
+      "timeAchieved": 1737910620000
+    },
+    {
+      "identifier": "363",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 93.37,
+      "judgements": { "perfect": 478, "great": 74, "good": 27, "miss": 15 },
+      "timeAchieved": 1738605840000
+    },
+    {
+      "identifier": "482",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.93,
+      "judgements": { "perfect": 430, "great": 31, "good": 4, "miss": 5 },
+      "timeAchieved": 1738264080000
+    },
+    {
+      "identifier": "411",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 92.61,
+      "judgements": { "perfect": 531, "great": 60, "good": 19, "miss": 23 },
+      "timeAchieved": 1737309300000
+    },
+    {
+      "identifier": "374",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.44,
+      "judgements": { "perfect": 511, "great": 28, "good": 10, "miss": 0 },
+      "timeAchieved": 1738269120000
+    },
+    {
+      "identifier": "580",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.88,
+      "judgements": { "perfect": 535, "great": 36, "good": 5, "miss": 3 },
+      "timeAchieved": 1738259100000
+    },
+    {
+      "identifier": "630",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.19,
+      "judgements": { "perfect": 425, "great": 29, "good": 10, "miss": 5 },
+      "timeAchieved": 1739915280000
+    },
+    {
+      "identifier": "738",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.38,
+      "judgements": { "perfect": 424, "great": 15, "good": 15, "miss": 3 },
+      "timeAchieved": 1739580960000
+    },
+    {
+      "identifier": "387",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.14,
+      "judgements": { "perfect": 472, "great": 26, "good": 11, "miss": 0 },
+      "timeAchieved": 1740510720000
+    },
+    {
+      "identifier": "446",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 88.68,
+      "judgements": { "perfect": 523, "great": 79, "good": 29, "miss": 32 },
+      "timeAchieved": 1737493860000
+    },
+    {
+      "identifier": "542",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.86,
+      "judgements": { "perfect": 525, "great": 49, "good": 12, "miss": 7 },
+      "timeAchieved": 1739918700000
+    },
+    {
+      "identifier": "204",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.78,
+      "judgements": { "perfect": 515, "great": 36, "good": 9, "miss": 3 },
+      "timeAchieved": 1739913540000
+    },
+    {
+      "identifier": "574",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 91.2,
+      "judgements": { "perfect": 402, "great": 40, "good": 26, "miss": 10 },
+      "timeAchieved": 1737307740000
+    },
+    {
+      "identifier": "384",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.61,
+      "judgements": { "perfect": 454, "great": 52, "good": 14, "miss": 7 },
+      "timeAchieved": 1738268760000
+    },
+    {
+      "identifier": "389",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.16,
+      "judgements": { "perfect": 487, "great": 56, "good": 22, "miss": 8 },
+      "timeAchieved": 1737307440000
+    },
+    {
+      "identifier": "670",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.34,
+      "judgements": { "perfect": 493, "great": 42, "good": 13, "miss": 4 },
+      "timeAchieved": 1737153240000
+    },
+    {
+      "identifier": "233",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 93.62,
+      "judgements": { "perfect": 367, "great": 74, "good": 16, "miss": 5 },
+      "timeAchieved": 1740510240000
+    },
+    {
+      "identifier": "139",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.49,
+      "judgements": { "perfect": 357, "great": 41, "good": 4, "miss": 4 },
+      "timeAchieved": 1739306400000
+    },
+    {
+      "identifier": "711",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 93.46,
+      "judgements": { "perfect": 564, "great": 48, "good": 26, "miss": 9 },
+      "timeAchieved": 1737495180000
+    },
+    {
+      "identifier": "612",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 93.3,
+      "judgements": { "perfect": 493, "great": 59, "good": 25, "miss": 14 },
+      "timeAchieved": 1737307260000
+    },
+    {
+      "identifier": "840",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.93,
+      "judgements": { "perfect": 623, "great": 24, "good": 11, "miss": 4 },
+      "timeAchieved": 1740511500000
+    },
+    {
+      "identifier": "269",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.85,
+      "judgements": { "perfect": 456, "great": 36, "good": 5, "miss": 7 },
+      "timeAchieved": 1738259040000
+    },
+    {
+      "identifier": "381",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.15,
+      "judgements": { "perfect": 561, "great": 75, "good": 28, "miss": 12 },
+      "timeAchieved": 1737907800000
+    },
+    {
+      "identifier": "240",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 91.43,
+      "judgements": { "perfect": 379, "great": 70, "good": 21, "miss": 20 },
+      "timeAchieved": 1737757440000
+    },
+    {
+      "identifier": "464",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 93.48,
+      "judgements": { "perfect": 525, "great": 78, "good": 18, "miss": 10 },
+      "timeAchieved": 1739913720000
+    },
+    {
+      "identifier": "223",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.42,
+      "judgements": { "perfect": 365, "great": 51, "good": 13, "miss": 7 },
+      "timeAchieved": 1739636700000
+    },
+    {
+      "identifier": "749",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 95.56,
+      "judgements": { "perfect": 300, "great": 32, "good": 17, "miss": 0 },
+      "timeAchieved": 1738606620000
+    },
+    {
+      "identifier": "212",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 90.44,
+      "judgements": { "perfect": 96, "great": 15, "good": 12, "miss": 0 },
+      "timeAchieved": 1738266120000
+    },
+    {
+      "identifier": "684",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.14,
+      "judgements": { "perfect": 604, "great": 22, "good": 17, "miss": 3 },
+      "timeAchieved": 1737495600000
+    },
+    {
+      "identifier": "592",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 97.29,
+      "judgements": { "perfect": 299, "great": 25, "good": 9, "miss": 0 },
+      "timeAchieved": 1739914620000
+    },
+    {
+      "identifier": "494",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.99,
+      "judgements": { "perfect": 588, "great": 37, "good": 17, "miss": 6 },
+      "timeAchieved": 1740087600000
+    },
+    {
+      "identifier": "772",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 99.34,
+      "judgements": { "perfect": 675, "great": 16, "good": 6, "miss": 4 },
+      "timeAchieved": 1739916900000
+    },
+    {
+      "identifier": "567",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.53,
+      "judgements": { "perfect": 611, "great": 75, "good": 31, "miss": 5 },
+      "timeAchieved": 1737759720000
+    },
+    {
+      "identifier": "745",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 98.08,
+      "judgements": { "perfect": 516, "great": 29, "good": 13, "miss": 2 },
+      "timeAchieved": 1739915700000
+    },
+    {
+      "identifier": "232",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 92.52,
+      "judgements": { "perfect": 464, "great": 57, "good": 25, "miss": 16 },
+      "timeAchieved": 1737907200000
+    },
+    {
+      "identifier": "672",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.79,
+      "judgements": { "perfect": 496, "great": 37, "good": 12, "miss": 6 },
+      "timeAchieved": 1738265580000
+    },
+    {
+      "identifier": "709",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.24,
+      "judgements": { "perfect": 610, "great": 38, "good": 8, "miss": 15 },
+      "timeAchieved": 1737756480000
+    },
+    {
+      "identifier": "572",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.7,
+      "judgements": { "perfect": 699, "great": 64, "good": 10, "miss": 4 },
+      "timeAchieved": 1739640540000
+    },
+    {
+      "identifier": "432",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.45,
+      "judgements": { "perfect": 467, "great": 47, "good": 11, "miss": 13 },
+      "timeAchieved": 1739634660000
+    },
+    {
+      "identifier": "841",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Expert",
+      "percent": 98.15,
+      "judgements": { "perfect": 503, "great": 18, "good": 10, "miss": 0 },
+      "timeAchieved": 1740517440000
+    },
+    {
+      "identifier": "681",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.4,
+      "judgements": { "perfect": 447, "great": 43, "good": 9, "miss": 4 },
+      "timeAchieved": 1739639280000
+    },
+    {
+      "identifier": "750",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.68,
+      "judgements": { "perfect": 515, "great": 36, "good": 6, "miss": 6 },
+      "timeAchieved": 1739636280000
+    },
+    {
+      "identifier": "593",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 94.35,
+      "judgements": { "perfect": 578, "great": 86, "good": 27, "miss": 15 },
+      "timeAchieved": 1737759300000
+    },
+    {
+      "identifier": "734",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 97.48,
+      "judgements": { "perfect": 581, "great": 61, "good": 15, "miss": 7 },
+      "timeAchieved": 1739914440000
+    },
+    {
+      "identifier": "771",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.58,
+      "judgements": { "perfect": 528, "great": 68, "good": 18, "miss": 8 },
+      "timeAchieved": 1738268580000
+    },
+    {
+      "identifier": "850",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 90.17,
+      "judgements": { "perfect": 391, "great": 85, "good": 34, "miss": 12 },
+      "timeAchieved": 1738260420000
+    },
+    {
+      "identifier": "227",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.66,
+      "judgements": { "perfect": 655, "great": 58, "good": 18, "miss": 9 },
+      "timeAchieved": 1739640780000
+    },
+    {
+      "identifier": "495",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.05,
+      "judgements": { "perfect": 549, "great": 82, "good": 21, "miss": 8 },
+      "timeAchieved": 1740514980000
+    },
+    {
+      "identifier": "849",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 92.43,
+      "judgements": { "perfect": 658, "great": 104, "good": 49, "miss": 17 },
+      "timeAchieved": 1739637300000
+    },
+    {
+      "identifier": "606",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 87.76,
+      "judgements": { "perfect": 677, "great": 108, "good": 41, "miss": 46 },
+      "timeAchieved": 1739583540000
+    },
+    {
+      "identifier": "688",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 88.43,
+      "judgements": { "perfect": 413, "great": 110, "good": 37, "miss": 22 },
+      "timeAchieved": 1739311020000
+    },
+    {
+      "identifier": "797",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.43,
+      "judgements": { "perfect": 628, "great": 49, "good": 14, "miss": 10 },
+      "timeAchieved": 1738260300000
+    },
+    {
+      "identifier": "456",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 87.12,
+      "judgements": { "perfect": 515, "great": 176, "good": 55, "miss": 31 },
+      "timeAchieved": 1737903600000
+    },
+    {
+      "identifier": "844",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 95.91,
+      "judgements": { "perfect": 514, "great": 44, "good": 15, "miss": 6 },
+      "timeAchieved": 1738260000000
+    },
+    {
+      "identifier": "388",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 87.99,
+      "judgements": { "perfect": 445, "great": 112, "good": 50, "miss": 30 },
+      "timeAchieved": 1738606500000
+    },
+    {
+      "identifier": "643",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 88.91,
+      "judgements": { "perfect": 487, "great": 108, "good": 35, "miss": 17 },
+      "timeAchieved": 1740511140000
+    },
+    {
+      "identifier": "796",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 96.97,
+      "judgements": { "perfect": 536, "great": 25, "good": 16, "miss": 4 },
+      "timeAchieved": 1739637060000
+    },
+    {
+      "identifier": "803",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 87.01,
+      "judgements": { "perfect": 400, "great": 78, "good": 48, "miss": 23 },
+      "timeAchieved": 1738263960000
+    },
+    {
+      "identifier": "852",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Expert",
+      "percent": 85.72,
+      "judgements": { "perfect": 591, "great": 119, "good": 50, "miss": 40 },
+      "timeAchieved": 1739639880000
+    },
+    {
+      "identifier": "62",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 97.04,
+      "judgements": { "perfect": 212, "great": 17, "good": 5, "miss": 1 },
+      "timeAchieved": 1738606200000
+    },
+    {
+      "identifier": "71",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 96.6,
+      "judgements": { "perfect": 410, "great": 33, "good": 5, "miss": 6 },
+      "timeAchieved": 1737497460000
+    },
+    {
+      "identifier": "311",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.69,
+      "judgements": { "perfect": 396, "great": 26, "good": 9, "miss": 4 },
+      "timeAchieved": 1739635920000
+    },
+    {
+      "identifier": "323",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.5,
+      "judgements": { "perfect": 340, "great": 51, "good": 10, "miss": 1 },
+      "timeAchieved": 1737905220000
+    },
+    {
+      "identifier": "23",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.43,
+      "judgements": { "perfect": 244, "great": 13, "good": 15, "miss": 5 },
+      "timeAchieved": 1739914260000
+    },
+    {
+      "identifier": "321",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.25,
+      "judgements": { "perfect": 402, "great": 53, "good": 13, "miss": 12 },
+      "timeAchieved": 1740513660000
+    },
+    {
+      "identifier": "118",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.44,
+      "judgements": { "perfect": 366, "great": 27, "good": 16, "miss": 4 },
+      "timeAchieved": 1740514800000
+    },
+    {
+      "identifier": "69",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.45,
+      "judgements": { "perfect": 401, "great": 36, "good": 13, "miss": 7 },
+      "timeAchieved": 1739915520000
+    },
+    {
+      "identifier": "605",
+      "matchType": "inGameID",
+      "lamp": "FULL COMBO",
+      "difficulty": "Master",
+      "percent": 99.13,
+      "judgements": { "perfect": 379, "great": 10, "good": 6, "miss": 0 },
+      "timeAchieved": 1740514020000
+    },
+    {
+      "identifier": "826",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 96.28,
+      "judgements": { "perfect": 470, "great": 24, "good": 18, "miss": 5 },
+      "timeAchieved": 1740517440000
+    },
+    {
+      "identifier": "409",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.03,
+      "judgements": { "perfect": 457, "great": 38, "good": 19, "miss": 13 },
+      "timeAchieved": 1740513120000
+    },
+    {
+      "identifier": "46",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.57,
+      "judgements": { "perfect": 334, "great": 26, "good": 16, "miss": 5 },
+      "timeAchieved": 1740513300000
+    },
+    {
+      "identifier": "181",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.34,
+      "judgements": { "perfect": 233, "great": 22, "good": 15, "miss": 5 },
+      "timeAchieved": 1740513480000
+    },
+    {
+      "identifier": "499",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 91.56,
+      "judgements": { "perfect": 513, "great": 62, "good": 23, "miss": 28 },
+      "timeAchieved": 1739309160000
+    },
+    {
+      "identifier": "203",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.97,
+      "judgements": { "perfect": 449, "great": 57, "good": 24, "miss": 9 },
+      "timeAchieved": 1740517260000
+    },
+    {
+      "identifier": "730",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.82,
+      "judgements": { "perfect": 389, "great": 12, "good": 15, "miss": 7 },
+      "timeAchieved": 1740514200000
+    },
+    {
+      "identifier": "831",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 96.35,
+      "judgements": { "perfect": 624, "great": 36, "good": 12, "miss": 7 },
+      "timeAchieved": 1740086400000
+    },
+    {
+      "identifier": "731",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.91,
+      "judgements": { "perfect": 458, "great": 43, "good": 13, "miss": 2 },
+      "timeAchieved": 1740516360000
+    },
+    {
+      "identifier": "122",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.29,
+      "judgements": { "perfect": 347, "great": 32, "good": 16, "miss": 6 },
+      "timeAchieved": 1740516720000
+    },
+    {
+      "identifier": "145",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 89.22,
+      "judgements": { "perfect": 211, "great": 36, "good": 23, "miss": 9 },
+      "timeAchieved": 1739636040000
+    },
+    {
+      "identifier": "30",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.89,
+      "judgements": { "perfect": 299, "great": 28, "good": 15, "miss": 4 },
+      "timeAchieved": 1740514380000
+    },
+    {
+      "identifier": "544",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.36,
+      "judgements": { "perfect": 421, "great": 30, "good": 14, "miss": 5 },
+      "timeAchieved": 1739638740000
+    },
+    {
+      "identifier": "790",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.51,
+      "judgements": { "perfect": 415, "great": 26, "good": 14, "miss": 4 },
+      "timeAchieved": 1740516540000
+    },
+    {
+      "identifier": "329",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.38,
+      "judgements": { "perfect": 351, "great": 42, "good": 18, "miss": 5 },
+      "timeAchieved": 1739636880000
+    },
+    {
+      "identifier": "66",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.49,
+      "judgements": { "perfect": 386, "great": 49, "good": 19, "miss": 12 },
+      "timeAchieved": 1740515160000
+    },
+    {
+      "identifier": "42",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 92.13,
+      "judgements": { "perfect": 282, "great": 45, "good": 13, "miss": 6 },
+      "timeAchieved": 1738264560000
+    },
+    {
+      "identifier": "312",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 92.06,
+      "judgements": { "perfect": 506, "great": 69, "good": 25, "miss": 16 },
+      "timeAchieved": 1739919060000
+    },
+    {
+      "identifier": "816",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.59,
+      "judgements": { "perfect": 545, "great": 32, "good": 19, "miss": 10 },
+      "timeAchieved": 1739914080000
+    },
+    {
+      "identifier": "729",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 94.13,
+      "judgements": { "perfect": 409, "great": 40, "good": 18, "miss": 13 },
+      "timeAchieved": 1739638440000
+    },
+    {
+      "identifier": "774",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.13,
+      "judgements": { "perfect": 539, "great": 62, "good": 40, "miss": 10 },
+      "timeAchieved": 1739311740000
+    },
+    {
+      "identifier": "152",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 88.39,
+      "judgements": { "perfect": 308, "great": 87, "good": 32, "miss": 21 },
+      "timeAchieved": 1740510840000
+    },
+    {
+      "identifier": "47",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 91.75,
+      "judgements": { "perfect": 321, "great": 68, "good": 28, "miss": 11 },
+      "timeAchieved": 1738260840000
+    },
+    {
+      "identifier": "747",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.36,
+      "judgements": { "perfect": 501, "great": 54, "good": 25, "miss": 14 },
+      "timeAchieved": 1738269000000
+    },
+    {
+      "identifier": "200",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 92.19,
+      "judgements": { "perfect": 472, "great": 86, "good": 24, "miss": 8 },
+      "timeAchieved": 1739918460000
+    },
+    {
+      "identifier": "809",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 97.2,
+      "judgements": { "perfect": 530, "great": 51, "good": 4, "miss": 2 },
+      "timeAchieved": 1739638020000
+    },
+    {
+      "identifier": "525",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 95.45,
+      "judgements": { "perfect": 657, "great": 67, "good": 22, "miss": 6 },
+      "timeAchieved": 1739918820000
+    },
+    {
+      "identifier": "336",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 93.14,
+      "judgements": { "perfect": 359, "great": 56, "good": 28, "miss": 8 },
+      "timeAchieved": 1739917080000
+    },
+    {
+      "identifier": "550",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 96.45,
+      "judgements": { "perfect": 481, "great": 28, "good": 7, "miss": 7 },
+      "timeAchieved": 1740516900000
+    },
+    {
+      "identifier": "668",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 92.16,
+      "judgements": { "perfect": 415, "great": 53, "good": 33, "miss": 11 },
+      "timeAchieved": 1739916000000
+    },
+    {
+      "identifier": "300",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 87.83,
+      "judgements": { "perfect": 440, "great": 92, "good": 46, "miss": 21 },
+      "timeAchieved": 1739916420000
+    },
+    {
+      "identifier": "712",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Master",
+      "percent": 89.15,
+      "judgements": { "perfect": 528, "great": 49, "good": 46, "miss": 18 },
+      "timeAchieved": 1740088260000
+    }
+  ],
+  "classes": { "dan": "DAN_6" }
+}
