@@ -1,6 +1,7 @@
 import { Table } from "react-bootstrap";
 import { Judgements, ScoreData } from "../../../models/score";
 import { DateTime } from "luxon";
+import { useSongNameStore } from "../../../hooks/store";
 
 interface ScoreTableData {
   scoreData: ScoreData[];
@@ -11,6 +12,8 @@ const stringifyJudgements = (judgements: Judgements) => {
 };
 
 const ScoresTable = ({ scoreData }: ScoreTableData) => {
+  const songNames = useSongNameStore();
+
   return scoreData.length > 0 ? (
     <Table striped bordered hover>
       <thead>
