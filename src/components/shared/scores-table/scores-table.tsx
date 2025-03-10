@@ -2,6 +2,7 @@ import { Table } from "react-bootstrap";
 import { Judgements, ScoreData } from "../../../models/score";
 import { DateTime } from "luxon";
 import { useSongNameStore } from "../../../hooks/store";
+import { calculateGrade } from "../../../utils/score-tools";
 
 interface ScoreTableData {
   scoreData: ScoreData[];
@@ -32,12 +33,16 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
               <td>{songNames.getByIdentifier(score.identifier)}</td>
               <td>{score.difficulty}</td>
               <td>
-                {"<grade>"}
+                {calculateGrade(score.percent)}
                 <br />
-                {score.percent}
+                {score.percent}%
               </td>
               <td>{stringifyJudgements(score.judgements)}</td>
-              <td>{DateTime.fromMillis(score.timeAchieved).toISO()}</td>
+              <td>
+                {DateTime.fromMillis(score.timeAchieved).toLocaleString(
+                  DateTime.DATETIME_MED
+                )}
+              </td>
             </tr>
           );
         })}

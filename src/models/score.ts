@@ -1,6 +1,6 @@
 export type ScoreData = {
   identifier: string
-  matchType: "inGameID";
+  matchType: string;  // "inGameID"
   lamp: string
   difficulty: string
   percent: number
