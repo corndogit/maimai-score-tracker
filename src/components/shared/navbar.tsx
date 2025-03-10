@@ -29,11 +29,13 @@ export const PageNav = () => {
           </Nav>
           <Nav>
             <NavDropdown title="User" id="basic-nav-dropdown">
-              <NavDropdown.Item href="user/settings">Settings</NavDropdown.Item>
-              <NavDropdown.Item href="user/logout">Logout</NavDropdown.Item>
+              <NavDropdown.Item href="/user/settings">
+                Settings
+              </NavDropdown.Item>
+              <NavDropdown.Item href="/user/logout">Logout</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="help">Help</NavDropdown.Item>
-              <NavDropdown.Item href="about">About</NavDropdown.Item>
+              <NavDropdown.Item href="/help">Help</NavDropdown.Item>
+              <NavDropdown.Item href="/about">About</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
