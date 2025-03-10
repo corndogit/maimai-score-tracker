@@ -10,7 +10,7 @@ Recommended Node version: v22.14.0 LTS or higher
 
 ## To-do
 
-- [ ] Finish building UI skeleton
+- [x] Finish building UI skeleton
 - [ ] Create seed data and mechanism to load in-memory
 - [ ] Create data types for songs, scores, users, etc
 - [ ] Add logic to add a song
