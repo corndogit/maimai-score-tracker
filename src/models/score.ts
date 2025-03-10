@@ -1,9 +1,8 @@
 export type ScoreData = {
-  identifier: String
-  displayName?: String  // Should replace with a function that maps identifier to name
+  identifier: string
   matchType: "inGameID";
-  lamp: String
-  difficulty: String
+  lamp: string
+  difficulty: string
   percent: number
   judgements: Judgements
   timeAchieved: number
@@ -27,7 +26,7 @@ export type AdvancedJudgements = BasicJudgements & {
   breakMiss?: number
 }
 
-export type Class = {
-  name: String
-  display_name: String
+export type DanRank = {
+  name: string
+  display_name: string
 }
