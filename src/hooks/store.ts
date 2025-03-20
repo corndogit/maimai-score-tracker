@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { ScoreData } from '../models/score';
 import songNamesJson from '../data/song_names.json';
-import testScoreData from '../data/maimai-scores-1740695287.json'
+import testScoreData from '../data/placeholder/maimai-scores-1740695287.json'
 
 const songNames: Record<string, string> = songNamesJson;
 

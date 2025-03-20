@@ -4,7 +4,7 @@ import { PageTitles } from "../shared/page-titles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
-import placeholderJSON from "../../data/maimai-scores-1740695287.json";
+import placeholderJSON from "../../data/placeholder/maimai-scores-1740695287.json";
 import "./export-scores-page.css";
 
 export const ExportScoresPage = () => {
