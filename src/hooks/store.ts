@@ -1,5 +1,7 @@
 import { create } from 'zustand';
 import { ScoreData } from '../models/score';
+import { Chart } from '../models/chart';
+import chartsJson from '../data/charts.json';
 import songNamesJson from '../data/song_names.json';
 import testScoreData from '../data/placeholder/maimai-scores-1740695287.json'
 
@@ -7,6 +9,11 @@ const songNames: Record<string, string> = songNamesJson;
 
 interface ScoreDataState {
   scoreData: ScoreData[]
+}
+
+interface ChartState {
+  chartData: Record<any, Chart>
+  getById: (id: number, difficulty: string) => Chart
 }
 
 interface SongNamesState {
@@ -23,8 +30,17 @@ export const useScoreDataStore = create<ScoreDataState>((set) => ({
   updateScores: (scores: ScoreData[]) => set({ scoreData: scores }),
 }));
 
+// todo: remove and replace uses with useChartsStore
 export const useSongNameStore = create<SongNamesState>(() => ({
   songNames,
   getAllNames: () => Object.values(songNames),
   getByIdentifier: (identifier: string) => songNames[identifier]
+}))
+
+export const useChartStore = create<ChartState>(() => ({
+  chartData: chartsJson,
+  getById: (id: number, difficulty: string) => {
+    const key = `${id}-${difficulty}` as keyof typeof chartsJson;
+    return chartsJson[key]
+  }
 }))
