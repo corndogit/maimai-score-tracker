@@ -16,6 +16,7 @@ interface ChartState {
   chartData: Chart[];
   getAllCharts: (searchTerm?: string) => Chart[];
   getById: (id: number, difficulty: string) => Chart;
+  getByKey: (key: string) => Chart;
 }
 
 interface SongNamesState {
@@ -59,5 +60,8 @@ export const useChartStore = create<ChartState>(() => ({
   getById: (id: number, difficulty: string) => {
     const key = `${id}-${difficulty}` as keyof typeof chartsJson;
     return chartsJson[key];
+  },
+  getByKey: (key: string) => {
+    return chartsJson[key as keyof typeof chartsJson];
   },
 }));
