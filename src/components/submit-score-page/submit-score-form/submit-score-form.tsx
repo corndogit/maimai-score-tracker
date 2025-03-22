@@ -1,38 +1,53 @@
 import { faPlus, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Row } from "react-bootstrap";
+import { useChartStore } from "../../../hooks/store";
+import { useState } from "react";
+import { Chart } from "../../../models/chart";
 
 export const SubmitScoreForm = () => {
+  const charts = useChartStore();
+  const [searchField, setSearchField] = useState("");
+  const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
+    charts.getAllCharts()
+  );
+
+  const handleSearch = () => {
+    const filtered = charts.getAllCharts(searchField);
+    console.log(filtered);
+    setFilteredCharts(filtered);
+  };
+
   return (
     <Form>
-      <Form.Group className="mb-3" controlId="submitScoreForm.SongTitleSearch">
+      <Form.Group className="mb-3">
         <Form.Label>Song title</Form.Label>
         <Row className="mb-3">
           <Col xs={12}>
             <Form.Select aria-label="Search results">
               <option>Select title...</option>
+              {filteredCharts.map((chart) => {
+                return (
+                  <option
+                    key={`${chart.song} (${chart.difficulty} ${chart.level})`}
+                  >{`${chart.song} (${chart.difficulty} ${chart.level})`}</option>
+                );
+              })}
             </Form.Select>
           </Col>
         </Row>
         <Row>
           <Col xs={10}>
-            <Form.Control placeholder="Search (e.g. Oshama Scramble)" />
+            <Form.Control
+              placeholder="Search (e.g. Oshama Scramble)"
+              value={searchField}
+              onInput={(e) => setSearchField(e.currentTarget.value)}
+            />
           </Col>
           <Col xs={2} className="p-0">
-            <Button>Search</Button>
+            <Button onClick={() => handleSearch()}>Search</Button>
           </Col>
         </Row>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="submitScoreForm.DifficultySelect">
-        <Form.Label>Difficulty</Form.Label>
-        <Form.Select aria-label="Clear Type">
-          <option>Select difficulty...</option>
-          <option value="1">Basic (level)</option>
-          <option value="2">Advanced (level)</option>
-          <option value="3">Expert (level)</option>
-          <option value="4">Master (level)</option>
-          <option value="5">Re:Master (level)</option>
-        </Form.Select>
       </Form.Group>
       <Form.Group
         className="mb-3 d-inline-flex"
