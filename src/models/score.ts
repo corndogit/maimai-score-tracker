@@ -35,10 +35,3 @@ export type Colour = {
   name: string;
   display_name: string;
 };
-
-export enum ClearType {
-  PLAYED = "Played",
-  FULL_COMBO = "Full Combo",
-  ALL_PERFECT = "All Perfect",
-  ALL_PERFECT_PLUS = "All Perfect+",
-}
