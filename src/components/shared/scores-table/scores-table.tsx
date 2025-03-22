@@ -29,7 +29,7 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
       <tbody>
         {scoreData.map((score) => {
           return (
-            <tr>
+            <tr key={`${score.identifier}-${score.timeAchieved}`}>
               <td>{songNames.getByIdentifier(score.identifier)}</td>
               <td>{score.difficulty}</td>
               <td>
