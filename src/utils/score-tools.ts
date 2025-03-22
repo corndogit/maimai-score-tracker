@@ -1,3 +1,5 @@
+import { Chart } from "../models/chart";
+
 export const calculateGrade = (percent: number): string => {
   if (percent >= 100.0) {
     return "SSS";
@@ -24,4 +26,18 @@ export const calculateGrade = (percent: number): string => {
     return "A";
   }
   return "B";
+};
+
+const calculateMaxRawScore = (chart: Chart): number => {
+  return (
+    chart.notes * 500 +
+    chart.hold * 1000 +
+    chart.slide * 1500 +
+    chart.break * 2600
+  );
+};
+
+export const calculateMaxScore = (chart: Chart): number => {
+  const rawScore = calculateMaxRawScore(chart);
+  return (rawScore / (rawScore - chart.break * 100)) * 100;
 };
