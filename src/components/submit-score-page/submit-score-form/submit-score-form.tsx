@@ -4,6 +4,8 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import { useChartStore } from "../../../hooks/store";
 import { useState } from "react";
 import { Chart } from "../../../models/chart";
+import { calculateGrade } from "../../../utils/score-tools";
+import { ClearType, Judgements } from "../../../models/score";
 
 export const SubmitScoreForm = () => {
   const charts = useChartStore();
@@ -11,11 +13,28 @@ export const SubmitScoreForm = () => {
   const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
     charts.getAllCharts()
   );
+  const [selectedChart, setSelectedChart] = useState<Chart>();
+  const [percent, setPercent] = useState("");
+  const [judgements, setJudgements] = useState<Judgements>({
+    perfect: 0,
+    great: 0,
+    good: 0,
+    miss: 0,
+  });
+  const [dateObtained, setDateObtained] = useState("");
+  const [clearType, setClearType] = useState(ClearType.PLAYED);
 
-  const handleSearch = () => {
+  const handleSearch = (): void => {
     const filtered = charts.getAllCharts(searchField);
-    console.log(filtered);
     setFilteredCharts(filtered);
+  };
+
+  const handleGradeCalculation = (percentString: string): string => {
+    const grade =
+      percentString.length > 0
+        ? calculateGrade(parseFloat(percentString))
+        : calculateGrade(0);
+    return grade;
   };
 
   return (
@@ -24,12 +43,20 @@ export const SubmitScoreForm = () => {
         <Form.Label>Song title</Form.Label>
         <Row className="mb-3">
           <Col xs={12}>
-            <Form.Select aria-label="Search results">
-              <option>Select title...</option>
+            <Form.Select
+              aria-label="Search results"
+              onChange={(e) => {
+                setSelectedChart(charts.getByKey(e.currentTarget.value));
+              }}
+            >
+              <option>
+                Select title... {`(${filteredCharts.length} results)`}
+              </option>
               {filteredCharts.map((chart) => {
                 return (
                   <option
-                    key={`${chart.song} (${chart.difficulty} ${chart.level})`}
+                    key={`${chart.id}-${chart.difficulty}`}
+                    value={`${chart.id}-${chart.difficulty}`}
                   >{`${chart.song} (${chart.difficulty} ${chart.level})`}</option>
                 );
               })}
@@ -56,11 +83,23 @@ export const SubmitScoreForm = () => {
         <Row>
           <Col md={3}>
             <Form.Label>Percent</Form.Label>
-            <Form.Control type="number" min={0} defaultValue={0.0} />
+            <Form.Control
+              type="number"
+              min={0}
+              value={percent}
+              onChange={(e) => {
+                setPercent(e.currentTarget.value);
+              }}
+            />
           </Col>
           <Col md={3}>
             <Form.Label>Grade</Form.Label>
-            <Form.Control plaintext readOnly min={0} defaultValue="B" />
+            <Form.Control
+              plaintext
+              readOnly
+              min={0}
+              value={handleGradeCalculation(percent)}
+            />
           </Col>
           <Col md={3}>
             <Form.Label>Rating</Form.Label>
@@ -76,12 +115,21 @@ export const SubmitScoreForm = () => {
       </Form.Group>
       <Form.Group className="mb-3" controlId="submitScoreForm.ClearTypeSelect">
         <Form.Label>Clear Type</Form.Label>
-        <Form.Select aria-label="Clear Type">
+        <Form.Select
+          aria-label="Clear Type"
+          onChange={(e) =>
+            setClearType(
+              ClearType[e.currentTarget.value as keyof typeof ClearType]
+            )
+          }
+        >
           <option>Select...</option>
-          <option value="1">Played</option>
-          <option value="2">Full Combo</option>
-          <option value="3">All Perfect</option>
-          <option value="4">All Perfect+</option>
+          <option value={ClearType.PLAYED}>{ClearType.PLAYED}</option>
+          <option value={ClearType.FULL_COMBO}>{ClearType.FULL_COMBO}</option>
+          <option value={ClearType.ALL_PERFECT}>{ClearType.ALL_PERFECT}</option>
+          <option value={ClearType.ALL_PERFECT_PLUS}>
+            {ClearType.ALL_PERFECT_PLUS}
+          </option>
         </Form.Select>
       </Form.Group>
       <Form.Group
@@ -91,25 +139,76 @@ export const SubmitScoreForm = () => {
         <Row>
           <Col>
             <Form.Label>Perfect</Form.Label>
-            <Form.Control type="number" min={0} />
+            <Form.Control
+              type="number"
+              min={0}
+              value={judgements.perfect}
+              onChange={(e) =>
+                setJudgements({
+                  ...judgements,
+                  perfect: e.currentTarget.value
+                    ? parseInt(e.currentTarget.value)
+                    : 0,
+                })
+              }
+            />
           </Col>
           <Col>
             <Form.Label>Great</Form.Label>
-            <Form.Control type="number" min={0} />
+            <Form.Control
+              type="number"
+              min={0}
+              value={judgements.great}
+              onChange={(e) =>
+                setJudgements({
+                  ...judgements,
+                  great: e.currentTarget.value
+                    ? parseInt(e.currentTarget.value)
+                    : 0,
+                })
+              }
+            />
           </Col>
           <Col>
             <Form.Label>Good</Form.Label>
-            <Form.Control type="number" min={0} />
+            <Form.Control
+              type="number"
+              min={0}
+              value={judgements.good}
+              onChange={(e) =>
+                setJudgements({
+                  ...judgements,
+                  good: e.currentTarget.value
+                    ? parseInt(e.currentTarget.value)
+                    : 0,
+                })
+              }
+            />
           </Col>
           <Col>
             <Form.Label>Miss</Form.Label>
-            <Form.Control type="number" min={0} />
+            <Form.Control
+              type="number"
+              min={0}
+              value={judgements.miss}
+              onChange={(e) =>
+                setJudgements({
+                  ...judgements,
+                  miss: e.currentTarget.value
+                    ? parseInt(e.currentTarget.value)
+                    : 0,
+                })
+              }
+            />
           </Col>
         </Row>
       </Form.Group>
       <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
         <Form.Label>Date Obtained</Form.Label>
-        <Form.Control type="datetime-local" />
+        <Form.Control
+          type="datetime-local"
+          onChange={(e) => setDateObtained(e.currentTarget.value)}
+        />
       </Form.Group>
       <Row className="justify-content-start">
         <Col sm={3} xs={12}>
