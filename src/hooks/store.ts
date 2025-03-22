@@ -37,7 +37,7 @@ export const useScoreDataStore = create<ScoreDataState>((set) => ({
 // todo: remove and replace uses with useChartsStore
 export const useSongNameStore = create<SongNamesState>(() => ({
   songNames,
-  getAllNames: () => Object.values(songNames),
+  getAllNames: () => Object.values(songNames), // this is really shit
   getByIdentifier: (identifier: string) => songNames[identifier],
 }));
 
