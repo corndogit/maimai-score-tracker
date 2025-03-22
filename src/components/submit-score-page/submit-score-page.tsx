@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { ScoreData } from "../../models/score";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
 import { SubmitScoreForm } from "./submit-score-form/submit-score-form";
 import { SubmitScorePreview } from "./submit-score-preview/submit-score-preview";
 
 export const SubmitScorePage = () => {
+  const [scoresToSubmit, setScoresToSubmit] = useState<Array<ScoreData>>([]);
+  const addToScores = (score: ScoreData) => {
+    setScoresToSubmit([...scoresToSubmit, score]);
+  };
   return (
     <BasePage>
       <PageTitles
@@ -13,10 +19,10 @@ export const SubmitScorePage = () => {
       />
       <Row>
         <Col md={5}>
-          <SubmitScoreForm />
+          <SubmitScoreForm addToSubmitScores={addToScores} />
         </Col>
         <Col md={7}>
-          <SubmitScorePreview />
+          <SubmitScorePreview scoreData={scoresToSubmit} />
         </Col>
       </Row>
     </BasePage>

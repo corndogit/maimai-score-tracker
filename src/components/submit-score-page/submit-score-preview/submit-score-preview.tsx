@@ -1,12 +1,15 @@
-import { useScoreDataStore } from "../../../hooks/store";
+import { ScoreData } from "../../../models/score";
 import ScoresTable from "../../shared/scores-table/scores-table";
 
-export const SubmitScorePreview = () => {
-  const testScoreData = useScoreDataStore();
+interface ScorePreviewProps {
+  scoreData: ScoreData[];
+}
+
+export const SubmitScorePreview = ({ scoreData }: ScorePreviewProps) => {
   return (
     <>
       <h4>Scores to be added</h4>
-      <ScoresTable scoreData={testScoreData.scoreData.slice(0, 3)} />
+      <ScoresTable scoreData={scoreData} />
     </>
   );
 };
