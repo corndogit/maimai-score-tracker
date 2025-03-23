@@ -14,6 +14,7 @@ import {
   getInvalidFields,
   ScoreFormValidation,
 } from "../../../models/score-form-validation";
+import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgements";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -73,18 +74,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     }
   };
 
-  const handleJudgementChange = (
-    value: string,
-    judgementType: string
-  ): void => {
-    let newJudgements = judgements;
-    newJudgements[judgementType as keyof Judgements] = value
-      ? parseInt(value)
-      : 0;
-    setJudgements(newJudgements);
-    validateJudgements(newJudgements);
-  };
-
   const isValidPercent = (percent: string): boolean => {
     const percentNumber = parseFloat(percent);
     return (
@@ -92,15 +81,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
       percentNumber > 0 &&
       percentNumber <= parseFloat(maxPercent)
     );
-  };
-
-  const validateJudgements = (judgements: Judgements): void => {
-    const totalJudgements =
-      judgements.perfect + judgements.great + judgements.good + judgements.miss;
-    setValidated({
-      ...validated,
-      isJudgementsValid: totalJudgements === selectedChart?.notes,
-    });
   };
 
   const validateClearType = (
@@ -132,12 +112,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const isValidated = (): boolean => {
     return (
       Object.values(validated).filter((validation) => !validation).length === 0
-    );
-  };
-
-  const sumJudgements = (judgements: Judgements): number => {
-    return (
-      judgements.perfect + judgements.great + judgements.good + judgements.miss
     );
   };
 
@@ -303,72 +277,15 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
           <option value="ALL PERFECT+">All Perfect+</option>
         </Form.Select>
       </Form.Group>
-      <Form.Group
-        className="mb-3 d-inline-flex"
-        controlId="submitScoreForm.JudgementsFields"
-      >
-        <Row>
-          <Col>
-            <Form.Label>Perfect</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.perfect}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(e.currentTarget.value, "perfect")
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Great</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.great}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(e.currentTarget.value, "great")
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Good</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.good}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(e.currentTarget.value, "good")
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Miss</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.miss}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(e.currentTarget.value, "miss")
-              }
-            />
-          </Col>
-        </Row>
-      </Form.Group>
-      <Form.Text id="notesHelper" muted>
-        Judgements must add up to the song's total notes.{" "}
-        {selectedChart &&
-          `(total notes: ${
-            selectedChart.notes
-          }, current total is ${sumJudgements(judgements)})`}
-      </Form.Text>
+
+      <ScoreFormJudgements
+        validated={validated}
+        judgements={judgements}
+        selectedChart={selectedChart}
+        setJudgements={setJudgements}
+        setValidated={setValidated}
+      />
+
       <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
         <Form.Label>Date Obtained</Form.Label>
         <Form.Control
