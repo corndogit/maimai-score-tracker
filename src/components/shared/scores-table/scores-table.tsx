@@ -1,8 +1,8 @@
 import { DateTime } from "luxon";
 import { Table } from "react-bootstrap";
-import { useSongNameStore } from "../../../hooks/store";
 import { Judgements, ScoreData } from "../../../models/score";
 import { calculateGrade } from "../../../utils/score-tools";
+import { getChartByKey, useChartStore } from "../../../hooks/store";
 
 interface ScoreTableData {
   scoreData: ScoreData[];
@@ -13,8 +13,7 @@ const stringifyJudgements = (judgements: Judgements) => {
 };
 
 const ScoresTable = ({ scoreData }: ScoreTableData) => {
-  const songNames = useSongNameStore();
-
+  const charts = useChartStore();
   return scoreData && scoreData.length > 0 ? (
     <Table striped bordered hover>
       <thead>
@@ -30,7 +29,14 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
         {scoreData.map((score) => {
           return (
             <tr key={`${score.identifier}-${score.timeAchieved}`}>
-              <td>{songNames.getByIdentifier(score.identifier)}</td>
+              <td>
+                {
+                  getChartByKey(
+                    charts,
+                    `${score.identifier}-${score.difficulty}`
+                  ).song
+                }
+              </td>
               <td>{score.difficulty}</td>
               <td>
                 {calculateGrade(score.percent)}

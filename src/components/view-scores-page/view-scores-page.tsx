@@ -4,14 +4,14 @@ import ScoresTable from "../shared/scores-table/scores-table";
 import { useScoreDataStore } from "../../hooks/store";
 
 export const ViewScoresPage = () => {
-  const testScoreData = useScoreDataStore();
+  const scores = useScoreDataStore();
   return (
     <BasePage>
       <PageTitles
         title="View Scores"
         subtitle="View and search for submitted scores"
       />
-      <ScoresTable scoreData={testScoreData.scoreData} />
+      <ScoresTable scoreData={scores.scoreData} />
     </BasePage>
   );
 };

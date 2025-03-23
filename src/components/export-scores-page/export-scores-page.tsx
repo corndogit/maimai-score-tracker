@@ -4,7 +4,6 @@ import { PageTitles } from "../shared/page-titles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
-import placeholderJSON from "../../data/placeholder/maimai-scores-1740695287.json";
 import "./export-scores-page.css";
 
 export const ExportScoresPage = () => {
@@ -17,7 +16,7 @@ export const ExportScoresPage = () => {
       <Form>
         <Form.Label>Output</Form.Label>
         <Form.Control as="textarea" readOnly style={{ height: "400px" }}>
-          {JSON.stringify(placeholderJSON, null, 2)}
+          {JSON.stringify({}, null, 2)}
         </Form.Control>
         <Button variant="primary" className="mt-2 me-2">
           <FontAwesomeIcon icon={faDownload} /> Save

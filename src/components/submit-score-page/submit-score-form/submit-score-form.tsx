@@ -3,7 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import { useChartStore } from "../../../hooks/store";
+import {
+  getAllCharts,
+  getChartByKey,
+  useChartStore,
+} from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
 import {
@@ -25,7 +29,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const charts = useChartStore();
   const [searchField, setSearchField] = useState<string>("");
   const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
-    charts.getAllCharts()
+    charts.chartData
   );
   const [selectedChart, setSelectedChart] = useState<Chart>();
   const [percent, setPercent] = useState<string>("");
@@ -44,7 +48,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleSearch = (): void => {
-    const filtered = charts.getAllCharts(searchField);
+    const filtered = getAllCharts(charts, searchField);
     setFilteredCharts(filtered);
   };
 
@@ -85,7 +89,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const clearForm = () => {
     setSelectedChart(undefined);
     setSearchField("");
-    setFilteredCharts(charts.getAllCharts());
+    setFilteredCharts(getAllCharts(charts));
     setPercent("");
     setMaxPercent("0");
     setRate(0);
@@ -111,7 +115,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
               aria-label="Search results"
               required
               onChange={(e) => {
-                const chart = charts.getByKey(e.currentTarget.value);
+                const chart = getChartByKey(charts, e.currentTarget.value);
                 setSelectedChart(chart);
                 if (chart) {
                   setMaxPercent(calculateMaxScore(chart).toPrecision(5));
