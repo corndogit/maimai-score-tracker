@@ -9,37 +9,15 @@ import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
 import { calculateGrade, calculateMaxScore } from "../../../utils/score-tools";
 import "./submit-score-form.css";
+import {
+  defaultValidation,
+  getInvalidFields,
+  ScoreFormValidation,
+} from "../../../models/score-form-validation";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
 }
-
-type ScoreFormValidation = {
-  isChartSelectedValid: boolean;
-  isPercentValid: boolean;
-  isClearTypeValid: boolean;
-  isJudgementsValid: boolean;
-  isDateObtainedValid: boolean;
-};
-
-const defaultValidation: ScoreFormValidation = {
-  isChartSelectedValid: false,
-  isPercentValid: false,
-  isClearTypeValid: true,
-  isJudgementsValid: false,
-  isDateObtainedValid: false,
-};
-
-const getInvalidFields = (fields: ScoreFormValidation): Array<String> => {
-  let invalidFields = [
-    !fields.isChartSelectedValid ? "Chart Selected" : "",
-    !fields.isPercentValid ? "Percent" : "",
-    !fields.isClearTypeValid ? "Clear Type" : "",
-    !fields.isJudgementsValid ? "Judgements" : "",
-    !fields.isDateObtainedValid ? "Date Obtained" : "",
-  ];
-  return invalidFields.filter((field) => field !== "");
-};
 
 export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const charts = useChartStore();
@@ -157,7 +135,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     );
   };
 
-  const sumJudgements = (): number => {
+  const sumJudgements = (judgements: Judgements): number => {
     return (
       judgements.perfect + judgements.great + judgements.good + judgements.miss
     );
@@ -389,7 +367,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         {selectedChart &&
           `(total notes: ${
             selectedChart.notes
-          }, current total is ${sumJudgements()})`}
+          }, current total is ${sumJudgements(judgements)})`}
       </Form.Text>
       <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
         <Form.Label>Date Obtained</Form.Label>
