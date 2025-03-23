@@ -5,8 +5,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
 import "./export-scores-page.css";
+import { requestTemplate, TachiRequest } from "../../models/tachi-request";
+import { ScoreData } from "../../models/score";
+import { useScoreDataStore } from "../../hooks/store";
+
+const createRequest = (scores: ScoreData[] = []): TachiRequest => {
+  return { ...requestTemplate, scores };
+};
 
 export const ExportScoresPage = () => {
+  const request: TachiRequest = createRequest(useScoreDataStore().scoreData);
   return (
     <BasePage>
       <PageTitles
@@ -15,9 +23,12 @@ export const ExportScoresPage = () => {
       />
       <Form>
         <Form.Label>Output</Form.Label>
-        <Form.Control as="textarea" readOnly style={{ height: "400px" }}>
-          {JSON.stringify({}, null, 2)}
-        </Form.Control>
+        <Form.Control
+          as="textarea"
+          readOnly
+          value={JSON.stringify(request, null, 2)}
+          style={{ height: "400px" }}
+        ></Form.Control>
         <Button variant="primary" className="mt-2 me-2">
           <FontAwesomeIcon icon={faDownload} /> Save
         </Button>
