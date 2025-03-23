@@ -33,25 +33,6 @@ export const useChartStore = create<ChartState>(() => ({
   ),
 }));
 
-export const getAllCharts = (
-  charts: ChartState,
-  searchTerm: string = ""
-): Chart[] => {
-  if (!searchTerm) {
-    return charts.chartData;
-  }
-  const searchTermLower = searchTerm.toLowerCase();
-  const filtered: Chart[] = [];
-
-  for (let i = 0; i < charts.chartData.length; i++) {
-    const chart = charts.chartData[i];
-    if (chart.song.toLowerCase().indexOf(searchTermLower)) {
-      filtered.push(chart);
-    }
-  }
-  return filtered;
-};
-
 export const getChartByKey = (charts: ChartState, key: string): Chart => {
   return charts.chartDataRecord[key as keyof typeof charts.chartDataRecord];
 };

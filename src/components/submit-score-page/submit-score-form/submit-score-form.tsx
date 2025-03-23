@@ -3,11 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import {
-  getAllCharts,
-  getChartByKey,
-  useChartStore,
-} from "../../../hooks/store";
+import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
 import {
@@ -26,10 +22,9 @@ interface ScoreFormProps {
 }
 
 export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
-  const charts = useChartStore();
   const [searchField, setSearchField] = useState<string>("");
   const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
-    charts.chartData
+    useChartStore.getState().chartData
   );
   const [selectedChart, setSelectedChart] = useState<Chart>();
   const [percent, setPercent] = useState<string>("");
@@ -47,8 +42,25 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     useState<ScoreFormValidation>(defaultValidation);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+  const getAllCharts = (searchTerm: string = ""): Chart[] => {
+    const chartData = useChartStore.getInitialState().chartData;
+    if (!searchTerm) {
+      return chartData;
+    }
+    const searchTermLower = searchTerm.toLowerCase();
+    const filtered: Chart[] = [];
+
+    for (let i = 0; i < chartData.length; i++) {
+      const chart = chartData[i];
+      if (chart.song.toLowerCase().indexOf(searchTermLower) >= 0) {
+        filtered.push(chart);
+      }
+    }
+    return filtered;
+  };
+
   const handleSearch = (): void => {
-    const filtered = getAllCharts(charts, searchField);
+    const filtered = getAllCharts(searchField);
     setFilteredCharts(filtered);
   };
 
@@ -89,7 +101,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const clearForm = () => {
     setSelectedChart(undefined);
     setSearchField("");
-    setFilteredCharts(getAllCharts(charts));
+    setFilteredCharts(getAllCharts());
     setPercent("");
     setMaxPercent("0");
     setRate(0);
@@ -115,7 +127,10 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
               aria-label="Search results"
               required
               onChange={(e) => {
-                const chart = getChartByKey(charts, e.currentTarget.value);
+                const chart = getChartByKey(
+                  useChartStore.getState(),
+                  e.currentTarget.value
+                );
                 setSelectedChart(chart);
                 if (chart) {
                   setMaxPercent(calculateMaxScore(chart).toPrecision(5));

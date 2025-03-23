@@ -13,7 +13,6 @@ const stringifyJudgements = (judgements: Judgements) => {
 };
 
 const ScoresTable = ({ scoreData }: ScoreTableData) => {
-  const charts = useChartStore();
   return scoreData && scoreData.length > 0 ? (
     <Table striped bordered hover>
       <thead>
@@ -32,7 +31,7 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
               <td>
                 {
                   getChartByKey(
-                    charts,
+                    useChartStore.getState(),
                     `${score.identifier}-${score.difficulty}`
                   ).song
                 }
