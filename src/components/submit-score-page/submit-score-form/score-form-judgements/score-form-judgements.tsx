@@ -1,4 +1,4 @@
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
 import { Judgements } from "../../../../models/score";
 import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
@@ -52,76 +52,99 @@ export const ScoreFormJudgements = ({
         className="mb-3 d-inline-flex"
         controlId="submitScoreForm.JudgementsFields"
       >
-        <Row>
-          <Col>
-            <Form.Label>Perfect</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.perfect}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(
-                  judgements,
-                  e.currentTarget.value,
-                  "perfect"
-                )
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Great</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.great}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(
-                  judgements,
-                  e.currentTarget.value,
-                  "great"
-                )
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Good</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.good}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(judgements, e.currentTarget.value, "good")
-              }
-            />
-          </Col>
-          <Col>
-            <Form.Label>Miss</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              value={judgements.miss}
-              disabled={!selectedChart}
-              isValid={validated.isJudgementsValid}
-              onChange={(e) =>
-                handleJudgementChange(judgements, e.currentTarget.value, "miss")
-              }
-            />
-          </Col>
-        </Row>
+        <Container className="ps-0  ">
+          <Row>
+            <Col xs={12}>
+              <Form.Label>Judgements</Form.Label>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <FloatingLabel label="Perfect">
+                <Form.Control
+                  type="number"
+                  min={0}
+                  value={judgements.perfect}
+                  disabled={!selectedChart}
+                  isValid={validated.isJudgementsValid}
+                  onChange={(e) =>
+                    handleJudgementChange(
+                      judgements,
+                      e.currentTarget.value,
+                      "perfect"
+                    )
+                  }
+                />
+              </FloatingLabel>
+            </Col>
+            <Col>
+              <FloatingLabel label="Great">
+                <Form.Control
+                  type="number"
+                  min={0}
+                  value={judgements.great}
+                  disabled={!selectedChart}
+                  isValid={validated.isJudgementsValid}
+                  onChange={(e) =>
+                    handleJudgementChange(
+                      judgements,
+                      e.currentTarget.value,
+                      "great"
+                    )
+                  }
+                />
+              </FloatingLabel>
+            </Col>
+            <Col>
+              <FloatingLabel label="Good">
+                <Form.Control
+                  type="number"
+                  min={0}
+                  value={judgements.good}
+                  disabled={!selectedChart}
+                  isValid={validated.isJudgementsValid}
+                  onChange={(e) =>
+                    handleJudgementChange(
+                      judgements,
+                      e.currentTarget.value,
+                      "good"
+                    )
+                  }
+                />
+              </FloatingLabel>
+            </Col>
+            <Col>
+              <FloatingLabel label="Miss">
+                <Form.Control
+                  type="number"
+                  min={0}
+                  value={judgements.miss}
+                  disabled={!selectedChart}
+                  isValid={validated.isJudgementsValid}
+                  onChange={(e) =>
+                    handleJudgementChange(
+                      judgements,
+                      e.currentTarget.value,
+                      "miss"
+                    )
+                  }
+                />
+              </FloatingLabel>
+            </Col>
+          </Row>
+        </Container>
       </Form.Group>
-      <Form.Text id="notesHelper" muted>
-        Judgements must add up to the song's total notes.{" "}
-        {selectedChart &&
-          `(total notes: ${
-            selectedChart.notes
-          }, current total is ${sumJudgements(judgements)})`}
-      </Form.Text>
+      <Row>
+        <Col xs={12}>
+          <Form.Text id="notesHelper" muted>
+            Judgements must add up to the song's total notes.{" "}
+            {selectedChart &&
+              `(total notes: ${
+                selectedChart.notes
+              }, current total is ${sumJudgements(judgements)})`}
+          </Form.Text>
+        </Col>
+      </Row>
     </>
   );
 };
