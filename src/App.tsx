@@ -11,8 +11,8 @@ import { PlaceholderPage } from "./components/shared/placeholder-page";
 function App() {
   return (
     <>
-      <PageNav />
       <BrowserRouter>
+        <PageNav />
         <Routes>
           <Route
             path="*"
