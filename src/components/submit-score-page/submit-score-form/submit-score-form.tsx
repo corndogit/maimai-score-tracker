@@ -3,18 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import { MaimaiRate } from "rg-stats";
 import { useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
-import { calculateGrade, calculateMaxScore } from "../../../utils/score-tools";
-import "./submit-score-form.css";
 import {
   defaultValidation,
   getInvalidFields,
   ScoreFormValidation,
 } from "../../../models/score-form-validation";
+import { calculateMaxScore } from "../../../utils/score-tools";
 import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgements";
+import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-percent-stats";
+import "./submit-score-form.css";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -45,42 +45,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const handleSearch = (): void => {
     const filtered = charts.getAllCharts(searchField);
     setFilteredCharts(filtered);
-  };
-
-  const handleGradeCalculation = (percentString: string): string => {
-    const grade =
-      percentString.length > 0
-        ? calculateGrade(parseFloat(percentString))
-        : calculateGrade(0);
-    return grade;
-  };
-
-  const handlePercentChange = (value: string): void => {
-    setPercent(value);
-    setValidated({
-      ...validated,
-      isPercentValid: isValidPercent(value),
-    });
-    if (selectedChart && isValidPercent(value) && value) {
-      setRate(
-        MaimaiRate.calculate(
-          parseFloat(value),
-          parseFloat(maxPercent),
-          selectedChart.chartConstant
-        )
-      );
-    } else {
-      setRate(0);
-    }
-  };
-
-  const isValidPercent = (percent: string): boolean => {
-    const percentNumber = parseFloat(percent);
-    return (
-      !!percentNumber &&
-      percentNumber > 0 &&
-      percentNumber <= parseFloat(maxPercent)
-    );
   };
 
   const validateClearType = (
@@ -210,51 +174,18 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
           </Col>
         </Row>
       </Form.Group>
-      <Form.Group
-        className="mb-3 d-inline-flex"
-        controlId="submitScoreForm.ScoreFields"
-      >
-        <Row>
-          <Col md={3}>
-            <Form.Label>Percent</Form.Label>
-            <Form.Control
-              type="number"
-              min={0}
-              max={maxPercent ? parseFloat(maxPercent) : 0}
-              value={percent}
-              required
-              isInvalid={!!percent && !isValidPercent(percent)}
-              disabled={!selectedChart}
-              onChange={(e) => {
-                handlePercentChange(e.currentTarget.value);
-              }}
-            />
-          </Col>
-          <Col md={3}>
-            <Form.Label>Grade</Form.Label>
-            <Form.Control
-              plaintext
-              readOnly
-              min={0}
-              value={handleGradeCalculation(percent ?? "")}
-            />
-          </Col>
-          <Col md={3}>
-            <Form.Label>Max Percent</Form.Label>
-            <Form.Control plaintext readOnly value={maxPercent} />
-          </Col>
-          <Col md={3}>
-            <Form.Label>Rating</Form.Label>
-            <Form.Control
-              plaintext
-              readOnly
-              type="number"
-              value={rate}
-              hidden={!isValidPercent(percent)}
-            />
-          </Col>
-        </Row>
-      </Form.Group>
+
+      <ScoreFormPercentStats
+        percent={percent}
+        maxPercent={maxPercent}
+        selectedChart={selectedChart}
+        validated={validated}
+        rate={rate}
+        setValidated={setValidated}
+        setPercent={setPercent}
+        setRate={setRate}
+      />
+
       <Form.Group className="mb-3" controlId="submitScoreForm.ClearTypeSelect">
         <Form.Label>Clear Type</Form.Label>
         <Form.Select
