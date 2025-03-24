@@ -1,5 +1,4 @@
 import { faJugDetergent } from "@fortawesome/free-solid-svg-icons";
-import { faHome } from "@fortawesome/free-solid-svg-icons/faHome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router";
@@ -18,9 +17,6 @@ export const PageNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
-              <FontAwesomeIcon icon={faHome} />
-            </Nav.Link>
             <Nav.Link as={Link} to="/submit">
               Submit
             </Nav.Link>
