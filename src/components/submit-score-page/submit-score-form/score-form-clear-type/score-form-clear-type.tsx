@@ -7,43 +7,68 @@ type ScoreFormClearTypeProps = {
   clearType: string;
   validated: ScoreFormValidation;
   judgements: Judgements;
+  percent: string;
+  maxPercent: string;
   selectedChart?: Chart;
   setClearType: (value: string) => void;
   setValidated: (validation: ScoreFormValidation) => void;
+};
+
+const validateClearType = (
+  clearType: string,
+  judgements: Judgements,
+  percent: string,
+  maxPercent: string,
+  selectedChart?: Chart
+): boolean => {
+  const isFullCombo =
+    judgements.perfect +
+      judgements.great +
+      judgements.good -
+      judgements.miss ===
+    selectedChart?.notes;
+  const isAllPerfect =
+    judgements.perfect === selectedChart?.notes &&
+    judgements.great === 0 &&
+    judgements.good === 0 &&
+    judgements.miss === 0;
+
+  let valid = false;
+  if (!clearType || clearType === "Select...") {
+    valid = false;
+  } else if (clearType === "PLAYED" || clearType === "FAILED") {
+    valid = true;
+  } else if (clearType === "FULL COMBO") {
+    valid = isFullCombo;
+  } else if (clearType === "ALL PERFECT+") {
+    valid = isAllPerfect && percent === maxPercent;
+  } else {
+    valid = isAllPerfect;
+  }
+  return valid;
 };
 
 export const ScoreFormClearType = ({
   clearType,
   validated,
   judgements,
+  percent,
+  maxPercent,
   selectedChart,
   setClearType,
   setValidated,
 }: ScoreFormClearTypeProps) => {
-  const validateClearType = (
-    clearType: string,
-    judgements: Judgements
-  ): void => {
-    let valid = false;
-    if (!clearType || clearType === "Select...") {
-      valid = false;
-    } else if (clearType === "PLAYED" || clearType === "FAILED") {
-      valid = true;
-    } else if (clearType === "FULL COMBO") {
-      const totalMinusMisses =
-        judgements.perfect +
-        judgements.great +
-        judgements.good -
-        judgements.miss;
-      valid = totalMinusMisses === selectedChart?.notes;
-    } else {
-      valid =
-        judgements.perfect === selectedChart?.notes &&
-        judgements.great === 0 &&
-        judgements.good === 0 &&
-        judgements.miss === 0;
-    }
-    setValidated({ ...validated, isClearTypeValid: valid });
+  const setValidatedClearType = (clearType: string): void => {
+    setValidated({
+      ...validated,
+      isClearTypeValid: validateClearType(
+        clearType,
+        judgements,
+        percent,
+        maxPercent,
+        selectedChart
+      ),
+    });
   };
 
   return (
@@ -59,7 +84,7 @@ export const ScoreFormClearType = ({
         onChange={(e) => {
           const value = e.currentTarget.value;
           setClearType(value);
-          validateClearType(value, judgements);
+          setValidatedClearType(value);
         }}
       >
         <option value="FAILED">Failed</option>
