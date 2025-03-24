@@ -3,6 +3,7 @@ import { MaimaiRate } from "rg-stats";
 import { Chart } from "../../../../models/chart";
 import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { calculateGrade } from "../../../../utils/score-tools";
+import "./score-form-percent-stats.css";
 
 type ScoreFormPercentStatsProps = {
   percent: string;
@@ -83,6 +84,7 @@ export const ScoreFormPercentStats = ({
         <Col md={3}>
           <Form.Label>Grade</Form.Label>
           <Form.Control
+            className="readonly-percent-stat"
             plaintext
             readOnly
             min={0}
@@ -91,16 +93,20 @@ export const ScoreFormPercentStats = ({
         </Col>
         <Col md={3}>
           <Form.Label>Max Percent</Form.Label>
-          <Form.Control plaintext readOnly value={maxPercent} />
+          <Form.Control
+            className="readonly-percent-stat"
+            plaintext
+            readOnly
+            value={maxPercent}
+          />
         </Col>
         <Col md={3}>
           <Form.Label>Rating</Form.Label>
           <Form.Control
+            className="readonly-percent-stat"
             plaintext
             readOnly
-            type="number"
-            value={rate}
-            hidden={!isValidPercent(percent)}
+            value={isValidPercent(percent) ? rate.toLocaleString() : "??"}
           />
         </Col>
       </Row>
