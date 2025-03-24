@@ -17,15 +17,16 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 - [x] Finish building UI skeleton
 - [x] Create seed data and mechanism to load in-memory
 - [x] Create data types for songs & scores
-- [ ] Add logic to add a song to submit
+- [x] Add logic to add a song to submit
   - [x] Stretch: calculate rating
 - [x] Add logic to view scores in a table
-- [ ] View the currently pending scores
-- [ ] Create a JSON payload of scores
+- [x] View the currently pending scores
+- [x] Create a JSON payload of scores
 - [ ] Import scores from a file
 - [ ] Containerize
 - [ ] Homepage, Help & About
   - [ ] Stretch: add unit tests
+- [ ] Deploy to Github Pages
 
 ### Phase 2 AKA create the rest of the fucking backend
 
