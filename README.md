@@ -22,11 +22,14 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 - [x] Add logic to view scores in a table
 - [x] View the currently pending scores
 - [x] Create a JSON payload of scores
-- [ ] Import scores from a file
-- [ ] Containerize
+- [x] Import scores from a file
+  - [ ] Stretch: score validation on imported scores
+  - [ ] Stretch: De-duplicate scores
+- [ ] Persist scores in local storage
 - [ ] Homepage, Help & About
   - [ ] Stretch: add unit tests
-- [ ] Deploy to Github Pages
+- [ ] Containerize
+- [ ] Deploy to Github Pages and make public
 
 ### Phase 2 AKA create the rest of the fucking backend
 
