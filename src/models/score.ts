@@ -26,11 +26,6 @@ export type AdvancedJudgements = BasicJudgements & {
   breakMiss?: number;
 };
 
-export type DanRank = {
-  name: string;
-  display_name: string;
-};
-
 export type Colour = {
   name: string;
   display_name: string;

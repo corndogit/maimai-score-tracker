@@ -3,12 +3,15 @@ import { persist, createJSONStorage } from "zustand/middleware";
 import { ScoreData } from "../models/score";
 import { Chart } from "../models/chart";
 import chartsJson from "../data/charts.json";
+import { DanRank } from "../models/dan-rank";
 
 const chartDataRecord: Record<string, Chart> = chartsJson;
 
 interface ScoreDataState {
   scoreData: ScoreData[];
+  danRank?: DanRank;
   addScore: (score: ScoreData) => void;
+  setDanRank: (rank: DanRank) => void;
   removeAllScores: () => void;
 }
 
@@ -23,6 +26,7 @@ export const useScoreDataStore = create<ScoreDataState>()(
       scoreData: [],
       addScore: (score: ScoreData) =>
         set({ scoreData: [...get().scoreData, score] }),
+      setDanRank: (danRank: DanRank) => set({ danRank }),
       removeAllScores: () => {
         set({ scoreData: [] as ScoreData[] });
       },
