@@ -1,9 +1,18 @@
-import { faPlus, faSave, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFire,
+  faPlus,
+  faSave,
+  faTrash,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import { getChartByKey, useChartStore } from "../../../hooks/store";
+import {
+  getChartByKey,
+  useChartStore,
+  useScoreDataStore,
+} from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
 import {
@@ -227,13 +236,17 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
           </Button>
         </Col>
         <Col sm={3} xs={12}>
-          <Button variant="primary" className="w-100 mb-1" disabled>
-            <FontAwesomeIcon icon={faSave} /> Submit
+          <Button variant="danger" type="reset" className="w-100 mb-1">
+            <FontAwesomeIcon icon={faTrash} /> Clear
           </Button>
         </Col>
         <Col sm={3} xs={12}>
-          <Button variant="danger" type="reset" className="w-100 mb-1">
-            <FontAwesomeIcon icon={faTrash} /> Clear
+          <Button
+            variant="danger"
+            className="w-100 mb-1"
+            onClick={useScoreDataStore().removeAllScores}
+          >
+            <FontAwesomeIcon icon={faFire} /> Reset
           </Button>
         </Col>
       </Row>

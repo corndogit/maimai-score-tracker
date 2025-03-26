@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 import { ScoreData } from "../models/score";
 import { Chart } from "../models/chart";
 import chartsJson from "../data/charts.json";
@@ -16,15 +17,22 @@ interface ChartState {
   chartData: Chart[];
 }
 
-export const useScoreDataStore = create<ScoreDataState>((set) => ({
-  scoreData: [],
-  addScore: (score: ScoreData) => {
-    set((state) => ({ scoreData: [...state.scoreData, score] }));
-  },
-  removeAllScores: () => {
-    set(() => ({ scoreData: [] }));
-  },
-}));
+export const useScoreDataStore = create<ScoreDataState>()(
+  persist(
+    (set, get) => ({
+      scoreData: [],
+      addScore: (score: ScoreData) =>
+        set({ scoreData: [...get().scoreData, score] }),
+      removeAllScores: () => {
+        set({ scoreData: [] as ScoreData[] });
+      },
+    }),
+    {
+      name: "maimai-scores",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
 
 export const useChartStore = create<ChartState>(() => ({
   chartDataRecord,
