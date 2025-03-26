@@ -10,9 +10,17 @@ import { ScoreData } from "../../models/score";
 import { useScoreDataStore } from "../../hooks/store";
 import { useEffect, useState } from "react";
 import { DateTime } from "luxon";
+import { DanRank } from "../../models/dan-rank";
 
-const createRequest = (scores: ScoreData[] = []): TachiRequest => {
-  return { ...requestTemplate, scores };
+const createRequest = (
+  scores: ScoreData[] = [],
+  danRank?: DanRank
+): TachiRequest => {
+  const mainBody: TachiRequest = { ...requestTemplate, scores };
+  const classes = danRank
+    ? { classes: { dan: danRank.toString() } }
+    : undefined;
+  return classes ? { ...mainBody, ...classes } : mainBody;
 };
 
 const handleFileDownload = (data: string) => {
@@ -29,7 +37,10 @@ const handleFileDownload = (data: string) => {
 
 export const ExportScoresPage = () => {
   const [copiedState, setCopiedState] = useState(false);
-  const request: TachiRequest = createRequest(useScoreDataStore().scoreData);
+  const request: TachiRequest = createRequest(
+    useScoreDataStore().scoreData,
+    useScoreDataStore().danRank
+  );
   const requestJson = JSON.stringify(request, null, 2);
 
   useEffect(() => {

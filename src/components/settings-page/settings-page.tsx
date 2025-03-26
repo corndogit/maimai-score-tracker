@@ -8,12 +8,13 @@ import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 export const SettingsPage = () => {
+  const scoreDataStore = useScoreDataStore();
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(true);
   const handleCancel = () => setShow(false);
   const handleClearAllScores = () => {
-    useScoreDataStore().removeAllScores();
+    scoreDataStore.removeAllScores();
     setShow(false);
   };
   return (
@@ -24,10 +25,23 @@ export const SettingsPage = () => {
           <Row className="mb-5">
             <Col xs={12}>
               <Form.Label>Highest Course (Dan Rank)</Form.Label>
-              <Form.Select style={{ maxWidth: "300px" }}>
+              <Form.Select
+                style={{ maxWidth: "300px" }}
+                defaultValue={useScoreDataStore().danRank}
+                onChange={(e) => {
+                  const newLocal =
+                    DanRank[e.currentTarget.value as keyof typeof DanRank];
+                  console.log(newLocal);
+                  scoreDataStore.setDanRank(newLocal);
+                }}
+              >
                 <option value={undefined}>No Rank</option>
                 {Object.keys(DanRank).map((rank) => {
-                  return <option key={rank}>{DanRankDisplayName[rank]}</option>;
+                  return (
+                    <option key={rank} value={rank}>
+                      {DanRankDisplayName[rank]}
+                    </option>
+                  );
                 })}
               </Form.Select>
               <Form.Text>
