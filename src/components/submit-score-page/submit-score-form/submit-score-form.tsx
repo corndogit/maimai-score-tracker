@@ -1,18 +1,9 @@
-import {
-  faFire,
-  faPlus,
-  faSave,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-import {
-  getChartByKey,
-  useChartStore,
-  useScoreDataStore,
-} from "../../../hooks/store";
+import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
 import {
@@ -21,10 +12,10 @@ import {
   ScoreFormValidation,
 } from "../../../models/score-form-validation";
 import { calculateMaxScore } from "../../../utils/score-tools";
+import { ScoreFormClearType } from "./score-form-clear-type/score-form-clear-type";
 import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgements";
 import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-percent-stats";
 import "./submit-score-form.css";
-import { ScoreFormClearType } from "./score-form-clear-type/score-form-clear-type";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -238,15 +229,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         <Col sm={3} xs={12}>
           <Button variant="danger" type="reset" className="w-100 mb-1">
             <FontAwesomeIcon icon={faTrash} /> Clear
-          </Button>
-        </Col>
-        <Col sm={3} xs={12}>
-          <Button
-            variant="danger"
-            className="w-100 mb-1"
-            onClick={useScoreDataStore().removeAllScores}
-          >
-            <FontAwesomeIcon icon={faFire} /> Reset
           </Button>
         </Col>
       </Row>

@@ -1,12 +1,13 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import HomePage from "./components/home-page/home-page";
-import { PageNav } from "./components/shared/navbar";
-import { ViewScoresPage } from "./components/view-scores-page/view-scores-page";
-import { SubmitScorePage } from "./components/submit-score-page/submit-score-page";
-import { ImportScoresPage } from "./components/import-scores-page/import-scores-page";
-import { ExportScoresPage } from "./components/export-scores-page/export-scores-page";
 import "./App.css";
+import { ExportScoresPage } from "./components/export-scores-page/export-scores-page";
+import HomePage from "./components/home-page/home-page";
+import { ImportScoresPage } from "./components/import-scores-page/import-scores-page";
+import { SettingsPage } from "./components/settings-page/settings-page";
+import { PageNav } from "./components/shared/navbar";
 import { PlaceholderPage } from "./components/shared/placeholder-page";
+import { SubmitScorePage } from "./components/submit-score-page/submit-score-page";
+import { ViewScoresPage } from "./components/view-scores-page/view-scores-page";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Route path="/view" element={<ViewScoresPage />} />
           <Route path="/export" element={<ExportScoresPage />} />
           <Route path="/import" element={<ImportScoresPage />} />
-          <Route path="/user/settings" element={<PlaceholderPage />} />
+          <Route path="/user/settings" element={<SettingsPage />} />
           <Route path="/user/logout" element={<PlaceholderPage />} />
           <Route path="/help" element={<PlaceholderPage />} />
           <Route path="/about" element={<PlaceholderPage />} />
