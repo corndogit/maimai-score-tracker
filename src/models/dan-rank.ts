@@ -22,3 +22,28 @@ export enum DanRank {
   SHINDAN_10 = "SHINDAN_10",
   SHINKAIDEN = "SHINKAIDEN",
 }
+
+export const DanRankDisplayName: Record<string, string> = {
+  DAN_1: "1st Dan",
+  DAN_2: "2nd Dan",
+  DAN_3: "3rd Dan",
+  DAN_4: "4th Dan",
+  DAN_5: "5th Dan",
+  DAN_6: "6th Dan",
+  DAN_7: "7th Dan",
+  DAN_8: "8th Dan",
+  DAN_9: "9th Dan",
+  DAN_10: "10th Dan",
+  KAIDEN: "Kaiden MG",
+  SHINDAN_1: "1st Shindan",
+  SHINDAN_2: "2nd Shindan",
+  SHINDAN_3: "3rd Shindan",
+  SHINDAN_4: "4th Shindan",
+  SHINDAN_5: "5th Shindan",
+  SHINDAN_6: "6th Shindan",
+  SHINDAN_7: "7th Shindan",
+  SHINDAN_8: "8th Shindan",
+  SHINDAN_9: "9th Shindan",
+  SHINDAN_10: "10th Shindan",
+  SHINKAIDEN: "Shinkaiden",
+};
