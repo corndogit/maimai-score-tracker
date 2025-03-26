@@ -25,7 +25,6 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 - [x] Import scores from a file
   - [ ] Stretch: score validation on imported scores
   - [ ] Stretch: De-duplicate scores
-- [ ] Persist scores in local storage
 - [ ] Homepage, Help & About
   - [ ] Stretch: add unit tests
 - [ ] Containerize
@@ -36,6 +35,7 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 User story: _As a MaiMai FiNALE player, I want somewhere to persist and view all of my scores and score history_
 
 - [ ] Create data types for user and settings
+- [ ] Persist scores and settings in local storage
 - [ ] Finish implementing a basic REST API for sending and receiving user, chart and score data
 - [ ] Add persistence to the back-end
 - [ ] Allow user to register and log-in
