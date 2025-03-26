@@ -59,11 +59,11 @@ export const ScoreFormJudgements = ({
             </Col>
           </Row>
           <Row>
-            <Col>
+            <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Perfect">
                 <Form.Control
-                  type="number"
                   min={0}
+                  defaultValue={0}
                   value={judgements.perfect}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -77,11 +77,11 @@ export const ScoreFormJudgements = ({
                 />
               </FloatingLabel>
             </Col>
-            <Col>
+            <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Great">
                 <Form.Control
-                  type="number"
                   min={0}
+                  defaultValue={0}
                   value={judgements.great}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -95,11 +95,11 @@ export const ScoreFormJudgements = ({
                 />
               </FloatingLabel>
             </Col>
-            <Col>
+            <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Good">
                 <Form.Control
-                  type="number"
                   min={0}
+                  defaultValue={0}
                   value={judgements.good}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -113,11 +113,11 @@ export const ScoreFormJudgements = ({
                 />
               </FloatingLabel>
             </Col>
-            <Col>
+            <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Miss">
                 <Form.Control
-                  type="number"
                   min={0}
+                  defaultValue={0}
                   value={judgements.miss}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
