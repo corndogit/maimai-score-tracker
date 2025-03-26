@@ -37,9 +37,9 @@ export const PageNav = () => {
               <NavDropdown.Item as={Link} to="/user/settings">
                 Settings
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/user/logout">
+              {/* <NavDropdown.Item as={Link} to="/user/logout">
                 Logout
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/help">
                 Help
