@@ -6,9 +6,5 @@ type BasePageProps = {
 };
 
 export const BasePage = ({ children }: BasePageProps) => {
-  return (
-    <Container fluid="xxl" className="p-5">
-      {children}
-    </Container>
-  );
+  return <Container className="p-5">{children}</Container>;
 };
