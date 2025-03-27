@@ -23,14 +23,12 @@ export const PageNav = () => {
             <Nav.Link as={Link} to="/view">
               View
             </Nav.Link>
-            <NavDropdown title="Scores" id="scores-dropdown">
-              <NavDropdown.Item as={Link} to="export">
-                Export
-              </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="import">
-                Import
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link as={Link} to="export">
+              Export
+            </Nav.Link>
+            <Nav.Link as={Link} to="import">
+              Import
+            </Nav.Link>
           </Nav>
           <Nav>
             <NavDropdown title="User" id="basic-nav-dropdown">
