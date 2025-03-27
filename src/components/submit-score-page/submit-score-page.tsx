@@ -13,10 +13,10 @@ export const SubmitScorePage = () => {
         subtitle="Manually submit a score from maimai FiNALE"
       />
       <Row>
-        <Col md={5}>
+        <Col xl={5} className="pe-5">
           <SubmitScoreForm addToSubmitScores={useScoreDataStore().addScore} />
         </Col>
-        <Col md={7}>
+        <Col>
           <SubmitScorePreview scoreData={useScoreDataStore().scoreData} />
         </Col>
       </Row>

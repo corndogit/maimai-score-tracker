@@ -66,7 +66,7 @@ export const ScoreFormPercentStats = ({
       controlId="submitScoreForm.PercentStats"
     >
       <Row>
-        <Col md={3}>
+        <Col md={3} sm={6}>
           <Form.Label>Percent</Form.Label>
           <Form.Control
             type="number"
@@ -82,7 +82,16 @@ export const ScoreFormPercentStats = ({
             }}
           />
         </Col>
-        <Col md={3}>
+        <Col md={3} sm={6}>
+          <Form.Label>Max %</Form.Label>
+          <Form.Control
+            className="readonly-percent-stat"
+            plaintext
+            readOnly
+            value={maxPercent}
+          />
+        </Col>
+        <Col md={3} sm={6}>
           <Form.Label>Grade</Form.Label>
           <Form.Control
             className="readonly-percent-stat"
@@ -92,16 +101,7 @@ export const ScoreFormPercentStats = ({
             value={handleGradeCalculation(percent ?? "")}
           />
         </Col>
-        <Col md={3}>
-          <Form.Label>Max Percent</Form.Label>
-          <Form.Control
-            className="readonly-percent-stat"
-            plaintext
-            readOnly
-            value={maxPercent}
-          />
-        </Col>
-        <Col md={3}>
+        <Col md={3} sm={6}>
           <Form.Label>Rating</Form.Label>
           <Form.Control
             className="readonly-percent-stat"
