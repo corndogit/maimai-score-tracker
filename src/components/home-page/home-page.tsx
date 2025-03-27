@@ -1,6 +1,7 @@
 import { Image, Stack } from "react-bootstrap";
 import { BasePage } from "../shared/base-page";
 import { NewTabLink } from "../shared/utils/new-tab-link";
+import derakkuma from "../../assets/derakkuma.png";
 
 const HomePage = () => {
   return (
@@ -9,7 +10,7 @@ const HomePage = () => {
       <Stack>
         <Image
           className="py-2 mx-auto"
-          src="src/assets/derakkuma.png"
+          src={derakkuma}
           style={{ maxWidth: "300px" }}
         />
         <div>
