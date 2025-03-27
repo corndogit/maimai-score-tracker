@@ -24,11 +24,12 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 - [x] Create a JSON payload of scores
 - [x] Import scores from a file
   - [ ] Stretch: score validation on imported scores
-  - [ ] Stretch: De-duplicate scores
-- [ ] Homepage, Help & About
+  - [x] ~~Stretch: De-duplicate scores~~ Won't do until phase 2
+- [x] Homepage
+- [ ] Help & About
+- [x] Containerize
+- [x] Deploy to Github Pages and make public
   - [ ] Stretch: add unit tests
-- [ ] Containerize
-- [ ] Deploy to Github Pages and make public
 
 ### Phase 2 AKA create the rest of the fucking backend
 
