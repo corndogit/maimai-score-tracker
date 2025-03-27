@@ -1,4 +1,5 @@
 export type ScoreData = {
+  uuid?: string;
   identifier: string;
   matchType: string; // "inGameID"
   lamp: string;

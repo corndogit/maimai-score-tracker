@@ -1,18 +1,24 @@
 import { DateTime } from "luxon";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Judgements, ScoreData } from "../../../models/score";
 import { calculateGrade } from "../../../utils/score-tools";
-import { getChartByKey, useChartStore } from "../../../hooks/store";
+import {
+  getChartByKey,
+  useChartStore,
+  useScoreDataStore,
+} from "../../../hooks/store";
 
-interface ScoreTableData {
+interface ScoresTableProps {
   scoreData: ScoreData[];
+  editable?: boolean;
 }
 
 const stringifyJudgements = (judgements: Judgements) => {
   return `${judgements.perfect}-${judgements.great}-${judgements.good}-${judgements.miss}`;
 };
 
-const ScoresTable = ({ scoreData }: ScoreTableData) => {
+const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
+  const scoreDataStore = useScoreDataStore();
   return scoreData && scoreData.length > 0 ? (
     <Table striped bordered responsive>
       <thead>
@@ -22,6 +28,7 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
           <td>Percent</td>
           <td>Judgements</td>
           <td>Date</td>
+          {editable && <td></td>}
         </tr>
       </thead>
       <tbody>
@@ -48,6 +55,16 @@ const ScoresTable = ({ scoreData }: ScoreTableData) => {
                   DateTime.DATETIME_MED
                 )}
               </td>
+              {editable && (
+                <td align="center" valign="middle">
+                  <Button
+                    variant="danger"
+                    onClick={() => scoreDataStore.removeScore(score.uuid)}
+                  >
+                    X
+                  </Button>
+                </td>
+              )}
             </tr>
           );
         })}

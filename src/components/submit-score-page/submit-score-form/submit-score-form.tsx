@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
 import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
+import { v4 as uuidv4 } from "uuid";
 import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
 import { Judgements, ScoreData } from "../../../models/score";
@@ -95,6 +96,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
       return;
     }
     const score: ScoreData = {
+      uuid: uuidv4(),
       identifier: selectedChart!.id.toString(),
       matchType: "inGameID",
       lamp: clearType,

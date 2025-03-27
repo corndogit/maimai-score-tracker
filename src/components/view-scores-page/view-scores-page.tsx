@@ -11,7 +11,7 @@ export const ViewScoresPage = () => {
         title="View Scores"
         subtitle="View and search for submitted scores"
       />
-      <ScoresTable scoreData={scores.scoreData} />
+      <ScoresTable scoreData={scores.scoreData} editable />
     </BasePage>
   );
 };

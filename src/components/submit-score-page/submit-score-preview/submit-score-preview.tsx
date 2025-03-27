@@ -8,7 +8,7 @@ interface ScorePreviewProps {
 export const SubmitScorePreview = ({ scoreData }: ScorePreviewProps) => {
   return (
     <>
-      <h4>Scores to be added</h4>
+      <h4>Scores added</h4>
       <ScoresTable scoreData={scoreData} />
     </>
   );
