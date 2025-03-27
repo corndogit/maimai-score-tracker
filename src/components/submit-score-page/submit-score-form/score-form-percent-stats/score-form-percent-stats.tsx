@@ -70,6 +70,7 @@ export const ScoreFormPercentStats = ({
           <Form.Label>Percent</Form.Label>
           <Form.Control
             type="number"
+            className="percent-input"
             min={0}
             max={maxPercent ? parseFloat(maxPercent) : 0}
             value={percent}

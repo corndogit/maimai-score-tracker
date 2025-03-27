@@ -2,6 +2,7 @@ import { Col, Container, FloatingLabel, Form, Row } from "react-bootstrap";
 import { Judgements } from "../../../../models/score";
 import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
+import "./score-form-judgements.css";
 
 type ScoreFormProps = {
   selectedChart?: Chart;
@@ -62,6 +63,7 @@ export const ScoreFormJudgements = ({
             <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Perfect">
                 <Form.Control
+                  className="judgement-input"
                   min={0}
                   value={judgements.perfect}
                   disabled={!selectedChart}
@@ -79,6 +81,7 @@ export const ScoreFormJudgements = ({
             <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Great">
                 <Form.Control
+                  className="judgement-input"
                   min={0}
                   value={judgements.great}
                   disabled={!selectedChart}
@@ -96,6 +99,7 @@ export const ScoreFormJudgements = ({
             <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Good">
                 <Form.Control
+                  className="judgement-input"
                   min={0}
                   value={judgements.good}
                   disabled={!selectedChart}
@@ -113,6 +117,7 @@ export const ScoreFormJudgements = ({
             <Col className="mb-2" xs={12} lg={3}>
               <FloatingLabel label="Miss">
                 <Form.Control
+                  className="judgement-input"
                   min={0}
                   value={judgements.miss}
                   disabled={!selectedChart}
