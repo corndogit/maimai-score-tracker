@@ -7,14 +7,35 @@ import {
   useChartStore,
   useScoreDataStore,
 } from "../../../hooks/store";
+import "./scores-table.css";
 
 interface ScoresTableProps {
   scoreData: ScoreData[];
   editable?: boolean;
 }
 
+const getGradeColor = (percent: number): string => {
+  if (percent >= 100.0) {
+    return "grade-sss";
+  }
+  if (percent >= 99.0) {
+    return "grade-ss";
+  }
+  if (percent >= 97.0) {
+    return "grade-s";
+  }
+  return "";
+};
+
 const stringifyJudgements = (judgements: Judgements) => {
-  return `${judgements.perfect}-${judgements.great}-${judgements.good}-${judgements.miss}`;
+  return (
+    <p className="styled-judgements">
+      <span style={{ color: "#91880b" }}>{judgements.perfect}</span>-
+      <span style={{ color: "#f36f83" }}>{judgements.great}</span>-
+      <span style={{ color: "#26a826" }}>{judgements.good}</span>-
+      <span style={{ color: "#4e4e4e" }}>{judgements.miss}</span>
+    </p>
+  );
 };
 
 const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
@@ -23,11 +44,11 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
     <Table striped bordered responsive>
       <thead>
         <tr>
-          <td>Song</td>
-          <td>Difficulty</td>
-          <td>Percent</td>
-          <td>Judgements</td>
-          <td>Date</td>
+          <td align="center">Song</td>
+          <td align="center">Difficulty</td>
+          <td align="center">Percent</td>
+          <td align="center">Judgements</td>
+          <td align="center">Date</td>
           {editable && <td></td>}
         </tr>
       </thead>
@@ -35,7 +56,7 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
         {scoreData.map((score) => {
           return (
             <tr key={`${score.identifier}-${score.timeAchieved}`}>
-              <td>
+              <td align="center" valign="middle">
                 {
                   getChartByKey(
                     useChartStore.getState(),
@@ -43,14 +64,27 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                   ).song
                 }
               </td>
-              <td>{score.difficulty}</td>
-              <td>
-                {calculateGrade(score.percent)}
+              <td
+                align="center"
+                valign="middle"
+                className={`difficulty-${score.difficulty.toLowerCase()}`}
+              >
+                {score.difficulty}
+              </td>
+              <td
+                align="center"
+                valign="middle"
+                style={{ fontWeight: 700 }}
+                className={getGradeColor(score.percent)}
+              >
+                <span>{calculateGrade(score.percent)}</span>
                 <br />
                 {score.percent}%
               </td>
-              <td>{stringifyJudgements(score.judgements)}</td>
-              <td>
+              <td align="center" valign="middle">
+                {stringifyJudgements(score.judgements)}
+              </td>
+              <td align="center" valign="middle">
                 {DateTime.fromMillis(score.timeAchieved).toLocaleString(
                   DateTime.DATETIME_MED
                 )}
