@@ -52,4 +52,4 @@ TBC
 
 ## Licensing
 
-TBC
+Licensed under [MIT License](./LICENSE)
