@@ -28,10 +28,9 @@ export const SettingsPage = () => {
               style={{ maxWidth: "300px" }}
               defaultValue={useScoreDataStore().danRank}
               onChange={(e) => {
-                const newLocal =
-                  DanRank[e.currentTarget.value as keyof typeof DanRank];
-                console.log(newLocal);
-                scoreDataStore.setDanRank(newLocal);
+                scoreDataStore.setDanRank(
+                  DanRank[e.currentTarget.value as keyof typeof DanRank]
+                );
               }}
             >
               <option value={undefined}>No Rank</option>
