@@ -81,6 +81,7 @@ export const ScoreFormClearType = ({
           (clearType !== "PLAYED" || "FAILED") && !validated.isClearTypeValid
         }
         disabled={!selectedChart}
+        value={clearType}
         onChange={(e) => {
           const value = e.currentTarget.value;
           setClearType(value);

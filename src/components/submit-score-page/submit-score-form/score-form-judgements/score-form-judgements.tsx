@@ -63,7 +63,6 @@ export const ScoreFormJudgements = ({
               <FloatingLabel label="Perfect">
                 <Form.Control
                   min={0}
-                  defaultValue={0}
                   value={judgements.perfect}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -81,7 +80,6 @@ export const ScoreFormJudgements = ({
               <FloatingLabel label="Great">
                 <Form.Control
                   min={0}
-                  defaultValue={0}
                   value={judgements.great}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -99,7 +97,6 @@ export const ScoreFormJudgements = ({
               <FloatingLabel label="Good">
                 <Form.Control
                   min={0}
-                  defaultValue={0}
                   value={judgements.good}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}
@@ -117,7 +114,6 @@ export const ScoreFormJudgements = ({
               <FloatingLabel label="Miss">
                 <Form.Control
                   min={0}
-                  defaultValue={0}
                   value={judgements.miss}
                   disabled={!selectedChart}
                   isValid={validated.isJudgementsValid}

@@ -1,7 +1,7 @@
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
-import { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
@@ -27,6 +27,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     useChartStore.getState().chartData
   );
   const [selectedChart, setSelectedChart] = useState<Chart>();
+  const [selectedChartKey, setSelectedChartKey] = useState<string>("");
   const [percent, setPercent] = useState<string>("");
   const [maxPercent, setMaxPercent] = useState<string>("0");
   const [rate, setRate] = useState<number>(0);
@@ -57,6 +58,19 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
       }
     }
     return filtered;
+  };
+
+  const handleSearchResultSelection = (key: string) => {
+    const chart = getChartByKey(useChartStore.getState(), key);
+    setSelectedChart(chart);
+    setSelectedChartKey(key);
+    if (chart) {
+      setMaxPercent(calculateMaxScore(chart).toPrecision(5));
+      setValidated({ ...validated, isChartSelectedValid: true });
+    } else {
+      setMaxPercent("0");
+      setValidated({ ...validated, isChartSelectedValid: false });
+    }
   };
 
   const handleSearch = (): void => {
@@ -100,6 +114,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
 
   const clearForm = () => {
     setSelectedChart(undefined);
+    setSelectedChartKey("");
     setSearchField("");
     setFilteredCharts(getAllCharts());
     setPercent("");
@@ -126,22 +141,12 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
             <Form.Select
               aria-label="Search results"
               required
-              onChange={(e) => {
-                const chart = getChartByKey(
-                  useChartStore.getState(),
-                  e.currentTarget.value
-                );
-                setSelectedChart(chart);
-                if (chart) {
-                  setMaxPercent(calculateMaxScore(chart).toPrecision(5));
-                  setValidated({ ...validated, isChartSelectedValid: true });
-                } else {
-                  setMaxPercent("0");
-                  setValidated({ ...validated, isChartSelectedValid: false });
-                }
-              }}
+              value={selectedChartKey}
+              onChange={(e) =>
+                handleSearchResultSelection(e.currentTarget.value)
+              }
             >
-              <option>
+              <option value={undefined}>
                 Select title... {`(${filteredCharts.length} results)`}
               </option>
               {filteredCharts.map((chart) => {
@@ -204,6 +209,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         <Form.Control
           type="datetime-local"
           required
+          value={dateObtained}
           onChange={(e) => {
             const value = e.currentTarget.value;
             setDateObtained(value);

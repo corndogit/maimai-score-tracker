@@ -14,7 +14,7 @@ const stringifyJudgements = (judgements: Judgements) => {
 
 const ScoresTable = ({ scoreData }: ScoreTableData) => {
   return scoreData && scoreData.length > 0 ? (
-    <Table striped bordered hover>
+    <Table striped bordered responsive>
       <thead>
         <tr>
           <td>Song</td>
