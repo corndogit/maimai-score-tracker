@@ -29,15 +29,22 @@ export const PageNav = () => {
             <Nav.Link as={Link} to="import">
               Import
             </Nav.Link>
+            <Nav.Link as={Link} to="/user/settings">
+              Settings
+            </Nav.Link>
+            <Nav.Link as={Link} to="/help">
+              Help
+            </Nav.Link>
           </Nav>
-          <Nav>
+          {/* Left in for future work once API is ready*/}
+          {/* <Nav> 
             <NavDropdown title="User" id="basic-nav-dropdown">
               <NavDropdown.Item as={Link} to="/user/settings">
                 Settings
               </NavDropdown.Item>
-              {/* <NavDropdown.Item as={Link} to="/user/logout">
+              <NavDropdown.Item as={Link} to="/user/logout">
                 Logout
-              </NavDropdown.Item> */}
+              </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item as={Link} to="/help">
                 Help
@@ -46,7 +53,7 @@ export const PageNav = () => {
                 About
               </NavDropdown.Item>
             </NavDropdown>
-          </Nav>
+          </Nav> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>
