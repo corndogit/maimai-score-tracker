@@ -1,7 +1,7 @@
 import { faPlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
-import React, { SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
