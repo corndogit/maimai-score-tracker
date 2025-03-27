@@ -17,10 +17,11 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
 - [x] Finish building UI skeleton
 - [x] Create seed data and mechanism to load in-memory
 - [x] Create data types for songs & scores
-- [x] Add logic to add a song to submit
+- [x] Add logic to add a song
   - [x] Stretch: calculate rating
 - [x] Add logic to view scores in a table
-- [x] View the currently pending scores
+- [x] View the current scores
+  - [ ] Stretch: search and filter in view scores page
 - [x] Create a JSON payload of scores
 - [x] Import scores from a file
   - [ ] Stretch: score validation on imported scores
