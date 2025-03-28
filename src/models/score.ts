@@ -21,7 +21,7 @@ export type BasicJudgements = {
 
 export type HitMeta = {
   fast?: number;
-  late?: number;
+  slow?: number;
 };
 
 export type AdvancedJudgements = BasicJudgements &
