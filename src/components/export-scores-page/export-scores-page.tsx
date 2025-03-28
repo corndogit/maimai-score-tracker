@@ -16,7 +16,12 @@ const createRequest = (
   scores: ScoreData[] = [],
   danRank?: DanRank
 ): TachiRequest => {
-  const mainBody: TachiRequest = { ...requestTemplate, scores };
+  const mainBody: TachiRequest = {
+    ...requestTemplate,
+    scores: scores.map((score) => {
+      return { ...score, uuid: undefined };
+    }),
+  };
   const classes = danRank
     ? { classes: { dan: danRank.toString() } }
     : undefined;
@@ -52,7 +57,7 @@ export const ExportScoresPage = () => {
       return () => clearTimeout(timeout);
     };
     copyJson();
-  }, [copiedState]);
+  }, [copiedState, requestJson]);
 
   return (
     <BasePage>
