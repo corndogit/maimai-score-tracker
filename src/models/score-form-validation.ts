@@ -16,8 +16,8 @@ export const defaultValidation: ScoreFormValidation = {
 
 export const getInvalidFields = (
   fields: ScoreFormValidation
-): Array<String> => {
-  let invalidFields = [
+): Array<string> => {
+  const invalidFields = [
     !fields.isChartSelectedValid ? "Chart Selected" : "",
     !fields.isPercentValid ? "Percent" : "",
     !fields.isClearTypeValid ? "Clear Type" : "",

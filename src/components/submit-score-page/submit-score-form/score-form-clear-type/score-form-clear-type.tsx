@@ -78,7 +78,11 @@ export const ScoreFormClearType = ({
         aria-label="Clear Type"
         required
         isInvalid={
-          (clearType !== "PLAYED" || "FAILED") && !validated.isClearTypeValid
+          !(
+            clearType === "PLAYED" ||
+            clearType === "FAILED" ||
+            validated.isClearTypeValid
+          )
         }
         disabled={!selectedChart}
         value={clearType}

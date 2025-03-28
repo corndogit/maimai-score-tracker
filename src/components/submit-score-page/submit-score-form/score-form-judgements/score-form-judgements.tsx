@@ -30,7 +30,7 @@ export const ScoreFormJudgements = ({
     value: string,
     judgementType: string
   ): void => {
-    let newJudgements = judgements;
+    const newJudgements = judgements;
     newJudgements[judgementType as keyof Judgements] = value
       ? parseInt(value)
       : 0;
