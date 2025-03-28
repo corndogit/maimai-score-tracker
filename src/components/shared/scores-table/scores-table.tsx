@@ -55,7 +55,7 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
       <tbody>
         {scoreData.map((score) => {
           return (
-            <tr key={`${score.identifier}-${score.timeAchieved}`}>
+            <tr key={score.uuid}>
               <td align="center" valign="middle">
                 {
                   getChartByKey(
