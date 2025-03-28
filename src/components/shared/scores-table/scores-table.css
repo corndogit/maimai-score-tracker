@@ -10,10 +10,12 @@ thead > tr > td {
 
 .grade-s {
   background-color: #bbb !important;
+  color:  #000!important;
 }
 
 .grade-ss {
   background-color: goldenrod !important;
+  color:  #000!important;
 }
 
 .grade-sss {
