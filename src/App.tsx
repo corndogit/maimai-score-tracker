@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import "./App.css";
 import { ExportScoresPage } from "./components/export-scores-page/export-scores-page";
@@ -8,8 +9,16 @@ import { PageNav } from "./components/shared/navbar";
 import { PlaceholderPage } from "./components/shared/placeholder-page";
 import { SubmitScorePage } from "./components/submit-score-page/submit-score-page";
 import { ViewScoresPage } from "./components/view-scores-page/view-scores-page";
+import { useThemeStore } from "./hooks/settings-store";
 
 function App() {
+  const themeStore = useThemeStore();
+  useLayoutEffect(() => {
+    document.documentElement.setAttribute(
+      "data-bs-theme",
+      themeStore.getTheme()
+    );
+  }, [themeStore]);
   return (
     <>
       <BrowserRouter>

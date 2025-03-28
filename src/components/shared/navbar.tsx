@@ -1,9 +1,15 @@
-import { faJugDetergent } from "@fortawesome/free-solid-svg-icons";
+import {
+  faJugDetergent,
+  faMoon,
+  faSun,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router";
+import { useThemeStore } from "../../hooks/settings-store";
 
 export const PageNav = () => {
+  const themeStore = useThemeStore();
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -34,6 +40,14 @@ export const PageNav = () => {
             </Nav.Link>
             <Nav.Link as={Link} to="/help">
               Help
+            </Nav.Link>
+          </Nav>
+          <Nav>
+            <Nav.Link className="p-0">
+              <FontAwesomeIcon
+                icon={themeStore.getTheme() === "light" ? faMoon : faSun}
+                onClick={themeStore.toggleTheme}
+              />
             </Nav.Link>
           </Nav>
           {/* Left in for future work once API is ready*/}
