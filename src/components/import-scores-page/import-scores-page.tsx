@@ -1,14 +1,22 @@
+import { useState } from "react";
 import { Alert, Button, Form } from "react-bootstrap";
+import { useChartStore, useScoreDataStore } from "../../hooks/store";
+import { ScoreData } from "../../models/score";
+import { TachiRequest } from "../../models/tachi-request";
+import { validateScoreImport } from "../../utils/parse-tools";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
-import { useState } from "react";
-import { TachiRequest } from "../../models/tachi-request";
-import { useScoreDataStore } from "../../hooks/store";
 
 const maxFileSize = 20 * 1024 * 1024; // 20MB
 const allowedExtensions = ["json", "txt"];
 
+type InvalidScore = {
+  score: ScoreData;
+  message: string;
+};
+
 export const ImportScoresPage = () => {
+  const chartIdentifiers = useChartStore().chartIdentifiers;
   const addScore = useScoreDataStore().addScore;
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -49,16 +57,40 @@ export const ImportScoresPage = () => {
   };
 
   const handleScoreImport = () => {
+    let scoreJson: TachiRequest;
     try {
-      const scoreJson: TachiRequest = JSON.parse(content);
-      scoreJson.scores.forEach((score) => addScore(score));
-      setSuccessMessage(`Added ${scoreJson.scores.length} entries to scores.`);
+      scoreJson = JSON.parse(content);
     } catch (error: unknown) {
       const message =
         error instanceof Error
-          ? error.message
+          ? `Error parsing the JSON file: ${error.message}`
           : "An unknown error occurred while parsing the file.";
       setErrorMessage(message);
+      return;
+    }
+    const validScores: ScoreData[] = [];
+    const invalidScores: InvalidScore[] = [];
+    scoreJson.scores.forEach((score) => {
+      const errors = validateScoreImport(score, chartIdentifiers);
+      if (errors.length > 0) {
+        invalidScores.push({
+          message: `Invalid fields: ${errors.join(", ")}`,
+          score,
+        });
+      } else {
+        validScores.push(score);
+      }
+    });
+    if (invalidScores.length > 0) {
+      console.error("Invalid scores, expand to see more:", invalidScores);
+      setErrorMessage(
+        `Import failed due to ${invalidScores.length} entries. (see console)`
+      );
+    } else if (validScores.length > 0) {
+      validScores.forEach((score) =>
+        addScore({ ...score, matchType: "inGameID" })
+      );
+      setSuccessMessage(`Added ${validScores.length} entries to scores.`);
     }
   };
 

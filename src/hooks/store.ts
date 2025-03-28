@@ -21,6 +21,7 @@ interface ScoreDataState {
 interface ChartState {
   chartDataRecord: Record<string, Chart>;
   chartData: Chart[];
+  chartIdentifiers: Set<string>;
 }
 
 export const useScoreDataStore = create<ScoreDataState>()(
@@ -54,8 +55,9 @@ export const useScoreDataStore = create<ScoreDataState>()(
 
 export const useChartStore = create<ChartState>(() => ({
   chartDataRecord,
-  chartData: Object.values(chartDataRecord).sort((a, b) =>
-    a.song.localeCompare(b.song)
+  chartData: Object.values(chartDataRecord),
+  chartIdentifiers: new Set(
+    Object.values(chartDataRecord).map((chart) => chart.id.toString())
   ),
 }));
 
