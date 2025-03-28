@@ -42,22 +42,39 @@ const handleFileDownload = (data: string) => {
 
 export const ExportScoresPage = () => {
   const [copiedState, setCopiedState] = useState(false);
+  const [copyPermitted, setCopyPermitted] = useState(false);
   const request: TachiRequest = createRequest(
     useScoreDataStore().scoreData,
     useScoreDataStore().danRank
   );
   const requestJson = JSON.stringify(request, null, 2);
 
+  const handleCopyJson = async (): Promise<void> => {
+    await navigator.clipboard.writeText(requestJson);
+    setCopiedState(true);
+  };
+
+  const hasCopyPermission = async (): Promise<boolean> => {
+    const clipboardReadPermission = await navigator.permissions.query({
+      name: "clipboard-read" as PermissionName,
+    });
+    return clipboardReadPermission.state === "granted";
+  };
+
+  // copy JSON button
   useEffect(() => {
-    const copyJson = async () => {
-      await navigator.clipboard.writeText(requestJson);
+    const startTimer = async () => {
       const timeout = setTimeout(() => {
         setCopiedState(false);
       }, 1000);
       return () => clearTimeout(timeout);
     };
-    copyJson();
-  }, [copiedState, requestJson]);
+    const permission = async () => setCopyPermitted(await hasCopyPermission());
+    if (copiedState) {
+      startTimer();
+    }
+    permission();
+  }, [copiedState]);
 
   return (
     <BasePage>
@@ -82,9 +99,9 @@ export const ExportScoresPage = () => {
         </Button>
         <Button
           variant={copiedState ? "success" : "secondary"}
-          disabled={copiedState}
+          disabled={copiedState || !copyPermitted}
           className="mt-2"
-          onClick={() => setCopiedState(true)}
+          onClick={handleCopyJson}
         >
           <FontAwesomeIcon icon={copiedState ? faCheck : faCopy} />
           {copiedState ? "Copied!" : "Copy JSON"}
