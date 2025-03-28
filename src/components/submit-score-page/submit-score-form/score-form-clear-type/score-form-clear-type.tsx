@@ -36,7 +36,7 @@ const validateClearType = (
   let valid = false;
   if (!clearType || clearType === "Select...") {
     valid = false;
-  } else if (clearType === "PLAYED" || clearType === "FAILED") {
+  } else if (clearType === "CLEAR" || clearType === "FAILED") {
     valid = true;
   } else if (clearType === "FULL COMBO") {
     valid = isFullCombo;
@@ -79,7 +79,7 @@ export const ScoreFormClearType = ({
         required
         isInvalid={
           !(
-            clearType === "PLAYED" ||
+            clearType === "CLEAR" ||
             clearType === "FAILED" ||
             validated.isClearTypeValid
           )
@@ -93,7 +93,7 @@ export const ScoreFormClearType = ({
         }}
       >
         <option value="FAILED">Failed</option>
-        <option value="PLAYED">Played</option>
+        <option value="CLEAR">Clear</option>
         <option value="FULL COMBO">Full Combo</option>
         <option value="ALL PERFECT">All Perfect</option>
         <option value="ALL PERFECT+">All Perfect+</option>
