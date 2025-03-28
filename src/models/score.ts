@@ -6,6 +6,7 @@ export type ScoreData = {
   difficulty: string;
   percent: number;
   judgements: Judgements;
+  hitMeta?: HitMeta;
   timeAchieved: number;
 };
 
@@ -18,14 +19,18 @@ export type BasicJudgements = {
   miss: number;
 };
 
-export type AdvancedJudgements = BasicJudgements & {
+export type HitMeta = {
   fast?: number;
   late?: number;
-  breakPerfect?: number;
-  breakGreat?: number;
-  breakGood?: number;
-  breakMiss?: number;
 };
+
+export type AdvancedJudgements = BasicJudgements &
+  HitMeta & {
+    breakPerfect?: number;
+    breakGreat?: number;
+    breakGood?: number;
+    breakMiss?: number;
+  };
 
 export type Colour = {
   name: string;
