@@ -40,6 +40,14 @@ const handleFileDownload = (data: string) => {
   element.click();
 };
 
+const renderRequestJson = (request: TachiRequest): string => {
+  const maxScores = 200;
+  if (request.scores.length > maxScores) {
+    return `Too many scores to preview! (total scores: ${request.scores.length}, limit: ${maxScores})\nPlease save the JSON to view all scores`;
+  }
+  return JSON.stringify(request, null, 2);
+};
+
 export const ExportScoresPage = () => {
   const [copiedState, setCopiedState] = useState(false);
   const [copyPermitted, setCopyPermitted] = useState(false);
@@ -47,7 +55,7 @@ export const ExportScoresPage = () => {
     useScoreDataStore().scoreData,
     useScoreDataStore().danRank
   );
-  const requestJson = JSON.stringify(request, null, 2);
+  const requestJson = renderRequestJson(request);
 
   const handleCopyJson = async (): Promise<void> => {
     await navigator.clipboard.writeText(requestJson);
