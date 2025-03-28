@@ -67,7 +67,9 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
               <td
                 align="center"
                 valign="middle"
-                className={`difficulty-${score.difficulty.toLowerCase()}`}
+                className={`difficulty-${score.difficulty
+                  .replace(":", "")
+                  .toLowerCase()}`}
               >
                 {score.difficulty}
               </td>
