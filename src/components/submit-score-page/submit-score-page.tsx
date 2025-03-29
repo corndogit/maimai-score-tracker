@@ -6,6 +6,7 @@ import { SubmitScoreForm } from "./submit-score-form/submit-score-form";
 import { SubmitScorePreview } from "./submit-score-preview/submit-score-preview";
 
 export const SubmitScorePage = () => {
+  const scoreData = useScoreDataStore().scoreData;
   return (
     <BasePage>
       <PageTitles
@@ -17,7 +18,12 @@ export const SubmitScorePage = () => {
           <SubmitScoreForm addToSubmitScores={useScoreDataStore().addScore} />
         </Col>
         <Col>
-          <SubmitScorePreview scoreData={useScoreDataStore().scoreData} />
+          <SubmitScorePreview
+            scoreData={[...scoreData]
+              .sort((a, b) => a.timeAchieved - b.timeAchieved)
+              .reverse()
+              .slice(0, 10)}
+          />
         </Col>
       </Row>
     </BasePage>

@@ -6,7 +6,10 @@ import { useState } from "react";
 import { Col, Container, Pagination, Row } from "react-bootstrap";
 
 export const ViewScoresPage = () => {
-  const scores = useScoreDataStore().scoreData;
+  const scoreDataStore = useScoreDataStore();
+  const scores = [...scoreDataStore.scoreData].sort(
+    (a, b) => b.timeAchieved - a.timeAchieved
+  );
   const pageSize = 10;
   const buttonsPerPagination = 5;
   const pageCount = Math.ceil(scores.length / pageSize);

@@ -12,10 +12,13 @@ export const SubmitScorePreview = ({ scoreData }: ScorePreviewProps) => {
     <>
       <h4>Scores previously added</h4>
       <ScoresTable scoreData={scoreData.slice(0, displayLimit)} />
-      <p>
-        Showing {Math.min(totalScores, displayLimit)} out of {totalScores} score
-        {totalScores !== 1 && "s"}.
-      </p>
+      {totalScores > displayLimit && (
+        <p>
+          Showing {Math.min(totalScores, displayLimit)} out of {totalScores}{" "}
+          score
+          {totalScores !== 1 && "s"}.
+        </p>
+      )}
     </>
   );
 };
