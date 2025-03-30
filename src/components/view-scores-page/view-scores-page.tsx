@@ -53,24 +53,28 @@ export const ViewScoresPage = () => {
         scoreData={scores.slice(pageSize * (page - 1), pageSize * page)}
         editable
       />
-      <h3>Page</h3>
-      <Pagination>
-        <Container>
-          {[...Array(Math.ceil(pageCount / buttonsPerPagination)).keys()]
-            .map((i) => i * buttonsPerPagination + 1)
-            .map((rowNum) => {
-              return (
-                <Row className="m-0" xs={"6"} key={`row-${rowNum}`}>
-                  {createPaginationItems(
-                    rowNum,
-                    pageCount,
-                    buttonsPerPagination
-                  )}
-                </Row>
-              );
-            })}
-        </Container>
-      </Pagination>
+      {scores?.length > 0 && (
+        <>
+          <h3>Page</h3>
+          <Pagination>
+            <Container>
+              {[...Array(Math.ceil(pageCount / buttonsPerPagination)).keys()]
+                .map((i) => i * buttonsPerPagination + 1)
+                .map((rowNum) => {
+                  return (
+                    <Row className="m-0" xs={"6"} key={`row-${rowNum}`}>
+                      {createPaginationItems(
+                        rowNum,
+                        pageCount,
+                        buttonsPerPagination
+                      )}
+                    </Row>
+                  );
+                })}
+            </Container>
+          </Pagination>
+        </>
+      )}
     </BasePage>
   );
 };
