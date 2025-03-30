@@ -1,16 +1,17 @@
-import { Button, Form } from "react-bootstrap";
-import { BasePage } from "../shared/base-page";
-import { PageTitles } from "../shared/page-titles";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
-import "./export-scores-page.css";
-import { requestTemplate, TachiRequest } from "../../models/tachi-request";
-import { ScoreData } from "../../models/score";
-import { useScoreDataStore } from "../../hooks/store";
-import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateTime } from "luxon";
+import { useEffect, useState } from "react";
+import { Button, Form, Image } from "react-bootstrap";
+import tachiIcon from "../../assets/tachi.png";
+import { useScoreDataStore } from "../../hooks/store";
 import { DanRank } from "../../models/dan-rank";
+import { ScoreData } from "../../models/score";
+import { requestTemplate, TachiRequest } from "../../models/tachi-request";
+import { BasePage } from "../shared/base-page";
+import { PageTitles } from "../shared/page-titles";
+import "./export-scores-page.css";
 
 const createRequest = (
   scores: ScoreData[] = [],
@@ -108,11 +109,15 @@ export const ExportScoresPage = () => {
         <Button
           variant={copiedState ? "success" : "secondary"}
           disabled={copiedState || !copyPermitted}
-          className="mt-2"
+          className="mt-2 me-2"
           onClick={handleCopyJson}
         >
           <FontAwesomeIcon icon={copiedState ? faCheck : faCopy} />
           {copiedState ? "Copied!" : "Copy JSON"}
+        </Button>
+        <Button disabled className="mt-2 kamaitachi">
+          <Image src={tachiIcon} />
+          Export to Kamaitachi
         </Button>
       </Form>
     </BasePage>

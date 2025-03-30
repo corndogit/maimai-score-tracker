@@ -1,3 +1,20 @@
 button > svg {
   margin-right: 5px;
 }
+
+.kamaitachi {
+  color: #fff !important;
+  background-color: #e61c6e !important;
+  border-color: #e61c6e !important;
+}
+
+.kamaitachi:hover {
+  background-color: #c51c60 !important;
+  border-color: #c51c60 !important;
+}
+
+.kamaitachi img {
+  max-height: 32px;
+  max-width: 32px;
+  padding-right: 5px;
+}
