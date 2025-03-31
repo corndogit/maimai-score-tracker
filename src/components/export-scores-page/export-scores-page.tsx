@@ -12,6 +12,7 @@ import { requestTemplate, TachiRequest } from "../../models/tachi-request";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
 import "./export-scores-page.css";
+import { ExportTachiModal } from "./export-tachi-modal/export-tachi-modal";
 
 const createRequest = (
   scores: ScoreData[] = [],
@@ -52,6 +53,7 @@ const renderRequestJson = (request: TachiRequest): string => {
 export const ExportScoresPage = () => {
   const [copiedState, setCopiedState] = useState(false);
   const [copyPermitted, setCopyPermitted] = useState(false);
+  const [showTachiExport, setShowTachiExport] = useState(false);
   const request: TachiRequest = createRequest(
     useScoreDataStore().scoreData,
     useScoreDataStore().danRank
@@ -61,6 +63,14 @@ export const ExportScoresPage = () => {
   const handleCopyJson = async (): Promise<void> => {
     await navigator.clipboard.writeText(requestJson);
     setCopiedState(true);
+  };
+
+  const handleShowExport = (): void => {
+    setShowTachiExport(true);
+  };
+
+  const handleCancelExport = (): void => {
+    setShowTachiExport(false);
   };
 
   const hasCopyPermission = async (): Promise<boolean> => {
@@ -115,10 +125,15 @@ export const ExportScoresPage = () => {
           <FontAwesomeIcon icon={copiedState ? faCheck : faCopy} />
           {copiedState ? "Copied!" : "Copy JSON"}
         </Button>
-        <Button disabled className="mt-2 kamaitachi">
+        <Button className="mt-2 kamaitachi" onClick={handleShowExport}>
           <Image src={tachiIcon} />
           Export to Kamaitachi
         </Button>
+        <ExportTachiModal
+          request={request}
+          showModal={showTachiExport}
+          handleClose={handleCancelExport}
+        ></ExportTachiModal>
       </Form>
     </BasePage>
   );
