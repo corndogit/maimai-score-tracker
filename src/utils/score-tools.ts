@@ -1,4 +1,12 @@
 import { Chart } from "../models/chart";
+import { Judgements } from "../models/score";
+import {
+  isAllPerfect,
+  isAllPerfectPlus,
+  isClear,
+  isFailed,
+  isFullCombo,
+} from "./parse-tools";
 
 export const calculateGrade = (percent: number): string => {
   if (percent >= 100.0) {
@@ -40,4 +48,28 @@ const calculateMaxRawScore = (chart: Chart): number => {
 export const calculateMaxScore = (chart: Chart): number => {
   const rawScore = calculateMaxRawScore(chart);
   return (rawScore / (rawScore - chart.break * 100)) * 100;
+};
+
+export const calculateClearType = (
+  judgements: Judgements,
+  percent: string,
+  maxPercent: string,
+  selectedChart?: Chart
+): string => {
+  if (isAllPerfectPlus(judgements, selectedChart, percent, maxPercent)) {
+    return "ALL PERFECT+";
+  }
+  if (isAllPerfect(judgements, selectedChart)) {
+    return "ALL PERFECT";
+  }
+  if (isFullCombo(judgements, selectedChart)) {
+    return "FULL COMBO";
+  }
+  if (isClear(percent)) {
+    return "CLEAR";
+  }
+  if (isFailed(percent)) {
+    return "FAILED";
+  }
+  return "";
 };
