@@ -3,14 +3,19 @@ import { createJSONStorage, persist } from "zustand/middleware";
 
 type ThemePreference = "light" | "dark";
 
-interface SettingsState {
+interface ThemeState {
   themePreference: ThemePreference;
   getTheme: () => ThemePreference;
   setTheme: (theme: ThemePreference) => void;
   toggleTheme: () => void;
 }
 
-export const useThemeStore = create<SettingsState>()(
+interface UserSettingsState {
+  tachiApiKey: string;
+  setApiKey: (key: string) => void;
+}
+
+export const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
       themePreference: "light" as ThemePreference,
@@ -24,6 +29,19 @@ export const useThemeStore = create<SettingsState>()(
     }),
     {
       name: "preferred-theme",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);
+
+export const useUserSettingsStore = create<UserSettingsState>()(
+  persist(
+    (set, get) => ({
+      tachiApiKey: "",
+      setApiKey: (key: string) => set({ ...get(), tachiApiKey: key }),
+    }),
+    {
+      name: "user-settings",
       storage: createJSONStorage(() => localStorage),
     }
   )
