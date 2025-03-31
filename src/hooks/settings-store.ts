@@ -13,6 +13,7 @@ interface ThemeState {
 interface UserSettingsState {
   tachiApiKey: string;
   setApiKey: (key: string) => void;
+  isApiKeySet: () => boolean;
 }
 
 export const useThemeStore = create<ThemeState>()(
@@ -39,6 +40,7 @@ export const useUserSettingsStore = create<UserSettingsState>()(
     (set, get) => ({
       tachiApiKey: "",
       setApiKey: (key: string) => set({ ...get(), tachiApiKey: key }),
+      isApiKeySet: () => get().tachiApiKey.trim().length > 0,
     }),
     {
       name: "user-settings",

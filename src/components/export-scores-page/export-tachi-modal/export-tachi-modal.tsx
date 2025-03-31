@@ -3,6 +3,7 @@ import { TachiRequest } from "../../../models/tachi-request";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useUserSettingsStore } from "../../../hooks/settings-store";
+import { Link } from "react-router";
 
 type ExportTachiModalProps = {
   request: TachiRequest;
@@ -17,14 +18,14 @@ export const ExportTachiModal = ({
   const [success, setSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [triggerRequest, setTriggerRequest] = useState(false);
-  const tachiApiKey = useUserSettingsStore().tachiApiKey;
+  const settingsStore = useUserSettingsStore();
 
   useEffect(() => {
     const handleExport = async () => {
       const tachiImportEndpoint =
         "https://kamai.tachi.ac/ir/direct-manual/import";
       const headers = {
-        Authorization: `Bearer ${tachiApiKey}`,
+        Authorization: `Bearer ${settingsStore.tachiApiKey}`,
         "X-User-Intent": "ir/direct-manual",
       };
       await axios
@@ -43,7 +44,7 @@ export const ExportTachiModal = ({
       handleExport();
     }
     setTriggerRequest(false);
-  }, [triggerRequest, request, handleClose, tachiApiKey]);
+  }, [triggerRequest, request, handleClose, settingsStore.tachiApiKey]);
 
   return (
     <Modal show={showModal} onHide={handleClose}>
@@ -55,7 +56,7 @@ export const ExportTachiModal = ({
           Failed to export scores: {errorMessage}
         </Alert>
       )}
-      {!success ? (
+      {!success && settingsStore.isApiKeySet() ? (
         <>
           <Modal.Body>
             You are about to export <strong>{request.scores.length}</strong>{" "}
@@ -73,7 +74,18 @@ export const ExportTachiModal = ({
         </>
       ) : (
         <>
-          <Modal.Body>Scores successfully submitted!</Modal.Body>
+          <Modal.Body>
+            {success ? (
+              <>Scores successfully submitted!</>
+            ) : (
+              <>
+                Your API key is not set, please go to{" "}
+                <Link to={"/user/settings"}>settings</Link> and set it. Please
+                refer to <Link to={"/help"}>help</Link> to find out how to
+                create an API key in Kamaitachi.
+              </>
+            )}
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
