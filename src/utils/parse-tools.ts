@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
-import { allowedDifficulties, allowedLamps } from "../models/chart";
-import { ScoreData } from "../models/score";
+import { allowedDifficulties, allowedLamps, Chart } from "../models/chart";
+import { Judgements, ScoreData } from "../models/score";
 
 export const isNumeric = (value?: number): boolean => {
   return value !== undefined && !isNaN(value) && isFinite(value);
@@ -49,6 +49,48 @@ const isValidTimeAchieved = (score: ScoreData): boolean => {
   );
 };
 
+export const isClear = (percent: string): boolean => {
+  return parseFloat(percent) >= 80.0;
+};
+
+export const isFailed = (percent: string): boolean => {
+  return parseFloat(percent) < 80.0;
+};
+
+export const isFullCombo = (
+  judgements: Judgements,
+  chart: Chart | undefined
+) => {
+  return (
+    judgements.perfect +
+      judgements.great +
+      judgements.good -
+      judgements.miss ===
+    chart?.notes
+  );
+};
+
+export const isAllPerfect = (
+  judgements: Judgements,
+  selectedChart: Chart | undefined
+) => {
+  return (
+    judgements.perfect === selectedChart?.notes &&
+    judgements.great === 0 &&
+    judgements.good === 0 &&
+    judgements.miss === 0
+  );
+};
+
+export const isAllPerfectPlus = (
+  judgements: Judgements,
+  selectedChart: Chart | undefined,
+  percent: string | number,
+  maxPercent: string | number
+) => {
+  return isAllPerfect(judgements, selectedChart) && percent === maxPercent;
+};
+
 export const validateScoreImport = (
   score: ScoreData,
   chartIdentifiers: Set<string>
@@ -78,4 +120,27 @@ export const validateScoreImport = (
     errors.push("timeAchieved");
   }
   return errors;
+};
+
+export const validateClearType = (
+  clearType: string,
+  judgements: Judgements,
+  percent: string,
+  maxPercent: string,
+  selectedChart?: Chart
+): boolean => {
+  switch (clearType) {
+    case "FAILED":
+      return isFailed(percent);
+    case "CLEAR":
+      return isClear(percent);
+    case "FULL COMBO":
+      return isFullCombo(judgements, selectedChart);
+    case "ALL PERFECT":
+      return isAllPerfect(judgements, selectedChart);
+    case "ALL PERFECT+":
+      return isAllPerfectPlus(judgements, selectedChart, percent, maxPercent);
+    default:
+      return false;
+  }
 };

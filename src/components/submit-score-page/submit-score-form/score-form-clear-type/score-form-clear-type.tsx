@@ -2,6 +2,7 @@ import { Form } from "react-bootstrap";
 import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
 import { Judgements } from "../../../../models/score";
+import { validateClearType } from "../../../../utils/parse-tools";
 
 type ScoreFormClearTypeProps = {
   clearType: string;
@@ -12,40 +13,6 @@ type ScoreFormClearTypeProps = {
   selectedChart?: Chart;
   setClearType: (value: string) => void;
   setValidated: (validation: ScoreFormValidation) => void;
-};
-
-const validateClearType = (
-  clearType: string,
-  judgements: Judgements,
-  percent: string,
-  maxPercent: string,
-  selectedChart?: Chart
-): boolean => {
-  const isFullCombo =
-    judgements.perfect +
-      judgements.great +
-      judgements.good -
-      judgements.miss ===
-    selectedChart?.notes;
-  const isAllPerfect =
-    judgements.perfect === selectedChart?.notes &&
-    judgements.great === 0 &&
-    judgements.good === 0 &&
-    judgements.miss === 0;
-
-  let valid = false;
-  if (!clearType || clearType === "Select...") {
-    valid = false;
-  } else if (clearType === "CLEAR" || clearType === "FAILED") {
-    valid = true;
-  } else if (clearType === "FULL COMBO") {
-    valid = isFullCombo;
-  } else if (clearType === "ALL PERFECT+") {
-    valid = isAllPerfect && percent === maxPercent;
-  } else {
-    valid = isAllPerfect;
-  }
-  return valid;
 };
 
 export const ScoreFormClearType = ({
