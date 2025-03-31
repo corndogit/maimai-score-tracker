@@ -3,26 +3,24 @@ import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
 import { Judgements } from "../../../../models/score";
 import { validateClearType } from "../../../../utils/parse-tools";
+import { calculateClearType } from "../../../../utils/score-tools";
+import "./score-form-clear-type.css";
 
 type ScoreFormClearTypeProps = {
-  clearType: string;
   validated: ScoreFormValidation;
   judgements: Judgements;
   percent: string;
   maxPercent: string;
   selectedChart?: Chart;
-  setClearType: (value: string) => void;
   setValidated: (validation: ScoreFormValidation) => void;
 };
 
 export const ScoreFormClearType = ({
-  clearType,
   validated,
   judgements,
   percent,
   maxPercent,
   selectedChart,
-  setClearType,
   setValidated,
 }: ScoreFormClearTypeProps) => {
   const setValidatedClearType = (clearType: string): void => {
@@ -38,33 +36,27 @@ export const ScoreFormClearType = ({
     });
   };
 
+  const clearType = calculateClearType(
+    judgements,
+    percent,
+    maxPercent,
+    selectedChart
+  );
+
+  const clearTypeCssClass = `clear-type-display-${clearType
+    .toLowerCase()
+    .replace(" ", "-")
+    .replace("+", "-plus")}`;
+
   return (
     <Form.Group className="mb-3" controlId="submitScoreForm.ClearTypeSelect">
       <Form.Label>Clear Type</Form.Label>
-      <Form.Select
-        aria-label="Clear Type"
-        required
-        isInvalid={
-          !(
-            clearType === "CLEAR" ||
-            clearType === "FAILED" ||
-            validated.isClearTypeValid
-          )
-        }
-        disabled={!selectedChart}
-        value={clearType}
-        onChange={(e) => {
-          const value = e.currentTarget.value;
-          setClearType(value);
-          setValidatedClearType(value);
-        }}
+      <Form.Text
+        className={`clear-type-display ${clearTypeCssClass}`}
+        onChange={() => setValidatedClearType(clearType)}
       >
-        <option value="FAILED">Failed</option>
-        <option value="CLEAR">Clear</option>
-        <option value="FULL COMBO">Full Combo</option>
-        <option value="ALL PERFECT">All Perfect</option>
-        <option value="ALL PERFECT+">All Perfect+</option>
-      </Form.Select>
+        {clearType}
+      </Form.Text>
     </Form.Group>
   );
 };

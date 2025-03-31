@@ -191,18 +191,19 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         validated={validated}
         judgements={judgements}
         selectedChart={selectedChart}
+        percent={percent}
+        maxPercent={maxPercent}
+        setClearType={setClearType}
         setJudgements={setJudgements}
         setValidated={setValidated}
       />
 
       <ScoreFormClearType
-        clearType={clearType}
         validated={validated}
         judgements={judgements}
         percent={percent}
         maxPercent={maxPercent}
         selectedChart={selectedChart}
-        setClearType={setClearType}
         setValidated={setValidated}
       />
 

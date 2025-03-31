@@ -45,6 +45,12 @@ const calculateMaxRawScore = (chart: Chart): number => {
   );
 };
 
+const sumJudgements = (judgements: Judgements): number => {
+  return (
+    judgements.perfect + judgements.great + judgements.good + judgements.miss
+  );
+};
+
 export const calculateMaxScore = (chart: Chart): number => {
   const rawScore = calculateMaxRawScore(chart);
   return (rawScore / (rawScore - chart.break * 100)) * 100;
@@ -65,11 +71,11 @@ export const calculateClearType = (
   if (isFullCombo(judgements, selectedChart)) {
     return "FULL COMBO";
   }
-  if (isClear(percent)) {
+  if (isClear(percent) && sumJudgements(judgements) === selectedChart?.notes) {
     return "CLEAR";
   }
-  if (isFailed(percent)) {
+  if (isFailed(percent) && sumJudgements(judgements) === selectedChart?.notes) {
     return "FAILED";
   }
-  return "";
+  return "...";
 };

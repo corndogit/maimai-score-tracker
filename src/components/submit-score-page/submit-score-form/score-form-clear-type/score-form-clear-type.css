@@ -1,0 +1,37 @@
+.clear-type-display {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: fit-content;
+}
+
+.clear-type-display-failed {
+    color: #fff;
+    background-color: #6e1c1c;
+    
+}
+
+.clear-type-display-clear {
+    color: #fff;
+    background-color: #006110;
+    
+}
+
+.clear-type-display-full-combo {
+    color: #fff;
+    background-color: #0e8585;
+    
+}
+
+.clear-type-display-all-perfect {
+    color: #fff;
+    background-color: #922e92;
+    
+}
+
+.clear-type-display-all-perfect-plus {
+    color: #fff;
+    background-color: #855b0e;
+}

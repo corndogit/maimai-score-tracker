@@ -3,11 +3,15 @@ import { Judgements } from "../../../../models/score";
 import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
 import "./score-form-judgements.css";
+import { calculateClearType } from "../../../../utils/score-tools";
 
 type ScoreFormProps = {
   selectedChart?: Chart;
   validated: ScoreFormValidation;
   judgements: Judgements;
+  percent: string;
+  maxPercent: string;
+  setClearType: (value: string) => void;
   setJudgements: (judgements: Judgements) => void;
   setValidated: (validation: ScoreFormValidation) => void;
 };
@@ -22,6 +26,9 @@ export const ScoreFormJudgements = ({
   validated,
   judgements,
   selectedChart,
+  percent,
+  maxPercent,
+  setClearType,
   setJudgements,
   setValidated,
 }: ScoreFormProps) => {
@@ -36,6 +43,9 @@ export const ScoreFormJudgements = ({
       : 0;
     setJudgements(newJudgements);
     validateJudgements(newJudgements);
+    setClearType(
+      calculateClearType(newJudgements, percent, maxPercent, selectedChart)
+    );
   };
 
   const validateJudgements = (judgements: Judgements): void => {
