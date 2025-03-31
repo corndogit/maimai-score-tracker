@@ -6,10 +6,14 @@ import { useScoreDataStore } from "../../hooks/store";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFire } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import { useUserSettingsStore } from "../../hooks/settings-store";
 
 export const SettingsPage = () => {
   const scoreDataStore = useScoreDataStore();
+  const settingsStore = useUserSettingsStore();
   const [show, setShow] = useState(false);
+  const [newApiKey, setNewApiKey] = useState(settingsStore.tachiApiKey);
+  const [isKeyChanged, setIsKeyChanged] = useState(false);
 
   const handleShow = () => setShow(true);
   const handleCancel = () => setShow(false);
@@ -17,11 +21,19 @@ export const SettingsPage = () => {
     scoreDataStore.removeAllScores();
     setShow(false);
   };
+  const handleChangeNewApiKey = (value: string) => {
+    setNewApiKey(value);
+    setIsKeyChanged(false);
+  };
+  const handleSetApiKey = () => {
+    settingsStore.setApiKey(newApiKey);
+    setIsKeyChanged(true);
+  };
   return (
     <BasePage>
       <PageTitles title={"Settings"} />
       <Form>
-        <Row className="mb-5">
+        <Row className="mb-2">
           <Col xs={12}>
             <Form.Label>Highest Course (Dan Rank)</Form.Label>
             <Form.Select
@@ -45,6 +57,34 @@ export const SettingsPage = () => {
             <Form.Text>
               Will be included in the score JSON and used by Kamaitachi
             </Form.Text>
+          </Col>
+        </Row>
+        <Row className="mb-5">
+          <Col xl={12}>
+            <Form.Label>Tachi API Key</Form.Label>
+            <Form.Control
+              className="mb-2"
+              type="password"
+              style={{ maxWidth: "300px" }}
+              value={newApiKey}
+              onChange={(e) => handleChangeNewApiKey(e.currentTarget.value)}
+            ></Form.Control>
+            <Button
+              className="me-2"
+              type="button"
+              disabled={isKeyChanged}
+              variant={isKeyChanged ? "success" : "primary"}
+              onClick={handleSetApiKey}
+            >
+              {isKeyChanged ? "Saved" : "Save"}
+            </Button>
+            <Button
+              type="button"
+              variant="secondary"
+              onClick={(e) => handleChangeNewApiKey(e.currentTarget.value)}
+            >
+              Clear
+            </Button>
           </Col>
         </Row>
         <Row xl={6}>
