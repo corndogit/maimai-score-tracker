@@ -125,7 +125,15 @@ export const ExportScoresPage = () => {
           <FontAwesomeIcon icon={copiedState ? faCheck : faCopy} />
           {copiedState ? "Copied!" : "Copy JSON"}
         </Button>
-        <Button className="mt-2 kamaitachi" onClick={handleShowExport}>
+        <Button
+          className="mt-2 kamaitachi"
+          disabled={request.scores.length === 0}
+          onClick={() => {
+            if (request.scores.length > 0) {
+              handleShowExport();
+            }
+          }}
+        >
           <Image src={tachiIcon} />
           Export to Kamaitachi
         </Button>
