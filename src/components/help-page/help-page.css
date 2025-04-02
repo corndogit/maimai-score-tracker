@@ -1,0 +1,12 @@
+#contents-links {
+    border: 2px solid var(--bs-secondary-bg);
+    border-radius: 5px;
+    padding: 12px;
+    max-width: fit-content;
+    margin-bottom: 2rem;
+    background-color: var(--bs-secondary-bg-subtle);
+}
+
+main a {
+    color: var(--bs-body-color)
+}
