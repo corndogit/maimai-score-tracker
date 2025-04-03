@@ -24,10 +24,10 @@ User story: _As a MaiMai FiNALE player, I want to add all my scores from a sessi
   - [ ] Stretch: search and filter in view scores page
 - [x] Create a JSON payload of scores
 - [x] Import scores from a file
-  - [ ] Stretch: score validation on imported scores
+  - [x] Stretch: score validation on imported scores
   - [x] ~~Stretch: De-duplicate scores~~ Won't do until phase 2
 - [x] Homepage
-- [ ] Help & About
+- [x] Help & About
 - [x] Containerize
 - [x] Deploy to Github Pages and make public
   - [ ] Stretch: add unit tests
