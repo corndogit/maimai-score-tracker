@@ -1,3 +1,4 @@
+import { Accordion } from "react-bootstrap";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
 import { NewTabLink } from "../shared/utils/new-tab-link";
@@ -67,14 +68,30 @@ export const HelpPage = () => {
             directly to Kamaitachi if your API key is set.
           </p>
         </HelpPageSection>
-        <HelpPageSection
-          id="score-import"
-          title="Tachi score import"
-        ></HelpPageSection>
-        <HelpPageSection
-          id="tachi-api-key"
-          title="Tachi API key setup"
-        ></HelpPageSection>
+        <HelpPageSection id="score-import" title="Tachi score import">
+          <p>
+            It is possible to import scores from an existing JSON that conforms
+            to the format used by Kamaitachi.
+          </p>
+          <Accordion className="mb-4">
+            <Accordion.Item eventKey="0-0">
+              <Accordion.Header>Click to see instructions</Accordion.Header>
+              <Accordion.Body>laa laa</Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </HelpPageSection>
+        <HelpPageSection id="tachi-api-key" title="Tachi API key setup">
+          <p>
+            By setting an API key, you can export your scores directly to
+            Kamaitachi.
+          </p>
+          <Accordion className="mb-4">
+            <Accordion.Item eventKey="1-0">
+              <Accordion.Header>Click to see instructions</Accordion.Header>
+              <Accordion.Body>laa laa</Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </HelpPageSection>
         <HelpPageSection id="feedback" title="Feedback & Contributing">
           <p>
             This tool is a work-in-progress and still in development. Any
