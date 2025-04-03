@@ -7,6 +7,10 @@
     background-color: var(--bs-secondary-bg-subtle);
 }
 
-main a {
+#contents-links a {
     color: var(--bs-body-color)
+}
+
+#tachi-api-key li {
+    margin-bottom: 1rem;
 }

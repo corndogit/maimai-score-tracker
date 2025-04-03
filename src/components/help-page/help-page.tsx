@@ -1,8 +1,13 @@
-import { Accordion } from "react-bootstrap";
+import { Accordion, Image } from "react-bootstrap";
+import { Link } from "react-router";
+import step1 from "../../assets/help/api-key/step1.png";
+import step2 from "../../assets/help/api-key/step2.png";
+import step3 from "../../assets/help/api-key/step3.png";
+import exampleImport from "../../data/example_import.json";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
 import { NewTabLink } from "../shared/utils/new-tab-link";
-import { HelpPageSection } from "./help-page-section";
+import { HelpPageSection } from "./help-page-section/help-page-section";
 import "./help-page.css";
 
 export const HelpPage = () => {
@@ -70,15 +75,39 @@ export const HelpPage = () => {
         </HelpPageSection>
         <HelpPageSection id="score-import" title="Tachi score import">
           <p>
-            It is possible to import scores from an existing JSON that conforms
-            to the format used by Kamaitachi.
+            It is possible to <Link to="/import">import scores</Link> from an
+            existing JSON file that conforms to the format used by Kamaitachi.
           </p>
+
           <Accordion className="mb-4">
             <Accordion.Item eventKey="0-0">
-              <Accordion.Header>Click to see instructions</Accordion.Header>
-              <Accordion.Body>laa laa</Accordion.Body>
+              <Accordion.Header>Click to see JSON example</Accordion.Header>
+              <Accordion.Body>
+                <pre>
+                  <code>{JSON.stringify({ ...exampleImport }, null, 2)}</code>
+                </pre>
+              </Accordion.Body>
             </Accordion.Item>
           </Accordion>
+          <ul>
+            <li>
+              The <code>scores</code> list must be a list of <code>score</code>{" "}
+              objects. For the required fields, please refer to the{" "}
+              <NewTabLink href="https://docs.tachi.ac/game-support/games/maimai-Single/">
+                Kamaitachi API reference.
+              </NewTabLink>{" "}
+              Invalid scores are filtered out and shown in the browser
+              console/dev tools (e.g. F12 in Chrome desktop).
+            </li>
+            <li>
+              The <code>meta</code> object can be ignored, as the tool will
+              generate this metadata by itself.
+            </li>
+            <li>
+              The <code>classes</code> object is optional, as this is set from
+              the Settings page.
+            </li>
+          </ul>
         </HelpPageSection>
         <HelpPageSection id="tachi-api-key" title="Tachi API key setup">
           <p>
@@ -88,7 +117,42 @@ export const HelpPage = () => {
           <Accordion className="mb-4">
             <Accordion.Item eventKey="1-0">
               <Accordion.Header>Click to see instructions</Accordion.Header>
-              <Accordion.Body>laa laa</Accordion.Body>
+              <Accordion.Body>
+                <ol>
+                  <li>
+                    Go to {"Kamaitachi > My Integrations"}
+                    <Image
+                      fluid
+                      className="d-block"
+                      style={{ maxWidth: "100%" }}
+                      src={step1}
+                    />
+                  </li>
+                  <li>
+                    Click "Create new API key"
+                    <Image
+                      fluid
+                      className="d-block"
+                      style={{ maxWidth: "100%" }}
+                      src={step2}
+                    />
+                  </li>
+                  <li>
+                    Enter a name for your key, select the permission{" "}
+                    <code>submit_score</code> and create the key.
+                    <Image
+                      fluid
+                      className="d-block"
+                      style={{ maxWidth: "100%" }}
+                      src={step3}
+                    />
+                  </li>
+                  <li>
+                    Click the key to reveal it, then paste the full value into
+                    the Tachi API Key box in the Settings page.
+                  </li>
+                </ol>
+              </Accordion.Body>
             </Accordion.Item>
           </Accordion>
         </HelpPageSection>

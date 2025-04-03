@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "game": "maimai",
+    "service": "manual",
+    "playtype": "Single"
+  },
+  "scores": [
+    {
+      "identifier": "751",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 99.59,
+      "judgements": {
+        "perfect": 376,
+        "great": 11,
+        "good": 0,
+        "miss": 1
+      },
+      "timeAchieved": 1736274480000
+    },
+    {
+      "identifier": "850",
+      "matchType": "inGameID",
+      "lamp": "CLEAR",
+      "difficulty": "Advanced",
+      "percent": 100.15,
+      "hitMeta": {
+        "fast": 4,
+        "slow": 3
+      },
+      "judgements": {
+        "perfect": 351,
+        "great": 7,
+        "good": 0,
+        "miss": 0
+      },
+      "timeAchieved": 1738606920000
+    }
+  ],
+  "classes": {
+    "dan": "DAN_6"
+  }
+}
