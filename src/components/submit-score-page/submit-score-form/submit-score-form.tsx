@@ -85,6 +85,12 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     );
   };
 
+  const timeIsInPast = (dateObtained: string): boolean => {
+    return (
+      DateTime.fromISO(dateObtained).toMillis() < DateTime.now().toMillis()
+    );
+  };
+
   const handleAddScore = (): void => {
     if (!isValidated()) {
       const invalidFields = getInvalidFields(validated);
@@ -212,13 +218,15 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         <Form.Control
           type="datetime-local"
           required
+          isInvalid={!!dateObtained && !timeIsInPast(dateObtained)}
           value={dateObtained}
           onChange={(e) => {
             const value = e.currentTarget.value;
+            const isPast = timeIsInPast(e.currentTarget.value);
             setDateObtained(value);
             setValidated({
               ...validated,
-              isDateObtainedValid: !!value,
+              isDateObtainedValid: !!value && isPast,
             });
           }}
         />
