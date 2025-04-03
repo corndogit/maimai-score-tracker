@@ -17,6 +17,7 @@ import { ScoreFormClearType } from "./score-form-clear-type/score-form-clear-typ
 import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgements";
 import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-percent-stats";
 import "./submit-score-form.css";
+import { ScoreFormDatePicker } from "./score-form-date-picker/score-form-date-picker";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -82,12 +83,6 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
   const isValidated = (): boolean => {
     return (
       Object.values(validated).filter((validation) => !validation).length === 0
-    );
-  };
-
-  const timeIsInPast = (dateObtained: string): boolean => {
-    return (
-      DateTime.fromISO(dateObtained).toMillis() < DateTime.now().toMillis()
     );
   };
 
@@ -213,24 +208,13 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         setValidated={setValidated}
       />
 
-      <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
-        <Form.Label>Date Obtained</Form.Label>
-        <Form.Control
-          type="datetime-local"
-          required
-          isInvalid={!!dateObtained && !timeIsInPast(dateObtained)}
-          value={dateObtained}
-          onChange={(e) => {
-            const value = e.currentTarget.value;
-            const isPast = timeIsInPast(e.currentTarget.value);
-            setDateObtained(value);
-            setValidated({
-              ...validated,
-              isDateObtainedValid: !!value && isPast,
-            });
-          }}
-        />
-      </Form.Group>
+      <ScoreFormDatePicker
+        dateObtained={dateObtained}
+        setDateObtained={setDateObtained}
+        validated={validated}
+        setValidated={setValidated}
+      />
+
       <Row className="justify-content-start">
         <Col sm={3} xs={12}>
           <Button
