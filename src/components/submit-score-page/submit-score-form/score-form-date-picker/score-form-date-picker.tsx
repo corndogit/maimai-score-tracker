@@ -19,13 +19,14 @@ export const ScoreFormDatePicker = ({
   setDateObtained,
   setValidated,
 }: ScoreFormDatePickerProps) => {
+  const isInvalid = !!dateObtained && !timeIsInPast(dateObtained);
   return (
     <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
       <Form.Label>Date Obtained</Form.Label>
       <Form.Control
         type="datetime-local"
         required
-        isInvalid={!!dateObtained && !timeIsInPast(dateObtained)}
+        isInvalid={isInvalid}
         value={dateObtained}
         onChange={(e) => {
           const value = e.currentTarget.value;
@@ -37,6 +38,11 @@ export const ScoreFormDatePicker = ({
           });
         }}
       />
+      {isInvalid && (
+        <Form.Text id="invalid-date-text" className="text-danger">
+          Date must be in the past
+        </Form.Text>
+      )}
     </Form.Group>
   );
 };
