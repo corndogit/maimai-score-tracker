@@ -3,7 +3,7 @@ import { BasePage } from "../shared/base-page";
 import { NewTabLink } from "../shared/utils/new-tab-link";
 import derakkuma from "../../assets/derakkuma.png";
 
-const HomePage = () => {
+export const HomePage = () => {
   return (
     <BasePage>
       <h1>MaiMai FiNALE Score Tracker</h1>
@@ -49,5 +49,3 @@ const HomePage = () => {
     </BasePage>
   );
 };
-
-export default HomePage;

@@ -29,10 +29,10 @@ export const PageNav = () => {
             <Nav.Link as={Link} to="/view">
               View
             </Nav.Link>
-            <Nav.Link as={Link} to="export">
+            <Nav.Link as={Link} to="/export">
               Export
             </Nav.Link>
-            <Nav.Link as={Link} to="import">
+            <Nav.Link as={Link} to="/import">
               Import
             </Nav.Link>
             <Nav.Link as={Link} to="/user/settings">
