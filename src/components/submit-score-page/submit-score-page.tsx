@@ -1,5 +1,6 @@
 import { Col, Row } from "react-bootstrap";
 import { useScoreDataStore } from "../../hooks/store";
+import { sortScoreDataByTime } from "../../utils/score-tools";
 import { BasePage } from "../shared/base-page";
 import { PageTitles } from "../shared/page-titles";
 import { SubmitScoreForm } from "./submit-score-form/submit-score-form";
@@ -7,6 +8,7 @@ import { SubmitScorePreview } from "./submit-score-preview/submit-score-preview"
 
 export const SubmitScorePage = () => {
   const scoreData = useScoreDataStore().scoreData;
+
   return (
     <BasePage>
       <PageTitles
@@ -20,7 +22,7 @@ export const SubmitScorePage = () => {
         <Col>
           <SubmitScorePreview
             scoreData={[...scoreData]
-              .sort((a, b) => a.timeAchieved - b.timeAchieved)
+              .sort(sortScoreDataByTime)
               .reverse()
               .slice(0, 10)}
           />

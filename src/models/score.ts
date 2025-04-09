@@ -7,7 +7,7 @@ export type ScoreData = {
   percent: number;
   judgements: Judgements;
   hitMeta?: HitMeta;
-  timeAchieved: number;
+  timeAchieved?: number;
 };
 
 export type Judgements = BasicJudgements | AdvancedJudgements;

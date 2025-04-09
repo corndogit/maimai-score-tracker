@@ -4,12 +4,11 @@ import ScoresTable from "../shared/scores-table/scores-table";
 import { useScoreDataStore } from "../../hooks/store";
 import { useState } from "react";
 import { Col, Container, Pagination, Row } from "react-bootstrap";
+import { sortScoreDataByTime } from "../../utils/score-tools";
 
 export const ViewScoresPage = () => {
   const scoreDataStore = useScoreDataStore();
-  const scores = [...scoreDataStore.scoreData].sort(
-    (a, b) => b.timeAchieved - a.timeAchieved
-  );
+  const scores = [...scoreDataStore.scoreData].sort(sortScoreDataByTime);
   const pageSize = 10;
   const buttonsPerPagination = 5;
   const pageCount = Math.ceil(scores.length / pageSize);

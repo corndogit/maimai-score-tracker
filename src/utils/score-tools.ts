@@ -1,5 +1,5 @@
 import { Chart } from "../models/chart";
-import { Judgements } from "../models/score";
+import { Judgements, ScoreData } from "../models/score";
 import {
   isAllPerfect,
   isAllPerfectPlus,
@@ -78,4 +78,14 @@ export const calculateClearType = (
     return "FAILED";
   }
   return "...";
+};
+
+export const sortScoreDataByTime = (
+  a: ScoreData,
+  b: ScoreData,
+  ascending: boolean = false
+) => {
+  const aTime = a.timeAchieved ?? 0;
+  const bTime = b.timeAchieved ?? 0;
+  return ascending ? aTime - bTime : bTime - aTime;
 };

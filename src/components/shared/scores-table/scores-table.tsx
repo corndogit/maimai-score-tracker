@@ -87,9 +87,11 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                 {stringifyJudgements(score.judgements)}
               </td>
               <td align="center" valign="middle">
-                {DateTime.fromMillis(score.timeAchieved).toLocaleString(
-                  DateTime.DATETIME_MED
-                )}
+                {score.timeAchieved
+                  ? DateTime.fromMillis(score.timeAchieved).toLocaleString(
+                      DateTime.DATETIME_MED
+                    )
+                  : "Not set"}
               </td>
               {editable && (
                 <td align="center" valign="middle">

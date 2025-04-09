@@ -44,8 +44,9 @@ const isValidJudgements = (score: ScoreData): boolean => {
 
 const isValidTimeAchieved = (score: ScoreData): boolean => {
   return (
-    isNumeric(score.timeAchieved) &&
-    DateTime.fromMillis(score.timeAchieved).isValid === true
+    !score.timeAchieved ||
+    (isNumeric(score.timeAchieved) &&
+      DateTime.fromMillis(score.timeAchieved).isValid === true)
   );
 };
 
