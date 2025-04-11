@@ -18,6 +18,7 @@ import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgemen
 import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-percent-stats";
 import "./submit-score-form.css";
 import { ScoreFormDatePicker } from "./score-form-date-picker/score-form-date-picker";
+import { ScoreFormSongTitle } from "./score-form-song-title/score-form-song-title";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -137,45 +138,14 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
 
   return (
     <Form noValidate onReset={clearForm}>
-      <Form.Group className="mb-3">
-        <Form.Label>Song title</Form.Label>
-        <Row className="mb-3">
-          <Col xs={12}>
-            <Form.Select
-              aria-label="Search results"
-              required
-              value={selectedChartKey}
-              onChange={(e) =>
-                handleSearchResultSelection(e.currentTarget.value)
-              }
-            >
-              <option value={undefined}>
-                Select title... {`(${filteredCharts.length} results)`}
-              </option>
-              {filteredCharts.map((chart) => {
-                return (
-                  <option
-                    key={`${chart.id}-${chart.difficulty}`}
-                    value={`${chart.id}-${chart.difficulty}`}
-                  >{`${chart.song} (${chart.difficulty} ${chart.level})`}</option>
-                );
-              })}
-            </Form.Select>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={10}>
-            <Form.Control
-              placeholder="Search (e.g. Oshama Scramble)"
-              value={searchField}
-              onInput={(e) => setSearchField(e.currentTarget.value)}
-            />
-          </Col>
-          <Col xs={2} className="p-0">
-            <Button onClick={handleSearch}>Search</Button>
-          </Col>
-        </Row>
-      </Form.Group>
+      <ScoreFormSongTitle
+        filteredCharts={filteredCharts}
+        selectedChartKey={selectedChartKey}
+        searchField={searchField}
+        setSearchField={setSearchField}
+        handleSearch={handleSearch}
+        handleSearchResultSelection={handleSearchResultSelection}
+      />
 
       <ScoreFormPercentStats
         percent={percent}
