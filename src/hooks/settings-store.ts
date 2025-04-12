@@ -11,6 +11,8 @@ interface ThemeState {
 }
 
 interface UserSettingsState {
+  advancedSubmitEnabled: boolean;
+  setAdvancedSubmitEnabled: (setting: boolean) => void;
   tachiApiKey: string;
   setApiKey: (key: string) => void;
   isApiKeySet: () => boolean;
@@ -38,6 +40,9 @@ export const useThemeStore = create<ThemeState>()(
 export const useUserSettingsStore = create<UserSettingsState>()(
   persist(
     (set, get) => ({
+      advancedSubmitEnabled: false,
+      setAdvancedSubmitEnabled: (advancedSubmitEnabled: boolean) =>
+        set({ ...get(), advancedSubmitEnabled }),
       tachiApiKey: "",
       setApiKey: (key: string) => set({ ...get(), tachiApiKey: key }),
       isApiKeySet: () => get().tachiApiKey.trim().length > 0,

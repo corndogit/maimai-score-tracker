@@ -6,25 +6,28 @@ import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
-import { Judgements, ScoreData } from "../../../models/score";
+import { HitMeta, Judgements, ScoreData } from "../../../models/score";
 import {
   defaultValidation,
   getInvalidFields,
   ScoreFormValidation,
 } from "../../../models/score-form-validation";
 import { calculateMaxScore } from "../../../utils/score-tools";
+import { ScoreFormTiming } from "./score-form-advanced-options/score-form-timing";
 import { ScoreFormClearType } from "./score-form-clear-type/score-form-clear-type";
+import { ScoreFormDatePicker } from "./score-form-date-picker/score-form-date-picker";
 import { ScoreFormJudgements } from "./score-form-judgements/score-form-judgements";
 import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-percent-stats";
-import "./submit-score-form.css";
-import { ScoreFormDatePicker } from "./score-form-date-picker/score-form-date-picker";
 import { ScoreFormSongTitle } from "./score-form-song-title/score-form-song-title";
+import "./submit-score-form.css";
+import { useUserSettingsStore } from "../../../hooks/settings-store";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
 }
 
 export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
+  const advancedSubmitEnabled = useUserSettingsStore().advancedSubmitEnabled;
   const [searchField, setSearchField] = useState<string>("");
   const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
     useChartStore.getState().chartData
@@ -40,6 +43,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     good: 0,
     miss: 0,
   });
+  const [hitMeta, setHitMeta] = useState<HitMeta>({ fast: 0, slow: 0 });
   const [dateObtained, setDateObtained] = useState<string>("");
   const [clearType, setClearType] = useState<string>("FAILED");
   const [validated, setValidated] =
@@ -110,6 +114,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         good: judgements.good,
         miss: judgements.miss,
       },
+      hitMeta: advancedSubmitEnabled ? hitMeta : undefined,
       timeAchieved: DateTime.fromISO(dateObtained).toMillis(),
     };
     addToSubmitScores(score);
@@ -168,6 +173,14 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         setJudgements={setJudgements}
         setValidated={setValidated}
       />
+
+      {advancedSubmitEnabled && (
+        <ScoreFormTiming
+          hitMeta={hitMeta}
+          setHitMeta={setHitMeta}
+          selectedChart={selectedChart}
+        />
+      )}
 
       <ScoreFormClearType
         validated={validated}
