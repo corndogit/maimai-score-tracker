@@ -21,10 +21,7 @@ export const SubmitScorePage = () => {
         </Col>
         <Col>
           <SubmitScorePreview
-            scoreData={[...scoreData]
-              .sort(sortScoreDataByTime)
-              .reverse()
-              .slice(0, 10)}
+            scoreData={[...scoreData].sort(sortScoreDataByTime).slice(0, 10)}
           />
         </Col>
       </Row>
