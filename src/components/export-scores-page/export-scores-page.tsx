@@ -43,11 +43,15 @@ const handleFileDownload = (data: string) => {
 };
 
 const renderRequestJson = (request: TachiRequest): string => {
+  return JSON.stringify(request, null, 2);
+};
+
+const displayRequestJson = (request: TachiRequest): string => {
   const maxScores = 200;
   if (request.scores.length > maxScores) {
     return `Too many scores to preview! (total scores: ${request.scores.length}, limit: ${maxScores})\nPlease save the JSON to view all scores`;
   }
-  return JSON.stringify(request, null, 2);
+  return renderRequestJson(request);
 };
 
 export const ExportScoresPage = () => {
@@ -106,7 +110,7 @@ export const ExportScoresPage = () => {
         <Form.Control
           as="textarea"
           readOnly
-          value={requestJson}
+          value={displayRequestJson(request)}
           style={{ height: "400px" }}
         ></Form.Control>
         <Button
