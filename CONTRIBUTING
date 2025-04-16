@@ -1,0 +1,34 @@
+# Contributing 🤝
+
+Maimai Score Tracker is a completely open-source project, and issues, bug reports, pull requests and other contributions are very welcome for maintaining this tool.
+This file is a basic guide on some of the preferred working ways of this project.
+
+## Code of Conduct 📖
+
+There are no hard and fast rules on how you shoudl behave but you are expected to treat other contributors with due respect and without discrimination.
+
+## Responsibilities ⚠️
+
+Currently, the only code owner and maintainer is [Corndog](https://github.com/corndogit) who can be contacted via GitHub or Discord (@\_\_corndog) regarding code reviews and issue triaging.
+
+## Issues 📥
+
+Issues should be raised to address bugs or suggest new features on the [Issues](https://github.com/corndogit/maimai-score-tracker/issues) page.
+
+All bug reports should contain steps on how to reproduce the issue, and screenshots are highly recommended.
+
+Feature suggestions are welcome, though we can't guarantee every suggestion will be implemented due to developer availability and to avoid feature creep.
+
+## Pull Requests (PRs) 💌
+
+**PRs should be submitted against the `develop` branch**
+
+PRs do not strictly need to address an issue, however please write in full detail what your PR addresses and state any impact this could have on other parts of the tool.
+PRs will be squashed on merging, however in large PRs please take appropriate steps to clean up your commit history to help in the review process.
+
+For PR reviews and approvals, please contact a maintainer or Corndog.
+
+### Code Style & Developer Practices 👨‍💻
+
+- All code must be formatted using Prettier and running `npm run lint` must pass, as enforced by our GitHub Actions workflow.
+- The pipeline must pass for your PR to be merged, unless there is a clear external reason as to why it has failed.
