@@ -72,7 +72,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     setSelectedChart(chart);
     setSelectedChartKey(key);
     if (chart) {
-      setMaxPercent(calculateMaxScore(chart).toPrecision(5));
+      setMaxPercent(calculateMaxScore(chart).toFixed(2));
       setValidated({ ...validated, isChartSelectedValid: true });
     } else {
       setMaxPercent("0");

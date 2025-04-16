@@ -82,7 +82,7 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                   {calculateGrade(score.percent, calculateMaxScore(chart))}
                 </span>
                 <br />
-                {score.percent}%
+                {score.percent.toFixed(2)}%
               </td>
               <td align="center" valign="middle">
                 {stringifyJudgements(score.judgements)}

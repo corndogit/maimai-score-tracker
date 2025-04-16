@@ -9,10 +9,7 @@ import {
 } from "./parse-tools";
 
 export const calculateGrade = (percent: number, maxPercent: number): string => {
-  if (
-    percent.toPrecision(5) === maxPercent.toPrecision(5) ||
-    percent >= maxPercent
-  ) {
+  if (percent.toFixed(2) === maxPercent.toFixed(2) || percent >= maxPercent) {
     return "SSS+";
   }
   if (percent >= 100.0) {
