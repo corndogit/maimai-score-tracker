@@ -16,12 +16,6 @@ type ScoreFormPercentStatsProps = {
   setRate: (value: number) => void;
 };
 
-const handleGradeCalculation = (percentString: string): string => {
-  return percentString.length > 0
-    ? calculateGrade(parseFloat(percentString))
-    : calculateGrade(0);
-};
-
 export const ScoreFormPercentStats = ({
   percent,
   maxPercent,
@@ -32,6 +26,12 @@ export const ScoreFormPercentStats = ({
   setPercent,
   setRate,
 }: ScoreFormPercentStatsProps) => {
+  const handleGradeCalculation = (percentString: string): string => {
+    return percentString.length > 0
+      ? calculateGrade(parseFloat(percentString), parseFloat(maxPercent))
+      : calculateGrade(0, 100);
+  };
+
   const isValidPercent = (percent: string): boolean => {
     const percentNumber = parseFloat(percent);
     return (

@@ -8,7 +8,13 @@ import {
   isFullCombo,
 } from "./parse-tools";
 
-export const calculateGrade = (percent: number): string => {
+export const calculateGrade = (percent: number, maxPercent: number): string => {
+  if (
+    percent.toPrecision(5) === maxPercent.toPrecision(5) ||
+    percent >= maxPercent
+  ) {
+    return "SSS+";
+  }
   if (percent >= 100.0) {
     return "SSS";
   }

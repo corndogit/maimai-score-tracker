@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import { Button, Table } from "react-bootstrap";
 import { Judgements, ScoreData } from "../../../models/score";
-import { calculateGrade } from "../../../utils/score-tools";
+import { calculateGrade, calculateMaxScore } from "../../../utils/score-tools";
 import {
   getChartByKey,
   useChartStore,
@@ -54,15 +54,14 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
       </thead>
       <tbody>
         {scoreData.map((score) => {
+          const chart = getChartByKey(
+            useChartStore.getState(),
+            `${score.identifier}-${score.difficulty}`
+          );
           return (
             <tr key={score.uuid}>
               <td align="center" valign="middle">
-                {
-                  getChartByKey(
-                    useChartStore.getState(),
-                    `${score.identifier}-${score.difficulty}`
-                  ).song
-                }
+                {chart.song}
               </td>
               <td
                 align="center"
@@ -79,7 +78,9 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                 style={{ fontWeight: 700 }}
                 className={getGradeColor(score.percent)}
               >
-                <span>{calculateGrade(score.percent)}</span>
+                <span>
+                  {calculateGrade(score.percent, calculateMaxScore(chart))}
+                </span>
                 <br />
                 {score.percent}%
               </td>
