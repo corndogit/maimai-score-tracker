@@ -57,9 +57,15 @@ export const ImportScoresPage = () => {
   };
 
   const handleScoreImport = () => {
-    let scoreJson: TachiRequest;
+    let scoreJson: TachiRequest | ScoreData[];
+    let scores: ScoreData[];
     try {
       scoreJson = JSON.parse(content);
+      if (scoreJson.constructor.name === "Array") {
+        scores = scoreJson as ScoreData[];
+      } else {
+        scores = (scoreJson as TachiRequest).scores;
+      }
     } catch (error: unknown) {
       const message =
         error instanceof Error
@@ -70,7 +76,7 @@ export const ImportScoresPage = () => {
     }
     const validScores: ScoreData[] = [];
     const invalidScores: InvalidScore[] = [];
-    scoreJson.scores.forEach((score) => {
+    scores.forEach((score) => {
       const errors = validateScoreImport(score, chartIdentifiers);
       if (errors.length > 0) {
         invalidScores.push({

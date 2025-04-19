@@ -108,6 +108,26 @@ export const HelpPage = () => {
               the Settings page.
             </li>
           </ul>
+          <p>
+            You can also import a list of just <code>score</code> objects.
+          </p>
+
+          <Accordion className="mb-4">
+            <Accordion.Item eventKey="0-0">
+              <Accordion.Header>Click to see JSON example</Accordion.Header>
+              <Accordion.Body>
+                <pre>
+                  <code>
+                    [
+                    {exampleImport.scores
+                      .map((score) => JSON.stringify(score, null, 2))
+                      .join(",\n")}
+                    ]
+                  </code>
+                </pre>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
         </HelpPageSection>
         <HelpPageSection id="tachi-api-key" title="Tachi API key setup">
           <p>
