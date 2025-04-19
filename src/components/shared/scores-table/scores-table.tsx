@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import { Button, Table } from "react-bootstrap";
+import { Button, OverlayTrigger, Table, Tooltip } from "react-bootstrap";
 import { Judgements, ScoreData } from "../../../models/score";
 import { calculateGrade, calculateMaxScore } from "../../../utils/score-tools";
 import {
@@ -8,6 +8,8 @@ import {
   useScoreDataStore,
 } from "../../../hooks/store";
 import "./scores-table.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHourglass } from "@fortawesome/free-solid-svg-icons";
 
 interface ScoresTableProps {
   scoreData: ScoreData[];
@@ -86,6 +88,22 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
               </td>
               <td align="center" valign="middle">
                 {stringifyJudgements(score.judgements)}
+                {score.hitMeta && (
+                  <div>
+                    <OverlayTrigger
+                      placement="right"
+                      overlay={
+                        <Tooltip>
+                          Fast: {score.hitMeta.fast}
+                          <br />
+                          Slow: {score.hitMeta.slow}
+                        </Tooltip>
+                      }
+                    >
+                      <FontAwesomeIcon icon={faHourglass} />
+                    </OverlayTrigger>
+                  </div>
+                )}
               </td>
               <td align="center" valign="middle">
                 {score.timeAchieved
