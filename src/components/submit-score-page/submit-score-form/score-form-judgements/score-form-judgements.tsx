@@ -59,10 +59,7 @@ export const ScoreFormJudgements = ({
 
   return (
     <>
-      <Form.Group
-        className="mb-3 d-inline-flex"
-        controlId="submitScoreForm.JudgementsFields"
-      >
+      <Form.Group className="mb-3 d-inline-flex">
         <Container className="ps-0  ">
           <Row>
             <Col xs={12}>
@@ -71,8 +68,12 @@ export const ScoreFormJudgements = ({
           </Row>
           <Row>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Perfect">
+              <FloatingLabel
+                label="Perfect"
+                controlId="judgement-input-perfect"
+              >
                 <Form.Control
+                  id="judgement-input-perfect"
                   className="judgement-input"
                   min={0}
                   value={judgements.perfect}
@@ -89,8 +90,9 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Great">
+              <FloatingLabel label="Great" controlId="judgement-input-great">
                 <Form.Control
+                  id="judgement-input-great"
                   className="judgement-input"
                   min={0}
                   value={judgements.great}
@@ -107,8 +109,9 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Good">
+              <FloatingLabel label="Good" controlId="judgement-input-good">
                 <Form.Control
+                  id="judgement-input-good"
                   className="judgement-input"
                   min={0}
                   value={judgements.good}
@@ -125,8 +128,9 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Miss">
+              <FloatingLabel label="Miss" controlId="judgement-input-miss">
                 <Form.Control
+                  id="judgement-input-miss"
                   className="judgement-input"
                   min={0}
                   value={judgements.miss}

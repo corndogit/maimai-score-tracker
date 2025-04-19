@@ -18,11 +18,12 @@ export const ScoreFormSongTitle = ({
   handleSearch,
 }: Props) => {
   return (
-    <Form.Group className="mb-3">
+    <Form.Group className="mb-3" controlId="score-form-search-results">
       <Form.Label>Song title</Form.Label>
       <Row className="mb-3">
         <Col xs={12}>
           <Form.Select
+            id="score-form-search-results"
             aria-label="Search results"
             required
             value={selectedChartKey}
@@ -45,6 +46,7 @@ export const ScoreFormSongTitle = ({
       <Row>
         <Col xs={10}>
           <Form.Control
+            id="score-form-search-input"
             placeholder="Search (e.g. Oshama Scramble)"
             value={searchField}
             onInput={(e) => setSearchField(e.currentTarget.value)}

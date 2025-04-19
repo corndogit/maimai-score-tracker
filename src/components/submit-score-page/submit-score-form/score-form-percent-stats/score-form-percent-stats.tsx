@@ -63,13 +63,14 @@ export const ScoreFormPercentStats = ({
   return (
     <Form.Group
       className="mb-3 d-inline-flex"
-      controlId="submitScoreForm.PercentStats"
+      controlId="score-form-percent-input"
     >
       <Row>
         <Col md={3} sm={6}>
           <Form.Label>Percent</Form.Label>
           <Form.Control
             type="number"
+            id="score-form-percent-input"
             className="percent-input"
             min={0}
             max={maxPercent ? parseFloat(maxPercent) : 0}
@@ -85,6 +86,7 @@ export const ScoreFormPercentStats = ({
         <Col md={3} sm={6}>
           <Form.Label>Max %</Form.Label>
           <Form.Control
+            id="score-form-max-percent"
             className="readonly-percent-stat"
             plaintext
             readOnly
@@ -94,6 +96,7 @@ export const ScoreFormPercentStats = ({
         <Col md={3} sm={6}>
           <Form.Label>Grade</Form.Label>
           <Form.Control
+            id="score-form-grade"
             className="readonly-percent-stat"
             plaintext
             readOnly
@@ -104,6 +107,7 @@ export const ScoreFormPercentStats = ({
         <Col md={3} sm={6}>
           <Form.Label>Rating</Form.Label>
           <Form.Control
+            id="score-form-rating"
             className="readonly-percent-stat"
             plaintext
             readOnly

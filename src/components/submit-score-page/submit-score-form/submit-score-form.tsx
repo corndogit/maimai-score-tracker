@@ -177,6 +177,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
       <Row className="mt-4 mb-2">
         <Col xl={12}>
           <Form.Switch
+            id="toggle-fast-slows"
             label="Add fast/slow counts"
             checked={settingsStore.advancedSubmitEnabled}
             onChange={(e) =>

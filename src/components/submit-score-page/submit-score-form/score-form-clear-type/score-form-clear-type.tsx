@@ -46,9 +46,10 @@ export const ScoreFormClearType = ({
   );
 
   return (
-    <Form.Group className="mb-3" controlId="submitScoreForm.ClearTypeSelect">
+    <Form.Group className="mb-3" aria-readonly>
       <Form.Label>Clear Type</Form.Label>
       <Form.Text
+        id="score-form-clear-type"
         className={`clear-type-display ${getClearTypeCssClass(clearType)}`}
         onChange={() => setValidatedClearType(clearType)}
       >
