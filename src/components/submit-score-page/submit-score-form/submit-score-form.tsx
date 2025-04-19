@@ -27,7 +27,7 @@ interface ScoreFormProps {
 }
 
 export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
-  const advancedSubmitEnabled = useUserSettingsStore().advancedSubmitEnabled;
+  const settingsStore = useUserSettingsStore();
   const [searchField, setSearchField] = useState<string>("");
   const [filteredCharts, setFilteredCharts] = useState<Array<Chart>>(
     useChartStore.getState().chartData
@@ -114,7 +114,7 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         good: judgements.good,
         miss: judgements.miss,
       },
-      hitMeta: advancedSubmitEnabled ? hitMeta : undefined,
+      hitMeta: settingsStore.advancedSubmitEnabled ? hitMeta : undefined,
       timeAchieved: DateTime.fromISO(dateObtained).toMillis(),
     };
     addToSubmitScores(score);
@@ -174,7 +174,19 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         setValidated={setValidated}
       />
 
-      {advancedSubmitEnabled && (
+      <Row className="mt-4 mb-2">
+        <Col xl={12}>
+          <Form.Switch
+            label="Add fast/slow counts"
+            checked={settingsStore.advancedSubmitEnabled}
+            onChange={(e) =>
+              settingsStore.setAdvancedSubmitEnabled(e.currentTarget.checked)
+            }
+          ></Form.Switch>
+        </Col>
+      </Row>
+
+      {settingsStore.advancedSubmitEnabled && (
         <ScoreFormTiming
           hitMeta={hitMeta}
           setHitMeta={setHitMeta}

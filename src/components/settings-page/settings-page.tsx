@@ -59,21 +59,6 @@ export const SettingsPage = () => {
             </Form.Text>
           </Col>
         </Row>
-        <Row className="mb-2">
-          <Col xl={12}>
-            <Form.Switch
-              label="Enable Advanced Submit Form"
-              checked={settingsStore.advancedSubmitEnabled}
-              onChange={(e) =>
-                settingsStore.setAdvancedSubmitEnabled(e.currentTarget.checked)
-              }
-            ></Form.Switch>
-            <Form.Text>
-              Experimental: adds options for advanced judgements (fast/slow) to
-              submit page
-            </Form.Text>
-          </Col>
-        </Row>
         <Row className="mb-5">
           <Col xl={12}>
             <Form.Label>Tachi API Key</Form.Label>
