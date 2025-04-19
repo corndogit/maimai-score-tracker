@@ -9,7 +9,9 @@ import {
 } from "../../../hooks/store";
 import "./scores-table.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHourglass } from "@fortawesome/free-solid-svg-icons";
+import { faHourglass, faTrash } from "@fortawesome/free-solid-svg-icons";
+import "../../shared/css/clear-type.css";
+import { getClearTypeCssClass } from "../css/clear-type";
 
 interface ScoresTableProps {
   scoreData: ScoreData[];
@@ -49,9 +51,10 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
           <td align="center">Song</td>
           <td align="center">Difficulty</td>
           <td align="center">Percent</td>
+          <td align="center">Lamp</td>
           <td align="center">Judgements</td>
           <td align="center">Date</td>
-          {editable && <td></td>}
+          {editable && <td align="center">Options</td>}
         </tr>
       </thead>
       <tbody>
@@ -73,6 +76,14 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                   .toLowerCase()}`}
               >
                 {score.difficulty}
+              </td>
+              <td
+                align="center"
+                valign="middle"
+                className={getClearTypeCssClass(score.lamp)}
+                style={{ fontWeight: 700 }}
+              >
+                {score.lamp}
               </td>
               <td
                 align="center"
@@ -118,7 +129,7 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                     variant="danger"
                     onClick={() => scoreDataStore.removeScore(score.uuid)}
                   >
-                    X
+                    <FontAwesomeIcon className="m-0 p-0" icon={faTrash} />
                   </Button>
                 </td>
               )}

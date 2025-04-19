@@ -1,10 +1,12 @@
 import { Form } from "react-bootstrap";
-import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { Chart } from "../../../../models/chart";
 import { Judgements } from "../../../../models/score";
+import { ScoreFormValidation } from "../../../../models/score-form-validation";
 import { validateClearType } from "../../../../utils/parse-tools";
 import { calculateClearType } from "../../../../utils/score-tools";
+import "../../../shared/css/clear-type.css";
 import "./score-form-clear-type.css";
+import { getClearTypeCssClass } from "../../../shared/css/clear-type";
 
 type ScoreFormClearTypeProps = {
   validated: ScoreFormValidation;
@@ -43,16 +45,11 @@ export const ScoreFormClearType = ({
     selectedChart
   );
 
-  const clearTypeCssClass = `clear-type-display-${clearType
-    .toLowerCase()
-    .replace(" ", "-")
-    .replace("+", "-plus")}`;
-
   return (
     <Form.Group className="mb-3" controlId="submitScoreForm.ClearTypeSelect">
       <Form.Label>Clear Type</Form.Label>
       <Form.Text
-        className={`clear-type-display ${clearTypeCssClass}`}
+        className={`clear-type-display ${getClearTypeCssClass(clearType)}`}
         onChange={() => setValidatedClearType(clearType)}
       >
         {clearType}
