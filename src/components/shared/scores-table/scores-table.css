@@ -3,11 +3,6 @@ thead > tr > td {
   font-weight: bold;
 }
 
-.styled-judgements {
-  font-weight: bold;
-  color: #656565;
-}
-
 .grade-s {
   background-color: #bbb !important;
   color:  #000!important;
@@ -20,35 +15,5 @@ thead > tr > td {
 
 .grade-sss {
   background-color: rgb(201, 13, 13) !important;
-  color: #fff !important;
-}
-
-.difficulty-basic {
-  background-color: #34a853 !important;
-  font-weight: 700;
-  color: #fff !important;
-}
-
-.difficulty-advanced {
-  background-color: #ff9900 !important;
-  font-weight: 700;
-  color: #fff !important;
-}
-
-.difficulty-expert {
-  background-color: #cc0000 !important;
-  font-weight: 700;
-  color: #fff !important;
-}
-
-.difficulty-master {
-  background-color: #674ea7 !important;
-  font-weight: 700;
-  color: #fff !important;
-}
-
-.difficulty-remaster {
-  background-color: #8e7cc3 !important;
-  font-weight: 700;
   color: #fff !important;
 }
