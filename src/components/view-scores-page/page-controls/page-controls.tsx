@@ -1,23 +1,33 @@
-import { Form } from "react-bootstrap";
-import "./page-controls.css";
 import { useState } from "react";
+import { Col, Form, Row } from "react-bootstrap";
+import "./page-controls.css";
 
 type Props = {
   pageCount: number;
   setPage: (pageNum: number) => void;
   setPageSize: (size: number) => void;
+  setSearchTerm: (term: string) => void;
 };
 
 type FormState = {
   page: number;
   pageSize: number;
+  searchInput: string;
 };
 
-export const PageControls = ({ pageCount, setPage, setPageSize }: Props) => {
-  const [formState, setFormState] = useState<FormState>({
-    page: 1,
-    pageSize: 10,
-  });
+const defaultFormState: FormState = {
+  page: 1,
+  pageSize: 10,
+  searchInput: "",
+};
+
+export const PageControls = ({
+  pageCount,
+  setPage,
+  setPageSize,
+  setSearchTerm,
+}: Props) => {
+  const [formState, setFormState] = useState<FormState>(defaultFormState);
 
   const handlePageSelection = (pageNum: number): void => {
     setFormState({ ...formState, page: pageNum });
@@ -25,13 +35,32 @@ export const PageControls = ({ pageCount, setPage, setPageSize }: Props) => {
   };
 
   const handlePageSizeSelection = (pageSize: number): void => {
-    setFormState({ pageSize, page: 1 });
+    setFormState({ ...formState, pageSize, page: 1 });
     setPageSize(pageSize);
     setPage(1);
   };
   return (
     <>
       <Form className="mb-3">
+        <Form.Group className="mb-3">
+          <Row>
+            <Col>
+              <Form.Label>Search by name</Form.Label>
+              <Form.Control
+                value={formState.searchInput}
+                placeholder="Song name"
+                onChange={(e) => {
+                  const newValue = e.currentTarget.value;
+                  setFormState({
+                    ...formState,
+                    searchInput: newValue,
+                  });
+                  setSearchTerm(newValue);
+                }}
+              />
+            </Col>
+          </Row>
+        </Form.Group>
         <Form.Group style={{ display: "inline-block" }} className="me-2">
           <Form.Label>Page</Form.Label>
           <Form.Select

@@ -1,9 +1,13 @@
-import { PageTitles } from "../shared/page-titles";
-import { BasePage } from "../shared/base-page";
-import ScoresTable from "../shared/scores-table/scores-table";
-import { useScoreDataStore } from "../../hooks/store";
 import { useState } from "react";
-import { sortScoreDataByTime } from "../../utils/score-tools";
+import { useScoreDataStore } from "../../hooks/store";
+import { ScoreData } from "../../models/score";
+import {
+  getSongNameByIdentifier,
+  sortScoreDataByTime,
+} from "../../utils/score-tools";
+import { BasePage } from "../shared/base-page";
+import { PageTitles } from "../shared/page-titles";
+import ScoresTable from "../shared/scores-table/scores-table";
 import { PageControls } from "./page-controls/page-controls";
 
 export const ViewScoresPage = () => {
@@ -12,6 +16,18 @@ export const ViewScoresPage = () => {
   const [pageSize, setPageSize] = useState(10);
   const pageCount = Math.ceil(scores.length / pageSize);
   const [page, setPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filterScores = (scores: ScoreData[]): ScoreData[] => {
+    return scores
+      .filter(
+        (score) =>
+          getSongNameByIdentifier(score.identifier)
+            .toLocaleLowerCase()
+            .indexOf(searchTerm) !== -1
+      )
+      .slice(pageSize * (page - 1), pageSize * page);
+  };
 
   return (
     <BasePage>
@@ -19,17 +35,13 @@ export const ViewScoresPage = () => {
         title="View Scores"
         subtitle="View and search for submitted scores"
       />
-      {scores?.length > 0 && (
-        <PageControls
-          pageCount={pageCount}
-          setPage={setPage}
-          setPageSize={setPageSize}
-        />
-      )}
-      <ScoresTable
-        scoreData={scores.slice(pageSize * (page - 1), pageSize * page)}
-        editable
+      <PageControls
+        pageCount={scores?.length > 0 ? pageCount : 1}
+        setPage={setPage}
+        setPageSize={setPageSize}
+        setSearchTerm={setSearchTerm}
       />
+      <ScoresTable scoreData={filterScores(scores)} editable />
     </BasePage>
   );
 };
