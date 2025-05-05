@@ -115,7 +115,7 @@ export const ExportScoresPage = () => {
         ></Form.Control>
         <Button
           variant="primary"
-          className="mt-2 me-2"
+          className="mt-2 me-2 export-page-button"
           onClick={() => handleFileDownload(requestJson)}
         >
           <FontAwesomeIcon icon={faDownload} /> Save
@@ -123,14 +123,14 @@ export const ExportScoresPage = () => {
         <Button
           variant={copiedState ? "success" : "secondary"}
           disabled={copiedState || !copyPermitted}
-          className="mt-2 me-2"
+          className="mt-2 me-2 export-page-button"
           onClick={handleCopyJson}
         >
           <FontAwesomeIcon icon={copiedState ? faCheck : faCopy} />
           {copiedState ? "Copied!" : "Copy JSON"}
         </Button>
         <Button
-          className="mt-2 kamaitachi"
+          className="mt-2 kamaitachi export-page-button"
           disabled={request.scores.length === 0}
           onClick={() => {
             if (request.scores.length > 0) {
