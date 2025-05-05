@@ -93,7 +93,8 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                     .replace(":", "")
                     .toLowerCase()}`}
                 >
-                  {score.difficulty}
+                  {score.difficulty} <br />
+                  {chart?.level}
                 </td>
                 <td
                   align="center"
