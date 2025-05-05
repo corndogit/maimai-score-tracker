@@ -20,7 +20,7 @@
     "react-bootstrap": "^2.10.9",
     "react-dom": "^19.0.0",
     "react-router": "^7.5.3",
-    "rg-stats": "^0.5.10",
+    "rg-stats": "^1.0.0",
     "uuid": "^11.1.0",
     "zustand": "^5.0.3"
   },
