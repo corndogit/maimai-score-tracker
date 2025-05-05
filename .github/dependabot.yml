@@ -3,16 +3,16 @@
 
 version: 2
 updates:
-  - target-branch: "develop"
-
   # Enable version updates for npm
   - package-ecosystem: "npm"
+    target-branch: "develop"
     directory: "/"
     schedule:
       interval: "daily"
 
   # Enable version updates for Docker
   - package-ecosystem: "docker"
+    target-branch: "develop"
     directory: "/"
     schedule:
       interval: "weekly"
