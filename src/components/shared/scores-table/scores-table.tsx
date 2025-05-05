@@ -83,7 +83,7 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                     }}
                     style={{ textDecoration: "underline", cursor: "pointer" }}
                   >
-                    {chart.song}
+                    {chart?.song}
                   </a>
                 </td>
                 <td
@@ -110,7 +110,8 @@ const ScoresTable = ({ scoreData, editable }: ScoresTableProps) => {
                   className={getGradeColor(score.percent)}
                 >
                   <span>
-                    {calculateGrade(score.percent, calculateMaxScore(chart))}
+                    {chart &&
+                      calculateGrade(score.percent, calculateMaxScore(chart))}
                   </span>
                   <br />
                   {score.percent.toFixed(2)}%

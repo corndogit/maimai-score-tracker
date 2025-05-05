@@ -39,7 +39,7 @@ export const IndividualScoreModal = ({
           </li>
           <li>
             <span className="score-info-subheading">Difficulty</span>:{" "}
-            {score.difficulty} {chart.level}
+            {score.difficulty} {chart?.level}
           </li>
           <li>
             <span className="score-info-subheading">Lamp</span>: {score.lamp}

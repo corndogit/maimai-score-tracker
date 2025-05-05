@@ -61,6 +61,9 @@ export const useChartStore = create<ChartState>(() => ({
   ),
 }));
 
-export const getChartByKey = (charts: ChartState, key: string): Chart => {
+export const getChartByKey = (
+  charts: ChartState,
+  key: string
+): Chart | undefined => {
   return charts.chartDataRecord[key as keyof typeof charts.chartDataRecord];
 };
