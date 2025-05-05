@@ -14,20 +14,19 @@ export const ViewScoresPage = () => {
   const scoreDataStore = useScoreDataStore();
   const scores = [...scoreDataStore.scoreData].sort(sortScoreDataByTime);
   const [pageSize, setPageSize] = useState(10);
-  const pageCount = Math.ceil(scores.length / pageSize);
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
 
   const filterScores = (scores: ScoreData[]): ScoreData[] => {
-    return scores
-      .filter(
-        (score) =>
-          getSongNameByIdentifier(score.identifier)
-            .toLocaleLowerCase()
-            .indexOf(searchTerm) !== -1
-      )
-      .slice(pageSize * (page - 1), pageSize * page);
+    return scores.filter(
+      (score) =>
+        getSongNameByIdentifier(score.identifier)
+          .toLocaleLowerCase()
+          .indexOf(searchTerm) !== -1
+    );
   };
+  const filteredScores = filterScores(scores);
+  const pageCount = Math.ceil(filteredScores.length / pageSize);
 
   return (
     <BasePage>
@@ -36,12 +35,15 @@ export const ViewScoresPage = () => {
         subtitle="View and search for submitted scores"
       />
       <PageControls
-        pageCount={scores?.length > 0 ? pageCount : 1}
+        pageCount={filteredScores.length > 0 ? pageCount : 1}
         setPage={setPage}
         setPageSize={setPageSize}
         setSearchTerm={setSearchTerm}
       />
-      <ScoresTable scoreData={filterScores(scores)} editable />
+      <ScoresTable
+        scoreData={filteredScores.slice(pageSize * (page - 1), pageSize * page)}
+        editable
+      />
     </BasePage>
   );
 };
