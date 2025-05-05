@@ -7,6 +7,9 @@ import {
   isFailed,
   isFullCombo,
 } from "./parse-tools";
+import songNamesJson from "../data/song_names.json";
+
+const songNames: Record<string, string> = songNamesJson;
 
 export const calculateGrade = (percent: number, maxPercent: number): string => {
   if (percent.toFixed(2) === maxPercent.toFixed(2) || percent >= maxPercent) {
@@ -91,4 +94,9 @@ export const sortScoreDataByTime = (
   const aTime = a.timeAchieved ?? 0;
   const bTime = b.timeAchieved ?? 0;
   return ascending ? aTime - bTime : bTime - aTime;
+};
+
+export const getSongNameByIdentifier = (identifier: string) => {
+  if (Object.keys(songNames).indexOf(identifier) === -1) return "unknown";
+  return songNames[identifier];
 };
