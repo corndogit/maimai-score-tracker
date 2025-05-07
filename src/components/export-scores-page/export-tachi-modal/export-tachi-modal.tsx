@@ -16,9 +16,15 @@ export const ExportTachiModal = ({
   handleClose,
 }: ExportTachiModalProps) => {
   const [success, setSuccess] = useState(false);
+  const [pending, setPending] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [triggerRequest, setTriggerRequest] = useState(false);
   const settingsStore = useUserSettingsStore();
+
+  const handleExport = (): void => {
+    setPending(true);
+    setTriggerRequest(true);
+  };
 
   useEffect(() => {
     const handleExport = async () => {
@@ -32,10 +38,22 @@ export const ExportTachiModal = ({
         .post(tachiImportEndpoint, request, { headers })
         .then(() => setSuccess(true))
         .catch((e: unknown) => {
+          const genericError = "Unknown error";
           if (axios.isAxiosError(e)) {
-            setErrorMessage(`${e.message} HTTP ${e.code}`);
+            let errorMessage = genericError;
+            if (e.request) {
+              errorMessage = e.message;
+            }
+            if (e.response) {
+              errorMessage = `HTTP ${e.response?.status} ${
+                e.response?.data?.description
+                  ? " - " + e.response?.data?.description
+                  : ""
+              }`;
+            }
+            setErrorMessage(errorMessage);
           } else {
-            setErrorMessage("Unknown error, check console");
+            setErrorMessage(genericError);
             console.error("Unknown error exporting to Kamaitachi:", e);
           }
         });
@@ -44,7 +62,13 @@ export const ExportTachiModal = ({
       handleExport();
     }
     setTriggerRequest(false);
-  }, [triggerRequest, request, handleClose, settingsStore.tachiApiKey]);
+  }, [triggerRequest, request, settingsStore.tachiApiKey]);
+
+  useEffect(() => {
+    if (!success && errorMessage) {
+      setPending(false);
+    }
+  }, [success, errorMessage, setPending]);
 
   return (
     <Modal show={showModal} onHide={handleClose}>
@@ -67,7 +91,7 @@ export const ExportTachiModal = ({
             <Button variant="secondary" onClick={handleClose}>
               Cancel
             </Button>
-            <Button variant="danger" onClick={() => setTriggerRequest(true)}>
+            <Button variant="danger" disabled={pending} onClick={handleExport}>
               Export
             </Button>
           </Modal.Footer>
