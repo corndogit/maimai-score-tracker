@@ -22,7 +22,7 @@ export const ViewScoresPage = () => {
       (score) =>
         getSongNameByIdentifier(score.identifier)
           .toLocaleLowerCase()
-          .indexOf(searchTerm) !== -1
+          .indexOf(searchTerm.toLowerCase()) !== -1
     );
   };
   const filteredScores = filterScores(scores);
