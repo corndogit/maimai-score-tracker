@@ -7,12 +7,11 @@ export type ScoreData = {
   percent: number;
   judgements: Judgements;
   hitMeta?: HitMeta;
+  breakJudgements?: BreakJudgements;
   timeAchieved?: number;
 };
 
-export type Judgements = BasicJudgements | AdvancedJudgements;
-
-export type BasicJudgements = {
+export type Judgements = {
   perfect: number;
   great: number;
   good: number;
@@ -24,15 +23,11 @@ export type HitMeta = {
   slow: number;
 };
 
-export type AdvancedJudgements = BasicJudgements &
-  HitMeta & {
-    breakPerfect?: number;
-    breakGreat?: number;
-    breakGood?: number;
-    breakMiss?: number;
-  };
-
-export type Colour = {
-  name: string;
-  display_name: string;
+export type BreakJudgements = {
+  breakPerfect: number;
+  breakGreat: number;
+  breakGood: number;
+  breakMiss: number;
+  breakScore: number;
+  totalScore: number;
 };
