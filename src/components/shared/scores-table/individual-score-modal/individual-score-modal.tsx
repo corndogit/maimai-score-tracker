@@ -11,6 +11,7 @@ import "./individual-score-modal.css";
 import { getChartByKey, useChartStore } from "../../../../hooks/store";
 import { Chart } from "../../../../models/chart";
 import { BreakJudgementItems } from "./break-judgement-items/break-judgement-items";
+import { MaimaiRate } from "rg-stats";
 
 type Props = {
   score: ScoreData;
@@ -52,6 +53,16 @@ export const IndividualScoreModal = ({
               ? calculateGrade(score.percent, calculateMaxScore(chart))
               : ""}{" "}
             - {score.percent}%
+          </li>
+          <li>
+            <span className="score-info-subheading">Rating</span>:{" "}
+            {chart
+              ? MaimaiRate.calculate(
+                  score.percent,
+                  calculateMaxScore(chart),
+                  chart.chartConstant
+                )
+              : "Unknown"}{" "}
           </li>
           <li>
             <span className="score-info-subheading">Judgements</span>:{" "}
