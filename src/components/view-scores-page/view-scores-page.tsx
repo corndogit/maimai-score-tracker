@@ -32,7 +32,7 @@ export const ViewScoresPage = () => {
     <BasePage>
       <PageTitles
         title="View Scores"
-        subtitle="View and search for submitted scores"
+        subtitle="View and search for submitted scores. Click a score's name for more details."
       />
       <PageControls
         pageCount={filteredScores.length > 0 ? pageCount : 1}
