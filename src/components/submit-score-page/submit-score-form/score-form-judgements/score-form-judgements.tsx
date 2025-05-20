@@ -68,10 +68,7 @@ export const ScoreFormJudgements = ({
           </Row>
           <Row>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel
-                label="Perfect"
-                controlId="judgement-input-perfect"
-              >
+              <FloatingLabel label="Perfect">
                 <Form.Control
                   id="judgement-input-perfect"
                   className="judgement-input"
@@ -90,7 +87,7 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Great" controlId="judgement-input-great">
+              <FloatingLabel label="Great">
                 <Form.Control
                   id="judgement-input-great"
                   className="judgement-input"
@@ -109,7 +106,7 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Good" controlId="judgement-input-good">
+              <FloatingLabel label="Good">
                 <Form.Control
                   id="judgement-input-good"
                   className="judgement-input"
@@ -128,7 +125,7 @@ export const ScoreFormJudgements = ({
               </FloatingLabel>
             </Col>
             <Col className="mb-2" xs={12} lg={3}>
-              <FloatingLabel label="Miss" controlId="judgement-input-miss">
+              <FloatingLabel label="Miss">
                 <Form.Control
                   id="judgement-input-miss"
                   className="judgement-input"

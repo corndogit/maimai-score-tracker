@@ -18,7 +18,7 @@ export const ScoreFormSongTitle = ({
   handleSearch,
 }: Props) => {
   return (
-    <Form.Group className="mb-3" controlId="score-form-search-results">
+    <Form.Group className="mb-3">
       <Form.Label>Song title</Form.Label>
       <Row className="mb-3">
         <Col xs={12}>

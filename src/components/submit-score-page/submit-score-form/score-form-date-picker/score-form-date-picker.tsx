@@ -21,7 +21,7 @@ export const ScoreFormDatePicker = ({
 }: ScoreFormDatePickerProps) => {
   const isInvalid = !!dateObtained && !timeIsInPast(dateObtained);
   return (
-    <Form.Group className="mb-3" controlId="submitScoreForm.DateTimeField">
+    <Form.Group className="mb-3">
       <Form.Label>Date Obtained</Form.Label>
       <Form.Control
         type="datetime-local"

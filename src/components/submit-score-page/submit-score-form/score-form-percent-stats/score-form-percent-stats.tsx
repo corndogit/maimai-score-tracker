@@ -61,10 +61,7 @@ export const ScoreFormPercentStats = ({
   };
 
   return (
-    <Form.Group
-      className="mb-3 d-inline-flex"
-      controlId="score-form-percent-input"
-    >
+    <Form.Group className="mb-3 d-inline-flex">
       <Row>
         <Col md={3} sm={6}>
           <Form.Label>Percent</Form.Label>
