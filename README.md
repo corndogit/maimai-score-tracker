@@ -76,7 +76,7 @@ User story: _As a MaiMai FiNALE player, I want somewhere to persist and view all
 - [x] Allow bulk export of the user's scores from the tracker
 - [x] Allow users to add their Tachi API key to do an export to Kamaitachi
 - [x] Allow users to view individual scores
-- [ ] Calculate and display MaiMai DX rating on individual scores
+- [x] Calculate and display MaiMai DX rating on individual scores
 
 </details>
 
