@@ -10,12 +10,14 @@ import { DateTime } from "luxon";
 import "./individual-score-modal.css";
 import { getChartByKey, useChartStore } from "../../../../hooks/store";
 import { Chart } from "../../../../models/chart";
+import { BreakJudgementItems } from "./break-judgement-items/break-judgement-items";
 
 type Props = {
   score: ScoreData;
   show: boolean;
   handleClose: (score: ScoreData) => void;
 };
+
 export const IndividualScoreModal = ({
   score,
   show,
@@ -55,6 +57,7 @@ export const IndividualScoreModal = ({
             <span className="score-info-subheading">Judgements</span>:{" "}
             <JudgementDisplay judgements={score.judgements} />
           </li>
+          <BreakJudgementItems score={score} />
           <li>
             <span className="score-info-subheading">Timing</span>:{" "}
             {score.hitMeta
