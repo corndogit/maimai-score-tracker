@@ -1,6 +1,6 @@
 import { ScoreData } from "./score";
 
-export type TachiScoreData = Omit<ScoreData, "uuid">;
+export type TachiScoreData = Omit<ScoreData, "uuid" | "breakJudgements">;
 
 export type TachiRequest = {
   meta: { game: string; service: string; playtype: string };

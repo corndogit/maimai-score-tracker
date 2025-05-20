@@ -34,8 +34,15 @@ export const ExportTachiModal = ({
         Authorization: `Bearer ${settingsStore.tachiApiKey}`,
         "X-User-Intent": "ir/direct-manual",
       };
+      const requestWithoutBreaks = {
+        ...request,
+        scores: request.scores.map((s) => ({
+          ...s,
+          breakJudgements: undefined,
+        })),
+      };
       await axios
-        .post(tachiImportEndpoint, request, { headers })
+        .post(tachiImportEndpoint, requestWithoutBreaks, { headers })
         .then(() => setSuccess(true))
         .catch((e: unknown) => {
           const genericError = "Unknown error";
