@@ -13,6 +13,8 @@ interface ThemeState {
 interface UserSettingsState {
   advancedSubmitEnabled: boolean;
   setAdvancedSubmitEnabled: (setting: boolean) => void;
+  breakJudgementsEnabled: boolean;
+  setBreakJudgementsEnabled: (setting: boolean) => void;
   tachiApiKey: string;
   setApiKey: (key: string) => void;
   isApiKeySet: () => boolean;
@@ -40,9 +42,17 @@ export const useThemeStore = create<ThemeState>()(
 export const useUserSettingsStore = create<UserSettingsState>()(
   persist(
     (set, get) => ({
+      // Toggle fast/slow inputs
       advancedSubmitEnabled: false,
       setAdvancedSubmitEnabled: (advancedSubmitEnabled: boolean) =>
         set({ ...get(), advancedSubmitEnabled }),
+
+      // Toggle break judgements input
+      breakJudgementsEnabled: false,
+      setBreakJudgementsEnabled: (breakJudgementsEnabled: boolean) =>
+        set({ ...get(), breakJudgementsEnabled }),
+
+      // Set Tachi API Key
       tachiApiKey: "",
       setApiKey: (key: string) => set({ ...get(), tachiApiKey: key }),
       isApiKeySet: () => get().tachiApiKey.trim().length > 0,

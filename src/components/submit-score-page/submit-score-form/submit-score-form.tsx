@@ -6,7 +6,12 @@ import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 import { v4 as uuidv4 } from "uuid";
 import { getChartByKey, useChartStore } from "../../../hooks/store";
 import { Chart } from "../../../models/chart";
-import { HitMeta, Judgements, ScoreData } from "../../../models/score";
+import {
+  BreakJudgements,
+  HitMeta,
+  Judgements,
+  ScoreData,
+} from "../../../models/score";
 import {
   defaultValidation,
   getInvalidFields,
@@ -21,6 +26,7 @@ import { ScoreFormPercentStats } from "./score-form-percent-stats/score-form-per
 import { ScoreFormSongTitle } from "./score-form-song-title/score-form-song-title";
 import "./submit-score-form.css";
 import { useUserSettingsStore } from "../../../hooks/settings-store";
+import { ScoreFormBreakJudgements } from "./score-form-advanced-options/score-form-break-judgements";
 
 interface ScoreFormProps {
   addToSubmitScores: (score: ScoreData) => void;
@@ -44,6 +50,14 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
     miss: 0,
   });
   const [hitMeta, setHitMeta] = useState<HitMeta>({ fast: 0, slow: 0 });
+  const [breakJudgements, setBreakJudgements] = useState<BreakJudgements>({
+    breakPerfect: 0,
+    breakGreat: 0,
+    breakGood: 0,
+    breakMiss: 0,
+    totalScore: 0,
+    breakScore: 0,
+  });
   const [dateObtained, setDateObtained] = useState<string>("");
   const [clearType, setClearType] = useState<string>("FAILED");
   const [validated, setValidated] =
@@ -115,6 +129,9 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         miss: judgements.miss,
       },
       hitMeta: settingsStore.advancedSubmitEnabled ? hitMeta : undefined,
+      breakJudgements: settingsStore.breakJudgementsEnabled
+        ? breakJudgements
+        : undefined,
       timeAchieved: DateTime.fromISO(dateObtained).toMillis(),
     };
     addToSubmitScores(score);
@@ -135,6 +152,15 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
       good: 0,
       miss: 0,
     });
+    setBreakJudgements({
+      breakPerfect: 0,
+      breakGreat: 0,
+      breakGood: 0,
+      breakMiss: 0,
+      totalScore: 0,
+      breakScore: 0,
+    });
+    setHitMeta({ fast: 0, slow: 0 });
     setClearType("FAILED");
     setValidated(defaultValidation);
     setDateObtained("");
@@ -187,11 +213,32 @@ export const SubmitScoreForm = ({ addToSubmitScores }: ScoreFormProps) => {
         </Col>
       </Row>
 
+      <Row className="mt-4 mb-2">
+        <Col xl={12}>
+          <Form.Switch
+            id="toggle-break-judgements"
+            label="Add break judgements"
+            checked={settingsStore.breakJudgementsEnabled}
+            onChange={(e) =>
+              settingsStore.setBreakJudgementsEnabled(e.currentTarget.checked)
+            }
+          ></Form.Switch>
+        </Col>
+      </Row>
+
       {settingsStore.advancedSubmitEnabled && (
         <ScoreFormTiming
           hitMeta={hitMeta}
           setHitMeta={setHitMeta}
           selectedChart={selectedChart}
+        />
+      )}
+
+      {settingsStore.breakJudgementsEnabled && (
+        <ScoreFormBreakJudgements
+          selectedChart={selectedChart}
+          breakJudgements={breakJudgements}
+          setBreakJudgements={setBreakJudgements}
         />
       )}
 
