@@ -30,15 +30,15 @@ export const HomePage = () => {
             validation but it is not perfect.
           </p>
           <p>
-            <strong>You are solely responsible</strong> for the scores submitted
-            to other services from this tool and are expected to follow their
-            terms of use. No responsibility will be taken for punishment
-            received from abusing this tool.
+            You are responsible for verifying the scores submitted to other
+            services from this tool are correct and follow their terms of use.
+            No responsibility will be taken for punishment received from
+            incorrect use/abuse of this tool.
           </p>
           <h2>Feedback</h2>
           <p>
-            This tool is a work-in-progress and still in development. Any
-            feedback or bug reports can be submitted on the{" "}
+            This tool is mostly feature-complete, but still in active
+            development. Any feedback or bug reports can be submitted on the{" "}
             <NewTabLink href="https://github.com/corndogit/maimai-score-tracker/issues">
               GitHub issues
             </NewTabLink>{" "}
