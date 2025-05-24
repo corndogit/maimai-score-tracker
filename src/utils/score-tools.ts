@@ -25,7 +25,7 @@ export const calculateGrade = (percent: number, maxPercent: number): string => {
     return "SS";
   }
   if (percent >= 98.0) {
-    return "S";
+    return "S+";
   }
   if (percent >= 97.0) {
     return "S";
