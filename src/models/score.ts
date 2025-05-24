@@ -21,6 +21,7 @@ export type Judgements = {
 export type HitMeta = {
   fast: number;
   slow: number;
+  maxCombo?: number;
 };
 
 export type BreakJudgements = {

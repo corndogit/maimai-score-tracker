@@ -84,7 +84,15 @@ export const ImportScoresPage = () => {
           score,
         });
       } else {
-        validScores.push(score);
+        validScores.push(
+          // strips maxCombo from maitea imports
+          score.hitMeta
+            ? {
+                ...score,
+                hitMeta: { fast: score.hitMeta.fast, slow: score.hitMeta.slow },
+              }
+            : score
+        );
       }
     });
     if (invalidScores.length > 0) {
