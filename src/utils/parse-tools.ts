@@ -89,7 +89,10 @@ export const isAllPerfectPlus = (
   percent: string | number,
   maxPercent: string | number
 ) => {
-  return isAllPerfect(judgements, selectedChart) && percent === maxPercent;
+  return (
+    isAllPerfect(judgements, selectedChart) &&
+    percent.toString() === maxPercent.toString()
+  );
 };
 
 export const validateScoreImport = (
