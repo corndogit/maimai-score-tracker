@@ -98,13 +98,14 @@ export const ImportScoresPage = () => {
     if (invalidScores.length > 0) {
       console.error("Invalid scores, expand to see more:", invalidScores);
       setErrorMessage(
-        `Import failed due to ${invalidScores.length} entries. (see console)`
+        `${invalidScores.length} score(s) had errors and were excluded - see console`
       );
-    } else if (validScores.length > 0) {
+    }
+    if (validScores.length > 0) {
       validScores.forEach((score) =>
         addScore({ ...score, matchType: "inGameID" })
       );
-      setSuccessMessage(`Added ${validScores.length} entries to scores.`);
+      setSuccessMessage(`Added ${validScores.length} score(s).`);
     }
   };
 
