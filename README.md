@@ -95,6 +95,10 @@ User story: _As a MaiMai Score Tracker user, I want to back-up my scores and syn
 - [ ] Allow syncing of the user's scores to/from the back-end
 - [ ] Add persistence to the back-end
 
+Draft: architect for AWS
+
+<img width="1305" height="993" alt="image" src="https://github.com/user-attachments/assets/866552a2-1a91-4987-ae08-186b31282eeb" />
+
 </details>
 
 ## Licensing
