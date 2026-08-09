@@ -39,5 +39,8 @@
     "typescript-eslint": "^8.31.1",
     "vite": "^6.3.4",
     "vitest": "^3.1.4"
+  },
+  "allowScripts": {
+    "esbuild": false
   }
 }
